@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/desktop/sections/about_section.dart';
+import 'package:portfolio/desktop/sections/contact_section.dart';
 import 'package:portfolio/desktop/sections/home_section.dart';
+import 'package:portfolio/desktop/sections/projects_and_designs.dart';
 import 'package:portfolio/desktop/sections/skills_section.dart';
 import 'package:portfolio/widgets/top_nav_bar.dart';
 
@@ -11,7 +13,7 @@ class DesktopBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: klightDarkColor,
+      backgroundColor: kdarkColor,
       floatingActionButton: const TopNavBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
       body: SingleChildScrollView(
@@ -21,6 +23,8 @@ class DesktopBody extends StatelessWidget {
             HomeSection(),
             AboutSection(),
             SkillsSection(),
+            ProjectsAndDesigns(),
+            ContactSection(),
           ],
         ),
       ),

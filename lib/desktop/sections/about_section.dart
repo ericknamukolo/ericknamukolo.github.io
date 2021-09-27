@@ -12,13 +12,13 @@ class AboutSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160),
-      color: kdarkColor,
+      color: klightDarkColor,
       width: double.infinity,
       height: 880,
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 60),
+            margin: const EdgeInsets.symmetric(vertical: 40),
             child: Column(
               children: const [
                 Text(
@@ -68,7 +68,7 @@ class AboutSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 40,
+                width: 120,
               ),
               Expanded(
                 child: Column(

@@ -17,7 +17,7 @@ class SkillCard extends StatefulWidget {
 }
 
 class _SkillCardState extends State<SkillCard> {
-  Color color = kdarkColor;
+  Color color = klightDarkColor;
   double height = 160;
   @override
   Widget build(BuildContext context) {
@@ -28,15 +28,19 @@ class _SkillCardState extends State<SkillCard> {
           onEnter: (_) {
             setState(
               () {
-                color = kprimaryColor;
-                height = 170;
+                if (MediaQuery.of(context).size.width >= 1320) {
+                  color = kprimaryColor;
+                  height = 170;
+                } else {
+                  color = kprimaryColor;
+                }
               },
             );
           },
           onExit: (_) {
             setState(
               () {
-                color = kdarkColor;
+                color = klightDarkColor;
                 height = 160;
               },
             );

@@ -3,8 +3,11 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 
 class BasicButton extends StatelessWidget {
+  final String text;
+
   const BasicButton({
     Key? key,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -12,9 +15,9 @@ class BasicButton extends StatelessWidget {
     return Container(
       height: 50,
       width: 160,
-      child: const Center(
+      child: Center(
         child: Text(
-          'Browse Projects',
+          text,
           style: kNormalTextStyleWhite,
         ),
       ),

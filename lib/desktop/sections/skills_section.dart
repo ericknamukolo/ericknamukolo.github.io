@@ -14,12 +14,12 @@ class SkillsSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160),
       width: double.infinity,
-      height: 950,
-      color: klightDarkColor,
+      height: 900,
+      color: kdarkColor,
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 60),
+            margin: const EdgeInsets.symmetric(vertical: 40),
             child: Column(
               children: const [
                 Text(
@@ -38,9 +38,9 @@ class SkillsSection extends StatelessWidget {
           GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
-              childAspectRatio: 220 / 220,
-              crossAxisSpacing: 70.0,
-              mainAxisSpacing: 50.0,
+              childAspectRatio: 180 / 180,
+              crossAxisSpacing: 60.0,
+              mainAxisSpacing: 20.0,
             ),
             itemBuilder: (context, index) => SkillCard(
               skillName: skillData[index].skillName,

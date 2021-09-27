@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/desktop/widgets/animated_text.dart';
 
 class TopNavBar extends StatelessWidget {
   const TopNavBar({
@@ -13,7 +14,7 @@ class TopNavBar extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 70,
-      color: klightDarkColor,
+      color: kdarkColor,
       padding: const EdgeInsets.symmetric(horizontal: 80),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,25 +41,20 @@ class TopNavBar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Home',
-                  style: kNormalTextStyleWhite,
+                const AnimatedTexttt(
+                  text: 'Home',
                 ),
-                const Text(
-                  'About',
-                  style: kNormalTextStyleWhite,
+                const AnimatedTexttt(
+                  text: 'About',
                 ),
-                const Text(
-                  'Skills',
-                  style: kNormalTextStyleWhite,
+                const AnimatedTexttt(
+                  text: 'Skills',
                 ),
-                const Text(
-                  'Projects',
-                  style: kNormalTextStyleWhite,
+                const AnimatedTexttt(
+                  text: 'Projects',
                 ),
-                const Text(
-                  'Contact',
-                  style: kNormalTextStyleWhite,
+                const AnimatedTexttt(
+                  text: 'Contact',
                 ),
                 Container(
                   height: 40,

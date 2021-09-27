@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 
-class AboutCard extends StatelessWidget {
+class AboutCard extends StatefulWidget {
   final String title;
   final String content;
   final String iconPath;
@@ -15,6 +15,11 @@ class AboutCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<AboutCard> createState() => _AboutCardState();
+}
+
+class _AboutCardState extends State<AboutCard> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 25),
@@ -25,7 +30,7 @@ class AboutCard extends StatelessWidget {
       height: 140,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: klightDarkColor,
+        color: kdarkColor,
         borderRadius: BorderRadius.circular(10.0),
         boxShadow: [
           BoxShadow(
@@ -41,11 +46,11 @@ class AboutCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                title,
+                widget.title,
                 style: kMiniTitleTextStylePink,
               ),
               Image.asset(
-                iconPath,
+                widget.iconPath,
                 height: 30,
                 width: 30,
                 fit: BoxFit.cover,
@@ -57,7 +62,7 @@ class AboutCard extends StatelessWidget {
             height: 10,
           ),
           Text(
-            content,
+            widget.content,
             style: kNormalTextStyleGrey,
           ),
         ],

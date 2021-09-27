@@ -14,7 +14,7 @@ class HomeSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160, vertical: 70),
-      height: 530,
+      height: 620,
       width: double.infinity,
       child: Row(
         children: [
@@ -83,7 +83,9 @@ class HomeSection extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                const BasicButton(),
+                const BasicButton(
+                  text: 'Browse Projects',
+                ),
               ],
             ),
           ),
