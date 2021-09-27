@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/colors.dart';
 
 const kTextStyleWhite = TextStyle(
   color: Colors.white,
@@ -14,6 +14,12 @@ const kNormalTextStyleWhite = TextStyle(
 const kMiniTitleTextStyleWhite = TextStyle(
   color: Colors.white,
   fontSize: 18,
+);
+
+const kMiniTitleTextStylePink = TextStyle(
+  color: kprimaryColor,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
 );
 
 const kNormalTextStyleGrey = TextStyle(
