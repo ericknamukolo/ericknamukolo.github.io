@@ -29,10 +29,10 @@ class _SkillCardState extends State<SkillCard> {
             setState(
               () {
                 if (MediaQuery.of(context).size.width >= 1320) {
-                  color = kprimaryColor;
+                  color = const Color(0xff15202B);
                   height = 170;
                 } else {
-                  color = kprimaryColor;
+                  color = const Color(0xff15202B);
                 }
               },
             );
@@ -46,7 +46,8 @@ class _SkillCardState extends State<SkillCard> {
             );
           },
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 150),
+            duration: const Duration(milliseconds: 750),
+            curve: Curves.bounceOut,
             height: height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),

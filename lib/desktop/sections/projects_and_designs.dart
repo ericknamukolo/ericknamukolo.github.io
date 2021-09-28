@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/desktop/widgets/project_card.dart';
+import 'package:portfolio/widgets/basic_button.dart';
 
 class ProjectsAndDesigns extends StatelessWidget {
   const ProjectsAndDesigns({Key? key}) : super(key: key);
@@ -10,7 +12,7 @@ class ProjectsAndDesigns extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160),
       width: double.infinity,
-      height: 950,
+      height: 1600,
       color: klightDarkColor,
       child: Column(
         children: [
@@ -30,6 +32,17 @@ class ProjectsAndDesigns extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          ListView.builder(
+            itemBuilder: (context, index) => const ProjectCard(),
+            itemCount: 3,
+            shrinkWrap: true,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const BasicButton(
+            text: 'Browse All Projects',
           ),
         ],
       ),

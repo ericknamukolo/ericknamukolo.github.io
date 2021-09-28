@@ -15,7 +15,7 @@ class ContactSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160),
       width: double.infinity,
-      height: 950,
+      height: 750,
       color: kdarkColor,
       child: Column(
         children: [

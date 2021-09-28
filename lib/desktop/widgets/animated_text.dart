@@ -4,9 +4,11 @@ import 'package:portfolio/constants/constants.dart';
 
 class AnimatedTexttt extends StatefulWidget {
   final String text;
+  final Function() click;
   const AnimatedTexttt({
     Key? key,
     required this.text,
+    required this.click,
   }) : super(key: key);
 
   @override
@@ -29,10 +31,13 @@ class _AnimatedTextttState extends State<AnimatedTexttt> {
           color = Colors.white;
         });
       },
-      child: Text(
-        widget.text,
-        style: kNormalTextStyleWhite.copyWith(
-          color: color,
+      child: GestureDetector(
+        onTap: widget.click,
+        child: Text(
+          widget.text,
+          style: kNormalTextStyleWhite.copyWith(
+            color: color,
+          ),
         ),
       ),
     );

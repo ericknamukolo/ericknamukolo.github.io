@@ -36,7 +36,7 @@ class _IconHoverState extends State<IconHover> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Icon(
           widget.icon,
-          size: 40,
+          size: 34,
           color: initialColor,
         ),
       ),
