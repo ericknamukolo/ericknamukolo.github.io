@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class IconHover extends StatefulWidget {
   final IconData icon;
   final Color color;
+  final Function() click;
   const IconHover({
     Key? key,
     required this.icon,
     required this.color,
+    required this.click,
   }) : super(key: key);
 
   @override
@@ -34,9 +36,9 @@ class _IconHoverState extends State<IconHover> {
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Icon(
-          widget.icon,
-          size: 34,
+        child: IconButton(
+          icon: Icon(widget.icon, size: 34),
+          onPressed: widget.click,
           color: initialColor,
         ),
       ),

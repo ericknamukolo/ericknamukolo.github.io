@@ -6,6 +6,7 @@ import 'package:portfolio/desktop/widgets/contact_card.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/widgets/basic_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({Key? key}) : super(key: key);
@@ -85,22 +86,42 @@ class ContactSection extends StatelessWidget {
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children: [
                                 IconHover(
                                   icon: MdiIcons.linkedin,
                                   color: Color(0xff0A66C2),
+                                  click: () async {
+                                    await launch(
+                                      'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                    );
+                                  },
                                 ),
                                 IconHover(
                                   icon: MdiIcons.github,
                                   color: Color(0xff171515),
+                                  click: () async {
+                                    await launch(
+                                      'https://github.com/ericknamukolo',
+                                    );
+                                  },
                                 ),
                                 IconHover(
                                   icon: MdiIcons.facebook,
                                   color: Color(0xff4267B2),
+                                  click: () async {
+                                    await launch(
+                                      'https://www.facebook.com/ericnamukolo/',
+                                    );
+                                  },
                                 ),
                                 IconHover(
                                   icon: MdiIcons.basketball,
                                   color: Color(0xffea4c89),
+                                  click: () async {
+                                    await launch(
+                                      'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                    );
+                                  },
                                 ),
                               ],
                             ),

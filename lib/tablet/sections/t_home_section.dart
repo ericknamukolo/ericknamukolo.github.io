@@ -1,21 +1,18 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/widgets/basic_button.dart';
-import 'package:lottie/lottie.dart';
 
-class HomeSection extends StatelessWidget {
-  const HomeSection({
-    Key? key,
-  }) : super(key: key);
+class THomeSection extends StatelessWidget {
+  const THomeSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 160, vertical: 70),
-      height: 620,
+      padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 70),
+      height: 600,
       width: double.infinity,
       child: Row(
         children: [
@@ -26,25 +23,18 @@ class HomeSection extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Text(
+                    Text(
                       'I am a ',
-                      style: kTitleTextStyle,
+                      style: kTitleTextStyle.copyWith(fontSize: 40),
                     ),
                     AnimatedTextKit(
                       animatedTexts: [
                         TypewriterAnimatedText(
-                          'Front-End',
+                          'Flutter',
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
                             fontWeight: FontWeight.bold,
-                          ),
-                          speed: const Duration(milliseconds: 200),
-                        ),
-                        TypewriterAnimatedText(
-                          'Software',
-                          textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 40.0,
                           ),
                           speed: const Duration(milliseconds: 200),
                         ),
@@ -53,34 +43,17 @@ class HomeSection extends StatelessWidget {
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
                             fontWeight: FontWeight.bold,
-                          ),
-                          speed: const Duration(milliseconds: 200),
-                        ),
-                        TypewriterAnimatedText(
-                          'Mobile App',
-                          textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          speed: const Duration(milliseconds: 200),
-                        ),
-                        TypewriterAnimatedText(
-                          'Flutter',
-                          textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 40.0,
                           ),
                           speed: const Duration(milliseconds: 200),
                         ),
                       ],
-                      pause: const Duration(milliseconds: 300),
-                      repeatForever: true,
                     ),
                   ],
                 ),
-                const Text(
+                Text(
                   'Developer.',
-                  style: kTitleTextStyle,
+                  style: kTitleTextStyle.copyWith(fontSize: 40),
                 ),
                 const SizedBox(
                   height: 20,
@@ -98,17 +71,15 @@ class HomeSection extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            child: Lottie.asset(
-              'assets/home.json',
-              fit: BoxFit.fill,
-              repeat: true,
-            ),
-            // child: SvgPicture.asset(
-            //   'assets/result.svg',
-            //   fit: BoxFit.cover,
-            // ),
-          ),
+          MediaQuery.of(context).size.width >= 860
+              ? Expanded(
+                  child: Lottie.asset(
+                    'assets/home.json',
+                    fit: BoxFit.fill,
+                    repeat: true,
+                  ),
+                )
+              : Text(''),
         ],
       ),
     );

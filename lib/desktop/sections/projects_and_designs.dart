@@ -12,7 +12,7 @@ class ProjectsAndDesigns extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160),
       width: double.infinity,
-      height: 1600,
+      height: 1700,
       color: klightDarkColor,
       child: Column(
         children: [

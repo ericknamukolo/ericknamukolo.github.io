@@ -3,6 +3,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
   const ProjectCard({
@@ -33,15 +34,17 @@ class _ProjectCardState extends State<ProjectCard> {
           },
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 30),
-            height: 350,
+            height: 400,
             width: double.infinity,
             child: Stack(
               //alignment: Alignment.centerLeft,
               children: [
                 Positioned(
-                  child: Container(
-                    height: 350,
-                    width: 700,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 450),
+                    curve: Curves.easeInBack,
+                    height: 400,
+                    width: _isHovered ? 750 : 700,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6.0),
                       image: DecorationImage(
@@ -96,14 +99,24 @@ class _ProjectCardState extends State<ProjectCard> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: const [
+                          children: [
                             IconHover(
                               icon: MdiIcons.github,
                               color: kprimaryColor,
+                              click: () async {
+                                await launch(
+                                  'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                );
+                              },
                             ),
                             IconHover(
                               icon: MdiIcons.openInNew,
                               color: kprimaryColor,
+                              click: () async {
+                                await launch(
+                                  'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                );
+                              },
                             ),
                           ],
                         ),
