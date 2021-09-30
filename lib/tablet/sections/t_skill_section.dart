@@ -14,7 +14,7 @@ class TSkillSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 120),
       width: double.infinity,
-      height: 2000,
+      height: 1900,
       color: kdarkColor,
       child: Column(
         children: [

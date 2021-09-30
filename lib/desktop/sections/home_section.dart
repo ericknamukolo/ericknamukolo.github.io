@@ -92,8 +92,9 @@ class HomeSection extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                const BasicButton(
+                BasicButton(
                   text: 'Browse Projects',
+                  click: () {},
                 ),
               ],
             ),

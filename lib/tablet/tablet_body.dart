@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/desktop/sections/footer_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
 import 'package:portfolio/tablet/sections/t_about_section.dart';
+import 'package:portfolio/tablet/sections/t_contact_section.dart';
 import 'package:portfolio/tablet/sections/t_home_section.dart';
+import 'package:portfolio/tablet/sections/t_projects_and_designs.dart';
 import 'package:portfolio/tablet/sections/t_skill_section.dart';
 
 class TabletBody extends StatelessWidget {
@@ -101,6 +104,9 @@ class TabletBody extends StatelessWidget {
             THomeSection(),
             TAboutSection(),
             TSkillSection(),
+            TProjectsAndDesigns(),
+            TContactSection(),
+            FooterSection(),
           ],
         ),
       ),

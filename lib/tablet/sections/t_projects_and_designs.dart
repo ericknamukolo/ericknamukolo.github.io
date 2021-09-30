@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/desktop/widgets/project_card.dart';
 import 'package:portfolio/providers/projects.dart';
+import 'package:portfolio/tablet/widgets/t_project_card.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:provider/provider.dart';
 
-class ProjectsAndDesigns extends StatelessWidget {
-  const ProjectsAndDesigns({Key? key}) : super(key: key);
+class TProjectsAndDesigns extends StatelessWidget {
+  const TProjectsAndDesigns({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final projectsData =
         Provider.of<Projects>(context, listen: false).projectsAndDesigns;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 160),
+      padding: const EdgeInsets.symmetric(horizontal: 120),
       width: double.infinity,
-      height: 1700,
+      height: 1350,
       color: klightDarkColor,
       child: Column(
         children: [
@@ -38,11 +38,11 @@ class ProjectsAndDesigns extends StatelessWidget {
             ),
           ),
           ListView.builder(
-            itemBuilder: (context, index) => ProjectCard(
+            itemBuilder: (context, index) => TProjectCard(
+              desc: projectsData[index].desc,
               id: projectsData[index].id,
               name: projectsData[index].name,
               type: projectsData[index].type,
-              desc: projectsData[index].desc,
               imgUrl: projectsData[index].imgUrl,
             ),
             itemCount: projectsData.length,

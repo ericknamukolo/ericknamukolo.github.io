@@ -159,8 +159,9 @@ class ContactSection extends StatelessWidget {
                               hint: 'Type your message',
                               maxLines: 5,
                             ),
-                            const BasicButton(
+                            BasicButton(
                               text: 'Send',
+                              click: () {},
                             ),
                           ],
                         ),

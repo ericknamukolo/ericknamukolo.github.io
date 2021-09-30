@@ -30,6 +30,26 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAvy06o6RMyc7cJblmIbskKlNg0bZHgNws",
+      authDomain: "portfolio-28840.firebaseapp.com",
+      projectId: "portfolio-28840",
+      storageBucket: "portfolio-28840.appspot.com",
+      messagingSenderId: "825638715348",
+      appId: "1:825638715348:web:624d4539afbbf8ef93a041",
+      measurementId: "G-W1T82WWH50"
+    };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->

@@ -6,8 +6,19 @@ import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
+  final String id;
+  final String name;
+  final String type;
+  final String imgUrl;
+  final String desc;
+
   const ProjectCard({
     Key? key,
+    required this.id,
+    required this.name,
+    required this.type,
+    required this.imgUrl,
+    required this.desc,
   }) : super(key: key);
 
   @override
@@ -48,7 +59,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6.0),
                       image: DecorationImage(
-                        image: const AssetImage('assets/dash.png'),
+                        image: AssetImage(widget.imgUrl),
                         fit: BoxFit.cover,
                         colorFilter: _isHovered
                             ? null
@@ -71,9 +82,9 @@ class _ProjectCardState extends State<ProjectCard> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Text('Project', style: kMiniTitleTextStylePink),
+                        Text(widget.type, style: kMiniTitleTextStylePink),
                         Text(
-                          'Portfolio Site',
+                          widget.name,
                           style: kTitleTextStyle.copyWith(fontSize: 30),
                         ),
                         Container(
@@ -92,8 +103,8 @@ class _ProjectCardState extends State<ProjectCard> {
                               ),
                             ],
                           ),
-                          child: const Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                          child: Text(
+                            widget.desc,
                             style: kNormalTextStyleGrey,
                           ),
                         ),

@@ -12,7 +12,7 @@ class TAboutSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 120),
       color: klightDarkColor,
       width: double.infinity,
-      height: 1130,
+      height: MediaQuery.of(context).size.width >= 990 ? 800 : 1130,
       child: Column(
         children: [
           Container(
