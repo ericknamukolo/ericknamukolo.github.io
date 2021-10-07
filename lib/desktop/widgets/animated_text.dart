@@ -5,12 +5,12 @@ import 'package:portfolio/constants/constants.dart';
 
 class AnimatedTexttt extends StatefulWidget {
   final String text;
-  final Function() click;
+  final Function()? click;
   final double width;
   const AnimatedTexttt({
     Key? key,
     required this.text,
-    required this.click,
+    this.click,
     this.width = 0,
   }) : super(key: key);
 

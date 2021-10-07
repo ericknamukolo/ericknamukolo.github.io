@@ -45,7 +45,7 @@ class TProjectsAndDesigns extends StatelessWidget {
               type: projectsData[index].type,
               imgUrl: projectsData[index].imgUrl,
             ),
-            itemCount: projectsData.length,
+            itemCount: 3,
             shrinkWrap: true,
           ),
           const SizedBox(

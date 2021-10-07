@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -11,6 +12,8 @@ import 'package:portfolio/desktop/sections/home_section.dart';
 import 'package:portfolio/desktop/sections/projects_and_designs.dart';
 import 'package:portfolio/desktop/sections/skills_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
+import 'package:portfolio/providers/projects.dart';
+import 'package:provider/provider.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({Key? key}) : super(key: key);

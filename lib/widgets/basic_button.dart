@@ -5,9 +5,14 @@ import 'package:portfolio/constants/constants.dart';
 class BasicButton extends StatelessWidget {
   final String text;
   final Function() click;
+  final bool isSending;
 
-  const BasicButton({Key? key, required this.text, required this.click})
-      : super(key: key);
+  const BasicButton({
+    Key? key,
+    required this.text,
+    required this.click,
+    this.isSending = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +24,21 @@ class BasicButton extends StatelessWidget {
           height: 50,
           width: 160,
           child: Center(
-            child: Text(
-              text,
-              style: kNormalTextStyleWhite,
-            ),
+            child: isSending
+                ? const SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                    ),
+                  )
+                : Text(
+                    text,
+                    style: kNormalTextStyleWhite,
+                  ),
           ),
           decoration: BoxDecoration(
-            color: kprimaryColor,
+            color: isSending ? Colors.grey : kprimaryColor,
             borderRadius: BorderRadius.circular(5.0),
             boxShadow: [
               BoxShadow(

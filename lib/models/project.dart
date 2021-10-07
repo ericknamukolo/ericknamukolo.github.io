@@ -5,6 +5,7 @@ class Project {
   final String desc;
   final String imgUrl;
   final String githubLink;
+  final List<dynamic> images;
 
   Project({
     required this.id,
@@ -13,5 +14,6 @@ class Project {
     required this.imgUrl,
     required this.githubLink,
     required this.desc,
+    required this.images,
   });
 }

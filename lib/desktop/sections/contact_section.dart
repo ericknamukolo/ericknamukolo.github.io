@@ -1,3 +1,5 @@
+import 'package:bot_toast/bot_toast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
@@ -8,11 +10,48 @@ import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactSection extends StatelessWidget {
+class ContactSection extends StatefulWidget {
   const ContactSection({Key? key}) : super(key: key);
 
   @override
+  State<ContactSection> createState() => _ContactSectionState();
+}
+
+class _ContactSectionState extends State<ContactSection> {
+  bool _isSending = false;
+  @override
   Widget build(BuildContext context) {
+    final _form = GlobalKey<FormState>();
+    String? name;
+    String? email;
+    String? message;
+
+    void send() async {
+      final _isValid = _form.currentState!.validate();
+      if (_isValid) {
+        _form.currentState!.save();
+        setState(() {
+          _isSending = true;
+        });
+        await FirebaseFirestore.instance.collection('messages').add({
+          'sender': name!.trim(),
+          'email': email!.trim(),
+          'message': message!.trim(),
+          'createdAt': FieldValue.serverTimestamp(),
+        });
+        setState(() {
+          _isSending = false;
+        });
+        BotToast.showText(
+          duration: const Duration(seconds: 6),
+          text:
+              'Thank You for contacting me ${name!.trim()} , I will get back to you shortly',
+          textStyle: kNormalTextStyleGrey,
+        );
+        _form.currentState!.reset();
+      }
+    }
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160),
       width: double.infinity,
@@ -89,7 +128,7 @@ class ContactSection extends StatelessWidget {
                               children: [
                                 IconHover(
                                   icon: MdiIcons.linkedin,
-                                  color: Color(0xff0A66C2),
+                                  color: const Color(0xff0A66C2),
                                   click: () async {
                                     await launch(
                                       'https://www.linkedin.com/in/erick-namukolo-a49482202/',
@@ -98,7 +137,7 @@ class ContactSection extends StatelessWidget {
                                 ),
                                 IconHover(
                                   icon: MdiIcons.github,
-                                  color: Color(0xff171515),
+                                  color: const Color(0xff171515),
                                   click: () async {
                                     await launch(
                                       'https://github.com/ericknamukolo',
@@ -107,7 +146,7 @@ class ContactSection extends StatelessWidget {
                                 ),
                                 IconHover(
                                   icon: MdiIcons.facebook,
-                                  color: Color(0xff4267B2),
+                                  color: const Color(0xff4267B2),
                                   click: () async {
                                     await launch(
                                       'https://www.facebook.com/ericnamukolo/',
@@ -116,7 +155,7 @@ class ContactSection extends StatelessWidget {
                                 ),
                                 IconHover(
                                   icon: MdiIcons.basketball,
-                                  color: Color(0xffea4c89),
+                                  color: const Color(0xffea4c89),
                                   click: () async {
                                     await launch(
                                       'https://www.linkedin.com/in/erick-namukolo-a49482202/',
@@ -133,37 +172,50 @@ class ContactSection extends StatelessWidget {
                       width: 120,
                     ),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         height: 500,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Get in touch',
-                              style: kTitleTextStyle.copyWith(fontSize: 30),
-                            ),
-                            const Text(
-                              'Feel free to get in touch',
-                              style: kNormalTextStyleGrey,
-                            ),
-                            const InputField(
-                              hint: 'Your name',
-                              maxLines: 1,
-                            ),
-                            const InputField(
-                              hint: 'Your email',
-                              maxLines: 1,
-                            ),
-                            const InputField(
-                              hint: 'Type your message',
-                              maxLines: 5,
-                            ),
-                            BasicButton(
-                              text: 'Send',
-                              click: () {},
-                            ),
-                          ],
+                        child: Form(
+                          key: _form,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Get in touch',
+                                style: kTitleTextStyle.copyWith(fontSize: 30),
+                              ),
+                              const Text(
+                                'Feel free to get in touch',
+                                style: kNormalTextStyleGrey,
+                              ),
+                              InputField(
+                                hint: 'Your name',
+                                maxLines: 1,
+                                onSaved: (value) {
+                                  name = value!;
+                                },
+                              ),
+                              InputField(
+                                hint: 'Your email',
+                                maxLines: 1,
+                                onSaved: (value) {
+                                  email = value!;
+                                },
+                              ),
+                              InputField(
+                                hint: 'Type your message',
+                                maxLines: 5,
+                                onSaved: (value) {
+                                  message = value!;
+                                },
+                              ),
+                              BasicButton(
+                                text: 'Send',
+                                click: _isSending ? () {} : send,
+                                isSending: _isSending,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

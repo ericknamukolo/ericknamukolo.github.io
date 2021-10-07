@@ -5,19 +5,32 @@ import 'package:portfolio/constants/constants.dart';
 class InputField extends StatelessWidget {
   final String hint;
   final int maxLines;
+  final Function(String?)? onSaved;
   const InputField({
     Key? key,
     required this.hint,
     required this.maxLines,
+    this.onSaved,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'This field is required';
+        }
+      },
+      onSaved: onSaved,
       style: kNormalTextStyleWhite,
       autocorrect: true,
       cursorColor: kprimaryColor,
       maxLines: maxLines,
       decoration: InputDecoration(
+        errorStyle: kNormalTextStyleWhite.copyWith(
+          color: Theme.of(context).errorColor,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+        ),
         border: InputBorder.none,
         hintText: hint,
         hintStyle: kNormalTextStyleGrey,

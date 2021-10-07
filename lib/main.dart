@@ -1,6 +1,8 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/desktop/desktop_body.dart';
+import 'package:portfolio/loading_screen.dart';
 import 'package:portfolio/mobile/mobile_body.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/providers/skills.dart';
@@ -29,14 +31,14 @@ class Portfolio extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        builder: BotToastInit(),
+        navigatorObservers: [BotToastNavigatorObserver()],
         theme: ThemeData(
           fontFamily: 'Poppins',
+          bottomSheetTheme: BottomSheetThemeData(
+              backgroundColor: Colors.black.withOpacity(0)),
         ),
-        home: const ResponsiveLayout(
-          tabletBody: TabletBody(),
-          desktopBody: DesktopBody(),
-          mobileBody: MobileBody(),
-        ),
+        home: const LoadingScreen(),
       ),
     );
   }

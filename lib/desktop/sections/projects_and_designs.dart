@@ -11,8 +11,8 @@ class ProjectsAndDesigns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final projectsData =
-        Provider.of<Projects>(context, listen: false).projectsAndDesigns;
+    final projectsData = Provider.of<Projects>(context).projectsAndDesigns;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160),
       width: double.infinity,
@@ -45,7 +45,7 @@ class ProjectsAndDesigns extends StatelessWidget {
               desc: projectsData[index].desc,
               imgUrl: projectsData[index].imgUrl,
             ),
-            itemCount: projectsData.length,
+            itemCount: 3,
             shrinkWrap: true,
           ),
           const SizedBox(
