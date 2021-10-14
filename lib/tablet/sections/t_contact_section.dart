@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
@@ -94,7 +96,7 @@ class TContactSection extends StatelessWidget {
                                     children: [
                                       IconHover(
                                         icon: MdiIcons.linkedin,
-                                        color: Color(0xff0A66C2),
+                                        color: const Color(0xff0A66C2),
                                         click: () async {
                                           await launch(
                                             'https://www.linkedin.com/in/erick-namukolo-a49482202/',
@@ -103,7 +105,7 @@ class TContactSection extends StatelessWidget {
                                       ),
                                       IconHover(
                                         icon: MdiIcons.github,
-                                        color: Color(0xff171515),
+                                        color: const Color(0xff171515),
                                         click: () async {
                                           await launch(
                                             'https://github.com/ericknamukolo',
@@ -112,7 +114,7 @@ class TContactSection extends StatelessWidget {
                                       ),
                                       IconHover(
                                         icon: MdiIcons.facebook,
-                                        color: Color(0xff4267B2),
+                                        color: const Color(0xff4267B2),
                                         click: () async {
                                           await launch(
                                             'https://www.facebook.com/ericnamukolo/',
@@ -121,7 +123,7 @@ class TContactSection extends StatelessWidget {
                                       ),
                                       IconHover(
                                         icon: MdiIcons.basketball,
-                                        color: Color(0xffea4c89),
+                                        color: const Color(0xffea4c89),
                                         click: () async {
                                           await launch(
                                             'https://www.linkedin.com/in/erick-namukolo-a49482202/',
@@ -234,7 +236,7 @@ class TContactSection extends StatelessWidget {
                                   children: [
                                     IconHover(
                                       icon: MdiIcons.linkedin,
-                                      color: Color(0xff0A66C2),
+                                      color: const Color(0xff0A66C2),
                                       click: () async {
                                         await launch(
                                           'https://www.linkedin.com/in/erick-namukolo-a49482202/',
@@ -243,7 +245,7 @@ class TContactSection extends StatelessWidget {
                                     ),
                                     IconHover(
                                       icon: MdiIcons.github,
-                                      color: Color(0xff171515),
+                                      color: const Color(0xff171515),
                                       click: () async {
                                         await launch(
                                           'https://github.com/ericknamukolo',
@@ -252,7 +254,7 @@ class TContactSection extends StatelessWidget {
                                     ),
                                     IconHover(
                                       icon: MdiIcons.facebook,
-                                      color: Color(0xff4267B2),
+                                      color: const Color(0xff4267B2),
                                       click: () async {
                                         await launch(
                                           'https://www.facebook.com/ericnamukolo/',
@@ -261,7 +263,7 @@ class TContactSection extends StatelessWidget {
                                     ),
                                     IconHover(
                                       icon: MdiIcons.basketball,
-                                      color: Color(0xffea4c89),
+                                      color: const Color(0xffea4c89),
                                       click: () async {
                                         await launch(
                                           'https://www.linkedin.com/in/erick-namukolo-a49482202/',

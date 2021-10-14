@@ -52,7 +52,7 @@ class ProjectsAndDesigns extends StatelessWidget {
             height: 20,
           ),
           BasicButton(
-            text: 'Browse All Projects',
+            text: 'All Projects',
             click: () {},
           ),
         ],

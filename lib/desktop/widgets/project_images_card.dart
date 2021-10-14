@@ -83,7 +83,7 @@ class _ProjectImagesCardState extends State<ProjectImagesCard> {
                       color: kdarkColor,
                       borderRadius: BorderRadius.circular(10.0),
                       image: DecorationImage(
-                        image: AssetImage(
+                        image: NetworkImage(
                           widget.clickedProject.images[index],
                         ),
                         fit: BoxFit.cover,

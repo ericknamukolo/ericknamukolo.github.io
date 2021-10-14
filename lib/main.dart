@@ -1,13 +1,9 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/desktop/desktop_body.dart';
 import 'package:portfolio/loading_screen.dart';
-import 'package:portfolio/mobile/mobile_body.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/providers/skills.dart';
-import 'package:portfolio/tablet/tablet_body.dart';
-import 'package:portfolio/widgets/responsive_layout.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {

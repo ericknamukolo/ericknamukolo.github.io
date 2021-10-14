@@ -80,7 +80,7 @@ class THomeSection extends StatelessWidget {
                     repeat: true,
                   ),
                 )
-              : Text(''),
+              : const Text(''),
         ],
       ),
     );

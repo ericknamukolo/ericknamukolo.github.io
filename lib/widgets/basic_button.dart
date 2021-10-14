@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 
-class BasicButton extends StatelessWidget {
+class BasicButton extends StatefulWidget {
   final String text;
   final Function() click;
   final bool isSending;
@@ -15,16 +15,32 @@ class BasicButton extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<BasicButton> createState() => _BasicButtonState();
+}
+
+class _BasicButtonState extends State<BasicButton> {
+  Color buttonColor = klightDarkColor;
+  @override
   Widget build(BuildContext context) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
+      onEnter: (_) {
+        setState(() {
+          buttonColor = const Color(0xff15202B);
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          buttonColor = klightDarkColor;
+        });
+      },
       child: GestureDetector(
-        onTap: click,
+        onTap: widget.click,
         child: Container(
           height: 50,
-          width: 160,
+          width: 170,
           child: Center(
-            child: isSending
+            child: widget.isSending
                 ? const SizedBox(
                     height: 25,
                     width: 25,
@@ -33,12 +49,13 @@ class BasicButton extends StatelessWidget {
                     ),
                   )
                 : Text(
-                    text,
+                    widget.text,
                     style: kNormalTextStyleWhite,
                   ),
           ),
           decoration: BoxDecoration(
-            color: isSending ? Colors.grey : kprimaryColor,
+            border: Border.all(color: kprimaryColor, width: 2.0),
+            color: widget.isSending ? Colors.grey : buttonColor,
             borderRadius: BorderRadius.circular(5.0),
             boxShadow: [
               BoxShadow(

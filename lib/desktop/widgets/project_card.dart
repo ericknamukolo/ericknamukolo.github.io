@@ -1,13 +1,11 @@
 // ignore_for_file: avoid_unnecessary_containers
 
-import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/desktop/widgets/project_images_card.dart';
-import 'package:portfolio/models/project.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -78,7 +76,7 @@ class _ProjectCardState extends State<ProjectCard> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(6.0),
                         image: DecorationImage(
-                          image: AssetImage(widget.imgUrl),
+                          image: NetworkImage(widget.imgUrl),
                           fit: BoxFit.cover,
                           colorFilter: _isHovered
                               ? null
@@ -104,6 +102,7 @@ class _ProjectCardState extends State<ProjectCard> {
                           Text(widget.type, style: kMiniTitleTextStylePink),
                           Text(
                             widget.name,
+                            textAlign: TextAlign.left,
                             style: kTitleTextStyle.copyWith(fontSize: 30),
                           ),
                           Container(
@@ -131,6 +130,15 @@ class _ProjectCardState extends State<ProjectCard> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
+                              IconHover(
+                                icon: MdiIcons.basketball,
+                                color: kprimaryColor,
+                                click: () async {
+                                  await launch(
+                                    'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                  );
+                                },
+                              ),
                               IconHover(
                                 icon: MdiIcons.github,
                                 color: kprimaryColor,
