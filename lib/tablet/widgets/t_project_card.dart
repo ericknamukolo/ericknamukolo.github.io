@@ -59,7 +59,7 @@ class _TProjectCardState extends State<TProjectCard> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(6.0),
                             image: DecorationImage(
-                              image: AssetImage(widget.imgUrl),
+                              image: NetworkImage(widget.imgUrl),
                               fit: BoxFit.cover,
                               colorFilter: _isHovered
                                   ? null
@@ -155,7 +155,7 @@ class _TProjectCardState extends State<TProjectCard> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6.0),
               image: DecorationImage(
-                image: AssetImage(widget.imgUrl),
+                image: NetworkImage(widget.imgUrl),
                 fit: BoxFit.cover,
               ),
             ),

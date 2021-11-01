@@ -47,7 +47,7 @@ class AboutSection extends StatelessWidget {
                     ),
                     AboutCard(
                       content:
-                          'I enjoy bringing ideas to life on the phone or in the browser.',
+                          'Using Flutter & Dart, I build fast, interactive apps & websites.',
                       iconPath: 'assets/programming-code-signs.png',
                       title: 'Front-End Development',
                     ),
@@ -59,7 +59,7 @@ class AboutSection extends StatelessWidget {
                     ),
                     AboutCard(
                       content:
-                          'I value simple , clean design patterns, and thoughtful interactions.',
+                          'I enjoy bringing ideas to life on the phone or in the browser.',
                       iconPath: 'assets/web-development.png',
                       title: 'Mobile/Web Development',
                     ),
@@ -98,7 +98,7 @@ class AboutSection extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 30),
                       child: Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                        'I create successful mobile apps(IOS & Android) and responsive websites that are fast, easy to use, and built with best practices. The main area of my expertise is front-end development using Flutter, Dart, HTML, CSS, JS, building small,medium and large software applications,features, animations, and coding interactive layouts.\n\nI have worked on a multitude of mobile and web based projects for a number of clients providing Mobile & Web Design (Adobe XD) and Development (Flutter,Dart,Firebase,Sqflite, Responsive Layouts).',
                         style: kNormalTextStyleGrey,
                       ),
                     ),

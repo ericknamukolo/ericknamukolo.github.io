@@ -6,7 +6,11 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 
 class THomeSection extends StatelessWidget {
-  const THomeSection({Key? key}) : super(key: key);
+  final Function() scrollToProjects;
+  const THomeSection({
+    Key? key,
+    required this.scrollToProjects,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +63,7 @@ class THomeSection extends StatelessWidget {
                   height: 20,
                 ),
                 const Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                  'I\'m a Software Engineer & UI/UX Designer based in Lusaka, Zambia. I build interactive software applications & websites that run across platforms & devices.',
                   style: kNormalTextStyleGrey,
                 ),
                 const SizedBox(
@@ -67,7 +71,7 @@ class THomeSection extends StatelessWidget {
                 ),
                 BasicButton(
                   text: 'Browse Projects',
-                  click: () {},
+                  click: scrollToProjects,
                 ),
               ],
             ),

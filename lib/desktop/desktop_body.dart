@@ -200,7 +200,12 @@ class _DesktopBodyState extends State<DesktopBody> {
         controller: _scrollController,
         child: Column(
           children: [
-            HomeSection(key: homeKey),
+            HomeSection(
+              key: homeKey,
+              scrollToProjects: () {
+                scrollToItem(projectsKey);
+              },
+            ),
             AboutSection(key: aboutKey),
             SkillsSection(key: skillsKey),
             ProjectsAndDesigns(key: projectsKey),

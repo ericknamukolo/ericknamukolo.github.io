@@ -5,6 +5,8 @@ class Project {
   final String desc;
   final String imgUrl;
   final String githubLink;
+  final String dribbbleLink;
+  final String externalLink;
   final List<dynamic> images;
 
   Project({
@@ -13,6 +15,8 @@ class Project {
     required this.type,
     required this.imgUrl,
     required this.githubLink,
+    required this.externalLink,
+    required this.dribbbleLink,
     required this.desc,
     required this.images,
   });

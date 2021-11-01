@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/mobile/widgets/m_skill_card.dart';
-import 'package:portfolio/providers/skills.dart';
-import 'package:portfolio/tablet/widgets/t_skill_card.dart';
-import 'package:provider/provider.dart';
 
-class MSkillSection extends StatelessWidget {
-  const MSkillSection({Key? key}) : super(key: key);
+class MProjectsAndDesigns extends StatelessWidget {
+  const MProjectsAndDesigns({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final skillData = Provider.of<Skills>(context, listen: false).skills;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      height: 900,
       width: double.infinity,
-      height: 1500,
-      color: kdarkColor,
+      color: klightDarkColor,
       child: Column(
         children: [
           Container(
@@ -24,7 +19,7 @@ class MSkillSection extends StatelessWidget {
             child: Column(
               children: const [
                 Text(
-                  'Skills',
+                  'Projects & Designs',
                   style: kMiniTitleTextStyleWhite,
                 ),
                 Divider(
@@ -35,15 +30,6 @@ class MSkillSection extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          ListView.builder(
-            itemBuilder: (context, index) => MSkillCard(
-              name: Provider.of<Skills>(context).skills[index].skillName,
-              path: Provider.of<Skills>(context).skills[index].imgPath,
-            ),
-            itemCount: skillData.length,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
           ),
         ],
       ),

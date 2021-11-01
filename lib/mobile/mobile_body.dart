@@ -5,7 +5,9 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/sections/footer_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
 import 'package:portfolio/mobile/sections/m_about_section.dart';
+import 'package:portfolio/mobile/sections/m_contact_section.dart';
 import 'package:portfolio/mobile/sections/m_home_section.dart';
+import 'package:portfolio/mobile/sections/m_project_and_designs.dart';
 import 'package:portfolio/mobile/sections/m_skill_section.dart';
 import 'package:portfolio/mobile/widgets/hover_container.dart';
 
@@ -233,6 +235,8 @@ class _MobileBodyState extends State<MobileBody> {
             MHomeSection(key: homeKey),
             MAboutSection(key: aboutKey),
             MSkillSection(key: skillsKey),
+            MProjectsAndDesigns(key: projectsKey),
+            MContactSection(key: contactKey),
             const FooterSection(),
           ],
         ),

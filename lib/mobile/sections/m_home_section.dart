@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -17,10 +19,21 @@ class MHomeSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Lottie.asset(
-            'assets/male.json',
-            fit: BoxFit.fill,
-            repeat: true,
+          Container(
+            padding: const EdgeInsets.all(3),
+            child: MediaQuery.of(context).size.width >= 500
+                ? Lottie.asset(
+                    'assets/male.json',
+                    fit: BoxFit.fill,
+                    repeat: true,
+                  )
+                : Container(
+                    height: 150,
+                    width: 150,
+                    child: Image.asset(
+                      'assets/svgg.png',
+                    ),
+                  ),
             height: 300,
           ),
           Row(
@@ -51,6 +64,24 @@ class MHomeSection extends StatelessWidget {
                     ),
                     speed: const Duration(milliseconds: 200),
                   ),
+                  TypewriterAnimatedText(
+                    'Software',
+                    textStyle: kTitleTextStyle.copyWith(
+                      color: kprimaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40.0,
+                    ),
+                    speed: const Duration(milliseconds: 200),
+                  ),
+                  TypewriterAnimatedText(
+                    'Mobile',
+                    textStyle: kTitleTextStyle.copyWith(
+                      color: kprimaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40.0,
+                    ),
+                    speed: const Duration(milliseconds: 200),
+                  ),
                 ],
               ),
             ],
@@ -63,7 +94,7 @@ class MHomeSection extends StatelessWidget {
             height: 20,
           ),
           const Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            'I\'m a Software Engineer & UI/UX Designer based in Lusaka, Zambia. I build interactive software applications & websites that run across platforms & devices.',
             textAlign: TextAlign.center,
             style: kNormalTextStyleGrey,
           ),

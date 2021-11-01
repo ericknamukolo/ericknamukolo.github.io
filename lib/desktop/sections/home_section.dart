@@ -6,8 +6,10 @@ import 'package:portfolio/widgets/basic_button.dart';
 import 'package:lottie/lottie.dart';
 
 class HomeSection extends StatelessWidget {
+  final Function() scrollToProjects;
   const HomeSection({
     Key? key,
+    required this.scrollToProjects,
   }) : super(key: key);
 
   @override
@@ -85,7 +87,7 @@ class HomeSection extends StatelessWidget {
                   height: 20,
                 ),
                 const Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                  'I\'m a Software Engineer & UI/UX Designer based in Lusaka, Zambia. I build interactive software applications & websites that run across platforms & devices.',
                   style: kNormalTextStyleGrey,
                 ),
                 const SizedBox(
@@ -93,7 +95,7 @@ class HomeSection extends StatelessWidget {
                 ),
                 BasicButton(
                   text: 'Browse Projects',
-                  click: () {},
+                  click: scrollToProjects,
                 ),
               ],
             ),

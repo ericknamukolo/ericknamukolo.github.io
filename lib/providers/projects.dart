@@ -28,6 +28,8 @@ class Projects with ChangeNotifier {
             githubLink: project['githubLink'],
             desc: project['desc'],
             images: project['images'],
+            dribbbleLink: project['dribbbleLink'],
+            externalLink: project['externalLink'],
           ),
         ),
       },

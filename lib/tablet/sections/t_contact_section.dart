@@ -1,5 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:bot_toast/bot_toast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
@@ -10,11 +12,48 @@ import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class TContactSection extends StatelessWidget {
+class TContactSection extends StatefulWidget {
   const TContactSection({Key? key}) : super(key: key);
 
   @override
+  State<TContactSection> createState() => _TContactSectionState();
+}
+
+class _TContactSectionState extends State<TContactSection> {
+  bool _isSending = false;
+  @override
   Widget build(BuildContext context) {
+    final _form = GlobalKey<FormState>();
+    String? name;
+    String? email;
+    String? message;
+
+    void send() async {
+      final _isValid = _form.currentState!.validate();
+      if (_isValid) {
+        _form.currentState!.save();
+        setState(() {
+          _isSending = true;
+        });
+        await FirebaseFirestore.instance.collection('messages').add({
+          'sender': name!.trim(),
+          'email': email!.trim(),
+          'message': message!.trim(),
+          'createdAt': FieldValue.serverTimestamp(),
+        });
+        setState(() {
+          _isSending = false;
+        });
+        BotToast.showText(
+          duration: const Duration(seconds: 6),
+          text:
+              'Thank You for contacting me ${name!.trim()} , I will get back to you shortly',
+          textStyle: kNormalTextStyleGrey,
+        );
+        _form.currentState!.reset();
+      }
+    }
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 120),
       width: double.infinity,
@@ -140,39 +179,52 @@ class TContactSection extends StatelessWidget {
                             width: 60,
                           ),
                           Expanded(
-                            child: Container(
-                              height: 500,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Get in touch',
-                                    style:
-                                        kTitleTextStyle.copyWith(fontSize: 30),
-                                  ),
-                                  const Text(
-                                    'Feel free to get in touch',
-                                    style: kNormalTextStyleGrey,
-                                  ),
-                                  const InputField(
-                                    hint: 'Your name',
-                                    maxLines: 1,
-                                  ),
-                                  const InputField(
-                                    hint: 'Your email',
-                                    maxLines: 1,
-                                  ),
-                                  const InputField(
-                                    hint: 'Type your message',
-                                    maxLines: 5,
-                                  ),
-                                  BasicButton(
-                                    text: 'Send',
-                                    click: () {},
-                                  ),
-                                ],
+                            child: Form(
+                              key: _form,
+                              child: Container(
+                                height: 500,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Get in touch',
+                                      style: kTitleTextStyle.copyWith(
+                                          fontSize: 30),
+                                    ),
+                                    const Text(
+                                      'Feel free to get in touch',
+                                      style: kNormalTextStyleGrey,
+                                    ),
+                                    InputField(
+                                      hint: 'Your name',
+                                      maxLines: 1,
+                                      onSaved: (value) {
+                                        name = value!;
+                                      },
+                                    ),
+                                    InputField(
+                                      hint: 'Your email',
+                                      maxLines: 1,
+                                      onSaved: (value) {
+                                        email = value!;
+                                      },
+                                    ),
+                                    InputField(
+                                      hint: 'Type your message',
+                                      maxLines: 5,
+                                      onSaved: (value) {
+                                        message = value!;
+                                      },
+                                    ),
+                                    BasicButton(
+                                      text: 'Send',
+                                      click: send,
+                                      isSending: _isSending,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -277,35 +329,50 @@ class TContactSection extends StatelessWidget {
                           ),
                           Container(
                             height: 500,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Get in touch',
-                                  style: kTitleTextStyle.copyWith(fontSize: 30),
-                                ),
-                                const Text(
-                                  'Feel free to get in touch',
-                                  style: kNormalTextStyleGrey,
-                                ),
-                                const InputField(
-                                  hint: 'Your name',
-                                  maxLines: 1,
-                                ),
-                                const InputField(
-                                  hint: 'Your email',
-                                  maxLines: 1,
-                                ),
-                                const InputField(
-                                  hint: 'Type your message',
-                                  maxLines: 5,
-                                ),
-                                BasicButton(
-                                  text: 'Send',
-                                  click: () {},
-                                ),
-                              ],
+                            child: Form(
+                              key: _form,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Get in touch',
+                                    style:
+                                        kTitleTextStyle.copyWith(fontSize: 30),
+                                  ),
+                                  const Text(
+                                    'Feel free to get in touch',
+                                    style: kNormalTextStyleGrey,
+                                  ),
+                                  InputField(
+                                    hint: 'Your name',
+                                    maxLines: 1,
+                                    onSaved: (value) {
+                                      name = value;
+                                    },
+                                  ),
+                                  InputField(
+                                    hint: 'Your email',
+                                    maxLines: 1,
+                                    onSaved: (value) {
+                                      email = value;
+                                    },
+                                  ),
+                                  InputField(
+                                    hint: 'Type your message',
+                                    maxLines: 5,
+                                    onSaved: (value) {
+                                      message = value;
+                                    },
+                                  ),
+                                  BasicButton(
+                                    text: 'Send',
+                                    click: send,
+                                    isSending: _isSending,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],

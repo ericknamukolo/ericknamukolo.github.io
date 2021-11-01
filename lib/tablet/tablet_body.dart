@@ -199,7 +199,12 @@ class _TabletBodyState extends State<TabletBody> {
         controller: _scrollController,
         child: Column(
           children: [
-            THomeSection(key: homeKey),
+            THomeSection(
+              key: homeKey,
+              scrollToProjects: () {
+                scrollToItem(projectsKey);
+              },
+            ),
             TAboutSection(key: aboutKey),
             TSkillSection(key: skillsKey),
             TProjectsAndDesigns(key: projectsKey),

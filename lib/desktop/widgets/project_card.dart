@@ -16,6 +16,9 @@ class ProjectCard extends StatefulWidget {
   final String type;
   final String imgUrl;
   final String desc;
+  final String githubLink;
+  final String dribbbleLink;
+  final String externalLink;
 
   const ProjectCard({
     Key? key,
@@ -24,6 +27,9 @@ class ProjectCard extends StatefulWidget {
     required this.type,
     required this.imgUrl,
     required this.desc,
+    required this.githubLink,
+    required this.externalLink,
+    required this.dribbbleLink,
   }) : super(key: key);
 
   @override
@@ -130,33 +136,39 @@ class _ProjectCardState extends State<ProjectCard> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              IconHover(
-                                icon: MdiIcons.basketball,
-                                color: kprimaryColor,
-                                click: () async {
-                                  await launch(
-                                    'https://www.linkedin.com/in/erick-namukolo-a49482202/',
-                                  );
-                                },
-                              ),
-                              IconHover(
-                                icon: MdiIcons.github,
-                                color: kprimaryColor,
-                                click: () async {
-                                  await launch(
-                                    'https://www.linkedin.com/in/erick-namukolo-a49482202/',
-                                  );
-                                },
-                              ),
-                              IconHover(
-                                icon: MdiIcons.openInNew,
-                                color: kprimaryColor,
-                                click: () async {
-                                  await launch(
-                                    'https://www.linkedin.com/in/erick-namukolo-a49482202/',
-                                  );
-                                },
-                              ),
+                              widget.dribbbleLink == '0'
+                                  ? Container()
+                                  : IconHover(
+                                      icon: MdiIcons.basketball,
+                                      color: kprimaryColor,
+                                      click: () async {
+                                        await launch(
+                                          widget.dribbbleLink,
+                                        );
+                                      },
+                                    ),
+                              widget.githubLink == '0'
+                                  ? Container()
+                                  : IconHover(
+                                      icon: MdiIcons.github,
+                                      color: kprimaryColor,
+                                      click: () async {
+                                        await launch(
+                                          widget.githubLink,
+                                        );
+                                      },
+                                    ),
+                              widget.externalLink == '0'
+                                  ? Container()
+                                  : IconHover(
+                                      icon: MdiIcons.openInNew,
+                                      color: kprimaryColor,
+                                      click: () async {
+                                        await launch(
+                                          widget.externalLink,
+                                        );
+                                      },
+                                    ),
                             ],
                           ),
                         ],
