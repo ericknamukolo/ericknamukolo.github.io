@@ -6,6 +6,8 @@ import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:provider/provider.dart';
 
+import '../projects_desktop_screen.dart';
+
 class ProjectsAndDesigns extends StatelessWidget {
   const ProjectsAndDesigns({Key? key}) : super(key: key);
 
@@ -56,7 +58,10 @@ class ProjectsAndDesigns extends StatelessWidget {
           ),
           BasicButton(
             text: 'All Projects',
-            click: () {},
+            click: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ProjectsDesktopScreen()));
+            },
           ),
         ],
       ),

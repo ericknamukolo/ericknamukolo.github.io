@@ -53,7 +53,7 @@ class AboutSection extends StatelessWidget {
                     ),
                     AboutCard(
                       content:
-                          'I enjoy bringing ideas to life on the phone or in the browser.',
+                          'API integrations throughout a software to keep data in sync and enhance productivity.',
                       iconPath: 'assets/api.png',
                       title: 'API Intergration',
                     ),
@@ -73,13 +73,6 @@ class AboutSection extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Introduction',
-                      style: kNormalTextStyleGrey,
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
                     RichText(
                       text: TextSpan(
                         style: kTitleTextStyle,
@@ -98,7 +91,7 @@ class AboutSection extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 30),
                       child: Text(
-                        'I create successful mobile apps(IOS & Android) and responsive websites that are fast, easy to use, and built with best practices. The main area of my expertise is front-end development using Flutter, Dart, HTML, CSS, JS, building small,medium and large software applications,features, animations, and coding interactive layouts.\n\nI have worked on a multitude of mobile and web based projects for a number of clients providing Mobile & Web Design (Adobe XD) and Development (Flutter,Dart,Firebase,Sqflite, Responsive Layouts).',
+                        'I’m a Software Engineer, passionate about Flutter Development & UI/UX Design (Mobile/Web Design) with an interest in back-end development.\n\nI create successful mobile apps(IOS & Android) and responsive websites that are fast, easy to use, and built with best practices. The main area of my expertise is front-end development using Flutter, Dart, HTML, CSS, JS, building small,medium and large software applications,features, animations, and coding interactive layouts.\n\nI have worked on a multitude of mobile and web based projects for a number of clients providing Mobile & Web Design (Adobe XD) and Development (Flutter,Dart,Firebase,Sqflite, Responsive Layouts).',
                         style: kNormalTextStyleGrey,
                       ),
                     ),

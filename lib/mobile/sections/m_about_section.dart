@@ -12,7 +12,7 @@ class MAboutSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       color: klightDarkColor,
       width: double.infinity,
-      height: 1250,
+      height: MediaQuery.of(context).size.width >= 570 ? 1300 : 1380,
       child: Column(
         children: [
           Container(
@@ -53,7 +53,7 @@ class MAboutSection extends StatelessWidget {
                           ),
                           AboutCard(
                             content:
-                                'I enjoy bringing ideas to life on the phone or in the browser.',
+                                'API integrations throughout many sectors and layers of a software to keep data in sync and enhance productivity.',
                             iconPath: 'assets/api.png',
                             title: 'API Intergration',
                           ),
@@ -96,7 +96,7 @@ class MAboutSection extends StatelessWidget {
                           const Padding(
                             padding: EdgeInsets.symmetric(vertical: 20),
                             child: Text(
-                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                              'I’m a Software Engineer, passionate about Flutter Development & UI/UX Design (Mobile/Web Design) with an interest in back-end development.\n\nI create successful mobile apps(IOS & Android) and responsive websites that are fast, easy to use, and built with best practices. The main area of my expertise is front-end development using Flutter, Dart, HTML, CSS, JS, building small,medium and large software applications,features, animations, and coding interactive layouts.\n\nI have worked on a multitude of mobile and web based projects for a number of clients providing Mobile & Web Design (Adobe XD) and Development (Flutter,Dart,Firebase,Sqflite, Responsive Layouts).',
                               style: kNormalTextStyleGrey,
                             ),
                           ),
@@ -108,13 +108,6 @@ class MAboutSection extends StatelessWidget {
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Introduction',
-                      style: kNormalTextStyleGrey,
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
                     RichText(
                       text: TextSpan(
                         style: kTitleTextStyle.copyWith(fontSize: 40),
@@ -134,7 +127,7 @@ class MAboutSection extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 40),
                       child: Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                        'I’m a Software Engineer, passionate about Flutter Development & UI/UX Design (Mobile/Web Design) with an interest in back-end development.\n\nI create successful mobile apps(IOS & Android) and responsive websites that are fast, easy to use, and built with best practices. The main area of my expertise is front-end development using Flutter, Dart, HTML, CSS, JS, building small,medium and large software applications,features, animations, and coding interactive layouts.\n\nI have worked on a multitude of mobile and web based projects for a number of clients providing Mobile & Web Design (Adobe XD) and Development (Flutter,Dart,Firebase,Sqflite, Responsive Layouts).',
                         style: kNormalTextStyleGrey,
                       ),
                     ),
@@ -152,7 +145,7 @@ class MAboutSection extends StatelessWidget {
                     ),
                     const AboutCard(
                       content:
-                          'I enjoy bringing ideas to life on the phone or in the browser.',
+                          'API integrations throughout a software to keep data in sync and enhance productivity.',
                       iconPath: 'assets/api.png',
                       title: 'API Intergration',
                     ),
