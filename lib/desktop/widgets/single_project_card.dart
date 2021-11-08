@@ -31,115 +31,119 @@ class SingleProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
     final clickedProject = Provider.of<Projects>(context, listen: false)
         .projectsAndDesigns
         .firstWhere((proj) => proj.id == id);
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () {
-          showModalBottomSheet(
-            context: context,
-            builder: (context) =>
-                ProjectImagesCard(clickedProject: clickedProject),
-            isScrollControlled: true,
-          );
-        },
-        child: Row(
-          children: [
-            Expanded(
-              flex: 3,
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                height: 400,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: klightDarkColor,
-                  image: DecorationImage(
-                    image: NetworkImage(imgUrl),
-                    fit: BoxFit.cover,
+    if (MediaQuery.of(context).size.width >= 1000) {
+      return MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () {
+            showModalBottomSheet(
+              context: context,
+              builder: (context) =>
+                  ProjectImagesCard(clickedProject: clickedProject),
+              isScrollControlled: true,
+            );
+          },
+          child: Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  height: 400,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: klightDarkColor,
+                    image: DecorationImage(
+                      image: NetworkImage(imgUrl),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                height: 400,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: klightDarkColor,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      type,
-                      style: kMiniTitleTextStylePink,
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      name,
-                      style: kTitleTextStyle.copyWith(fontSize: 18),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      desc,
-                      style: kNormalTextStyleGrey,
-                    ),
-                    const Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        dribbbleLink == '0'
-                            ? Container()
-                            : IconHover(
-                                icon: MdiIcons.basketball,
-                                color: kprimaryColor,
-                                click: () async {
-                                  await launch(
-                                    dribbbleLink,
-                                  );
-                                },
-                              ),
-                        githubLink == '0'
-                            ? Container()
-                            : IconHover(
-                                icon: MdiIcons.github,
-                                color: kprimaryColor,
-                                click: () async {
-                                  await launch(
-                                    githubLink,
-                                  );
-                                },
-                              ),
-                        externalLink == '0'
-                            ? Container()
-                            : IconHover(
-                                icon: MdiIcons.openInNew,
-                                color: kprimaryColor,
-                                click: () async {
-                                  await launch(
-                                    externalLink,
-                                  );
-                                },
-                              ),
-                      ],
-                    ),
-                  ],
+              Expanded(
+                flex: 1,
+                child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  height: 400,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: klightDarkColor,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        type,
+                        style: kMiniTitleTextStylePink,
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        name,
+                        style: kTitleTextStyle.copyWith(fontSize: 18),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        desc,
+                        style: kNormalTextStyleGrey,
+                      ),
+                      const Spacer(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          dribbbleLink == '0'
+                              ? Container()
+                              : IconHover(
+                                  icon: MdiIcons.basketball,
+                                  color: kprimaryColor,
+                                  click: () async {
+                                    await launch(
+                                      dribbbleLink,
+                                    );
+                                  },
+                                ),
+                          githubLink == '0'
+                              ? Container()
+                              : IconHover(
+                                  icon: MdiIcons.github,
+                                  color: kprimaryColor,
+                                  click: () async {
+                                    await launch(
+                                      githubLink,
+                                    );
+                                  },
+                                ),
+                          externalLink == '0'
+                              ? Container()
+                              : IconHover(
+                                  icon: MdiIcons.openInNew,
+                                  color: kprimaryColor,
+                                  click: () async {
+                                    await launch(
+                                      externalLink,
+                                    );
+                                  },
+                                ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    }
+    return Container();
   }
 }

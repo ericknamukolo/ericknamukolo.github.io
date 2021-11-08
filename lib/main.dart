@@ -27,6 +27,7 @@ class Portfolio extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        title: 'Erick Namukolo',
         builder: BotToastInit(),
         navigatorObservers: [BotToastNavigatorObserver()],
         theme: ThemeData(

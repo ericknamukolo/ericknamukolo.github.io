@@ -10,12 +10,27 @@ class ProjectsDesktopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
     final projectsData = Provider.of<Projects>(context).projectsAndDesigns;
+    double containerPadding() {
+      if (MediaQuery.of(context).size.width >= 1200) {
+        return 160;
+      } else if (MediaQuery.of(context).size.width >= 1000 &&
+          MediaQuery.of(context).size.width < 1200) {
+        return 90;
+      } else if (MediaQuery.of(context).size.width >= 800 &&
+          MediaQuery.of(context).size.width < 1000) {
+        return 50;
+      }
+      return 30;
+    }
+
     return Scaffold(
       backgroundColor: kdarkColor,
       floatingActionButton: Container(
         margin: const EdgeInsets.only(top: 20),
-        padding: const EdgeInsets.symmetric(horizontal: 80),
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width >= 1200 ? 80 : 50),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -61,7 +76,7 @@ class ProjectsDesktopScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 160),
+              padding: EdgeInsets.symmetric(horizontal: containerPadding()),
               margin: const EdgeInsets.symmetric(vertical: 30),
               child: ListView.builder(
                 itemBuilder: (context, index) => SingleProjectCard(
