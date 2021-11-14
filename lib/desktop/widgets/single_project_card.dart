@@ -31,7 +31,6 @@ class SingleProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     final clickedProject = Provider.of<Projects>(context, listen: false)
         .projectsAndDesigns
         .firstWhere((proj) => proj.id == id);
@@ -57,7 +56,10 @@ class SingleProjectCard extends StatelessWidget {
                   height: 400,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(5),
+                      topLeft: Radius.circular(5),
+                    ),
                     color: klightDarkColor,
                     image: DecorationImage(
                       image: NetworkImage(imgUrl),
@@ -75,8 +77,11 @@ class SingleProjectCard extends StatelessWidget {
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                   height: 400,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(5),
+                      topRight: Radius.circular(5),
+                    ),
                     color: klightDarkColor,
                   ),
                   child: Column(

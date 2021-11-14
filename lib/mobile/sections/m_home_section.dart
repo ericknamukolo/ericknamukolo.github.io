@@ -1,17 +1,21 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/widgets/basic_button.dart';
+import 'package:provider/provider.dart';
 
 class MHomeSection extends StatelessWidget {
   const MHomeSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var dio = Dio();
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       height: 650,
@@ -104,7 +108,9 @@ class MHomeSection extends StatelessWidget {
           Center(
             child: BasicButton(
               text: 'Download CV',
-              click: () {},
+              click: () {
+                Provider.of<Projects>(context, listen: false).downloadCV();
+              },
             ),
           ),
         ],

@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:portfolio/models/project.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html';
 
 class Projects with ChangeNotifier {
   List<Project> _projectsAndDesigns = [];
@@ -60,5 +62,12 @@ class Projects with ChangeNotifier {
         },
       ),
     );
+  }
+
+  Future<void> downloadCV() async {
+    AnchorElement anchorElement =
+        await AnchorElement(href: 'assets/Erick_Namukolo_CV.pdf');
+    anchorElement.download = 'Erick Namukolo CV';
+    anchorElement.click();
   }
 }

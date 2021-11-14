@@ -12,7 +12,7 @@ class MAboutSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       color: klightDarkColor,
       width: double.infinity,
-      height: MediaQuery.of(context).size.width >= 570 ? 1300 : 1400,
+      height: MediaQuery.of(context).size.width >= 570 ? 1300 : 1450,
       child: Column(
         children: [
           Container(

@@ -9,6 +9,7 @@ import 'package:portfolio/tablet/sections/t_contact_section.dart';
 import 'package:portfolio/tablet/sections/t_home_section.dart';
 import 'package:portfolio/tablet/sections/t_projects_and_designs.dart';
 import 'package:portfolio/tablet/sections/t_skill_section.dart';
+import 'package:portfolio/tablet/widgets/cv_button.dart';
 
 class TabletBody extends StatefulWidget {
   const TabletBody({Key? key}) : super(key: key);
@@ -166,28 +167,7 @@ class _TabletBodyState extends State<TabletBody> {
                     },
                     width: contactWidth,
                   ),
-                  Container(
-                    height: 40,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: kprimaryColor,
-                      boxShadow: [
-                        BoxShadow(
-                          offset: const Offset(4, 6),
-                          color: const Color(0xff000000).withOpacity(.16),
-                          blurRadius: 4.0,
-                          spreadRadius: 2.0,
-                        ),
-                      ],
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Resume',
-                        style: kNormalTextStyleWhite,
-                      ),
-                    ),
-                  ),
+                  const CVButton(),
                 ],
               ),
             ),

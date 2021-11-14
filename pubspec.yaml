@@ -45,6 +45,7 @@ dependencies:
   bot_toast: ^4.0.1
   carousel_slider: ^4.0.0
   smooth_page_indicator: ^1.0.0+2
+  dio: ^4.0.3
 
 dev_dependencies:
   flutter_test:
