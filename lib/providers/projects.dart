@@ -64,10 +64,11 @@ class Projects with ChangeNotifier {
     );
   }
 
-  Future<void> downloadCV() async {
-    AnchorElement anchorElement =
-        await AnchorElement(href: 'assets/Erick_Namukolo_CV.pdf');
-    anchorElement.download = 'Erick Namukolo CV';
+  downloadCV() {
+    String url =
+        'https://drive.google.com/uc?id=1egQA4dMBeMb8SQIx4aX6coryumbxsBXX&export=download';
+    AnchorElement anchorElement = AnchorElement(href: url);
+    anchorElement.download = url;
     anchorElement.click();
   }
 }
