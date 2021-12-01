@@ -15,7 +15,7 @@ class MProjectsAndDesigns extends StatelessWidget {
     final projectsData = Provider.of<Projects>(context).projectsAndDesigns;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      height: 960,
+      height: 1050,
       width: double.infinity,
       color: klightDarkColor,
       child: Column(
@@ -50,7 +50,7 @@ class MProjectsAndDesigns extends StatelessWidget {
             itemCount: 3,
             shrinkWrap: true,
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 25),
           BasicButton(
             text: 'Browse All Projects',
             click: () {

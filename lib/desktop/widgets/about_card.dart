@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -62,9 +64,16 @@ class _AboutCardState extends State<AboutCard> {
           const SizedBox(
             height: 10,
           ),
-          Text(
-            widget.content,
-            style: kNormalTextStyleGrey,
+          Flexible(
+            child: Container(
+              child: Text(
+                widget.content,
+                overflow: TextOverflow.ellipsis,
+                softWrap: true,
+                maxLines: 10,
+                style: kNormalTextStyleGrey,
+              ),
+            ),
           ),
         ],
       ),

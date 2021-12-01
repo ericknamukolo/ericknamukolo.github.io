@@ -7,7 +7,7 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SingleProjectCard extends StatelessWidget {
+class SingleProjectCard extends StatefulWidget {
   final String imgUrl;
   final String desc;
   final String type;
@@ -27,69 +27,123 @@ class SingleProjectCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<SingleProjectCard> createState() => _SingleProjectCardState();
+}
+
+class _SingleProjectCardState extends State<SingleProjectCard> {
+  bool _isHovered = false;
+  @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 3,
-          child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 14),
-            height: 230,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(6),
-                topLeft: Radius.circular(6),
-              ),
-              image: DecorationImage(
-                image: NetworkImage(imgUrl),
-                fit: BoxFit.cover,
-              ),
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) {
+        setState(() {
+          _isHovered = true;
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          _isHovered = false;
+        });
+      },
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 200),
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        height: _isHovered ? 260 : 250,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: kdarkColor,
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            image: NetworkImage(
+              widget.imgUrl,
+            ),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              kdarkColor.withOpacity(_isHovered ? 0.6 : 0.95),
+              BlendMode.srcOver,
             ),
           ),
         ),
-        const SizedBox(width: 10),
-        Expanded(
-          flex: 1,
-          child: Container(
-            padding: const EdgeInsets.all(5),
-            margin: const EdgeInsets.symmetric(vertical: 14),
-            height: 230,
-            decoration: const BoxDecoration(
-              color: kdarkColor,
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(6),
-                topRight: Radius.circular(6),
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  type,
-                  style: kMiniTitleTextStylePink.copyWith(fontSize: 16),
+                Icon(
+                  widget.type == 'Project'
+                      ? Icons.folder_open_rounded
+                      : Icons.design_services_outlined,
+                  color: kprimaryColor,
+                  size: 40,
                 ),
-                const SizedBox(height: 5),
-                Text(
-                  name,
-                  style: kTitleTextStyle.copyWith(fontSize: 16),
-                ),
-                const SizedBox(height: 5),
-                Flexible(
-                  child: Container(
-                    child: Text(
-                      desc,
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: true,
-                      maxLines: 10,
-                      style: kNormalTextStyleGrey.copyWith(fontSize: 14),
-                    ),
-                  ),
+                Row(
+                  children: [
+                    widget.dribbbleLink == '0'
+                        ? Container()
+                        : IconHover(
+                            icon: MdiIcons.basketball,
+                            color: kprimaryColor,
+                            click: () async {
+                              await launch(
+                                widget.dribbbleLink,
+                              );
+                            },
+                            padding: 4,
+                          ),
+                    widget.githubLink == '0'
+                        ? Container()
+                        : IconHover(
+                            padding: 4,
+                            icon: MdiIcons.github,
+                            color: kprimaryColor,
+                            click: () async {
+                              await launch(
+                                widget.githubLink,
+                              );
+                            },
+                          ),
+                    widget.externalLink == '0'
+                        ? Container()
+                        : IconHover(
+                            padding: 4,
+                            icon: MdiIcons.openInNew,
+                            color: kprimaryColor,
+                            click: () async {
+                              await launch(
+                                widget.externalLink,
+                              );
+                            },
+                          ),
+                  ],
                 ),
               ],
             ),
-          ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              widget.name,
+              style: kMiniTitleTextStyleWhite.copyWith(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              widget.desc,
+              style: kNormalTextStyleGrey,
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
+
+// 

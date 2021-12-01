@@ -4,11 +4,13 @@ class IconHover extends StatefulWidget {
   final IconData icon;
   final Color color;
   final Function() click;
+  final double? padding;
   const IconHover({
     Key? key,
     required this.icon,
     required this.color,
     required this.click,
+    this.padding = 10,
   }) : super(key: key);
 
   @override
@@ -35,7 +37,7 @@ class _IconHoverState extends State<IconHover> {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(horizontal: widget.padding!),
         child: IconButton(
           icon: Icon(widget.icon, size: 34),
           onPressed: widget.click,
