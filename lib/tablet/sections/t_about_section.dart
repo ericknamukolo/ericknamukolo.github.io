@@ -147,7 +147,7 @@ class TAboutSection extends StatelessWidget {
                       content:
                           'API integrations throughout a software to keep data in sync and enhance productivity.',
                       iconPath: 'assets/api.png',
-                      title: 'API Intergration',
+                      title: 'API Integration',
                     ),
                     const AboutCard(
                       content:

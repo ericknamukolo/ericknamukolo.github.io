@@ -55,7 +55,7 @@ class MAboutSection extends StatelessWidget {
                             content:
                                 'API integrations throughout many sectors and layers of a software to keep data in sync and enhance productivity.',
                             iconPath: 'assets/api.png',
-                            title: 'API Intergration',
+                            title: 'API Integration',
                           ),
                           AboutCard(
                             content:
