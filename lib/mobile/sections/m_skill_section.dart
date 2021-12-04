@@ -3,7 +3,6 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/mobile/widgets/m_skill_card.dart';
 import 'package:portfolio/providers/skills.dart';
-import 'package:portfolio/tablet/widgets/t_skill_card.dart';
 import 'package:provider/provider.dart';
 
 class MSkillSection extends StatelessWidget {
