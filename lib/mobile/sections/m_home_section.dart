@@ -15,7 +15,6 @@ class MHomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var dio = Dio();
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       height: 650,
@@ -24,7 +23,7 @@ class MHomeSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            padding: const EdgeInsets.all(3),
+            padding: const EdgeInsets.all(10),
             child: MediaQuery.of(context).size.width >= 500
                 ? Lottie.asset(
                     'assets/male.json',
@@ -32,10 +31,13 @@ class MHomeSection extends StatelessWidget {
                     repeat: true,
                   )
                 : Container(
-                    height: 150,
-                    width: 150,
-                    child: Image.asset(
-                      'assets/svgg.png',
+                    height: 130,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/avatar.png',
+                        ),
+                      ),
                     ),
                   ),
             height: 300,

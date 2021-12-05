@@ -11,7 +11,7 @@ class Skills with ChangeNotifier {
     Skill(imgPath: 'assets/flutter.png', skillName: 'Flutter'),
     Skill(imgPath: 'assets/dart.png', skillName: 'Dart'),
     Skill(imgPath: 'assets/firebase.png', skillName: 'Firebase'),
-    Skill(imgPath: 'assets/sqlite.png', skillName: 'SQLite'),
+    Skill(imgPath: 'assets/nodejs.png', skillName: 'Node Js'),
   ];
 
   List<Skill> get skills {
