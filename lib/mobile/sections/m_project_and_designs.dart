@@ -49,6 +49,7 @@ class MProjectsAndDesigns extends StatelessWidget {
             ),
             itemCount: 3,
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
           ),
           const SizedBox(height: 25),
           BasicButton(
