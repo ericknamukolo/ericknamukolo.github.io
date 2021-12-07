@@ -6,10 +6,12 @@ class InputField extends StatelessWidget {
   final String hint;
   final int maxLines;
   final Function(String?)? onSaved;
+  final TextEditingController? controller;
   const InputField({
     Key? key,
     required this.hint,
     required this.maxLines,
+    this.controller,
     this.onSaved,
   }) : super(key: key);
   @override
@@ -20,6 +22,7 @@ class InputField extends StatelessWidget {
           return 'This field is required';
         }
       },
+      controller: controller,
       onSaved: onSaved,
       style: kNormalTextStyleWhite,
       autocorrect: true,

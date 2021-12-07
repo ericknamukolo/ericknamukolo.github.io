@@ -1,6 +1,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -22,9 +23,12 @@ class _MContactSectionState extends State<MContactSection> {
   @override
   Widget build(BuildContext context) {
     final _form = GlobalKey<FormState>();
-    String? name;
-    String? email;
-    String? message;
+    var name = TextEditingController();
+    var email = TextEditingController();
+    var message = TextEditingController();
+    // String? name;
+    // String? email;
+    // String? message;
 
     void send() async {
       final _isValid = _form.currentState!.validate();
@@ -34,9 +38,9 @@ class _MContactSectionState extends State<MContactSection> {
           _isSending = true;
         });
         await FirebaseFirestore.instance.collection('messages').add({
-          'sender': name!.trim(),
-          'email': email!.trim(),
-          'message': message!.trim(),
+          'sender': name.text.trim(),
+          'email': email.text.trim(),
+          'message': message.text.trim(),
           'createdAt': FieldValue.serverTimestamp(),
         });
         setState(() {
@@ -45,7 +49,7 @@ class _MContactSectionState extends State<MContactSection> {
         BotToast.showText(
           duration: const Duration(seconds: 6),
           text:
-              'Thank You for contacting me ${name!.trim()} , I will get back to you shortly',
+              'Thank You for contacting me ${name.text.trim()} , I will get back to you shortly',
           textStyle: kNormalTextStyleGrey,
         );
         _form.currentState!.reset();
@@ -129,7 +133,7 @@ class _MContactSectionState extends State<MContactSection> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconHover(
-                          icon: MdiIcons.linkedin,
+                          icon: LineIcons.linkedinIn,
                           color: const Color(0xff0A66C2),
                           click: () async {
                             await launch(
@@ -138,7 +142,7 @@ class _MContactSectionState extends State<MContactSection> {
                           },
                         ),
                         IconHover(
-                          icon: MdiIcons.github,
+                          icon: LineIcons.github,
                           color: const Color(0xff171515),
                           click: () async {
                             await launch(
@@ -147,7 +151,7 @@ class _MContactSectionState extends State<MContactSection> {
                           },
                         ),
                         IconHover(
-                          icon: MdiIcons.facebook,
+                          icon: LineIcons.facebook,
                           color: const Color(0xff4267B2),
                           click: () async {
                             await launch(
@@ -156,11 +160,11 @@ class _MContactSectionState extends State<MContactSection> {
                           },
                         ),
                         IconHover(
-                          icon: MdiIcons.basketball,
+                          icon: LineIcons.dribbble,
                           color: const Color(0xffea4c89),
                           click: () async {
                             await launch(
-                              'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                              'https://dribbble.com/erickmndev',
                             );
                           },
                         ),
@@ -188,23 +192,17 @@ class _MContactSectionState extends State<MContactSection> {
                       InputField(
                         hint: 'Your name',
                         maxLines: 1,
-                        onSaved: (value) {
-                          name = value;
-                        },
+                        controller: name,
                       ),
                       InputField(
                         hint: 'Your email',
                         maxLines: 1,
-                        onSaved: (value) {
-                          email = value;
-                        },
+                        controller: email,
                       ),
                       InputField(
                         hint: 'Type your message',
                         maxLines: 5,
-                        onSaved: (value) {
-                          message = value;
-                        },
+                        controller: message,
                       ),
                       BasicButton(
                         text: 'Send',

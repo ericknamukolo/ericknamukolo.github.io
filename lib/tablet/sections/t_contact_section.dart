@@ -3,6 +3,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -134,7 +135,7 @@ class _TContactSectionState extends State<TContactSection> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       IconHover(
-                                        icon: MdiIcons.linkedin,
+                                        icon: LineIcons.linkedin,
                                         color: const Color(0xff0A66C2),
                                         click: () async {
                                           await launch(
@@ -143,7 +144,7 @@ class _TContactSectionState extends State<TContactSection> {
                                         },
                                       ),
                                       IconHover(
-                                        icon: MdiIcons.github,
+                                        icon: LineIcons.github,
                                         color: const Color(0xff171515),
                                         click: () async {
                                           await launch(
@@ -152,7 +153,7 @@ class _TContactSectionState extends State<TContactSection> {
                                         },
                                       ),
                                       IconHover(
-                                        icon: MdiIcons.facebook,
+                                        icon: LineIcons.facebook,
                                         color: const Color(0xff4267B2),
                                         click: () async {
                                           await launch(
@@ -161,11 +162,11 @@ class _TContactSectionState extends State<TContactSection> {
                                         },
                                       ),
                                       IconHover(
-                                        icon: MdiIcons.basketball,
+                                        icon: LineIcons.dribbble,
                                         color: const Color(0xffea4c89),
                                         click: () async {
                                           await launch(
-                                            'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                            'https://dribbble.com/erickmndev',
                                           );
                                         },
                                       ),
@@ -287,7 +288,7 @@ class _TContactSectionState extends State<TContactSection> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     IconHover(
-                                      icon: MdiIcons.linkedin,
+                                      icon: LineIcons.linkedin,
                                       color: const Color(0xff0A66C2),
                                       click: () async {
                                         await launch(
@@ -296,7 +297,7 @@ class _TContactSectionState extends State<TContactSection> {
                                       },
                                     ),
                                     IconHover(
-                                      icon: MdiIcons.github,
+                                      icon: LineIcons.github,
                                       color: const Color(0xff171515),
                                       click: () async {
                                         await launch(
@@ -305,7 +306,7 @@ class _TContactSectionState extends State<TContactSection> {
                                       },
                                     ),
                                     IconHover(
-                                      icon: MdiIcons.facebook,
+                                      icon: LineIcons.facebook,
                                       color: const Color(0xff4267B2),
                                       click: () async {
                                         await launch(
@@ -314,11 +315,11 @@ class _TContactSectionState extends State<TContactSection> {
                                       },
                                     ),
                                     IconHover(
-                                      icon: MdiIcons.basketball,
+                                      icon: LineIcons.dribbble,
                                       color: const Color(0xffea4c89),
                                       click: () async {
                                         await launch(
-                                          'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                          'https://dribbble.com/erickmndev',
                                         );
                                       },
                                     ),

@@ -1,6 +1,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -154,11 +155,11 @@ class _ContactSectionState extends State<ContactSection> {
                                   },
                                 ),
                                 IconHover(
-                                  icon: MdiIcons.basketball,
+                                  icon: LineIcons.dribbble,
                                   color: const Color(0xffea4c89),
                                   click: () async {
                                     await launch(
-                                      'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                      'https://dribbble.com/erickmndev',
                                     );
                                   },
                                 ),
