@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/constants/responsive_breakpoints.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/desktop/widgets/project_images_card.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SingleProjectCard extends StatelessWidget {
+class SingleProjectCard extends StatefulWidget {
   final String id;
   final String name;
   final String type;
@@ -30,10 +32,16 @@ class SingleProjectCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<SingleProjectCard> createState() => _SingleProjectCardState();
+}
+
+class _SingleProjectCardState extends State<SingleProjectCard> {
+  bool _isHovered = false;
+  @override
   Widget build(BuildContext context) {
     final clickedProject = Provider.of<Projects>(context, listen: false)
         .projectsAndDesigns
-        .firstWhere((proj) => proj.id == id);
+        .firstWhere((proj) => proj.id == widget.id);
     if (MediaQuery.of(context).size.width >= 1000) {
       return MouseRegion(
         cursor: SystemMouseCursors.click,
@@ -62,7 +70,7 @@ class SingleProjectCard extends StatelessWidget {
                     ),
                     color: klightDarkColor,
                     image: DecorationImage(
-                      image: NetworkImage(imgUrl),
+                      image: NetworkImage(widget.imgUrl),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -88,53 +96,53 @@ class SingleProjectCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        type,
+                        widget.type,
                         style: kMiniTitleTextStylePink,
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        name,
+                        widget.name,
                         style: kTitleTextStyle.copyWith(fontSize: 18),
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        desc,
+                        widget.desc,
                         style: kNormalTextStyleGrey,
                       ),
                       const Spacer(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          dribbbleLink == '0'
+                          widget.dribbbleLink == '0'
                               ? Container()
                               : IconHover(
                                   icon: MdiIcons.basketball,
                                   color: kprimaryColor,
                                   click: () async {
                                     await launch(
-                                      dribbbleLink,
+                                      widget.dribbbleLink,
                                     );
                                   },
                                 ),
-                          githubLink == '0'
+                          widget.githubLink == '0'
                               ? Container()
                               : IconHover(
                                   icon: MdiIcons.github,
                                   color: kprimaryColor,
                                   click: () async {
                                     await launch(
-                                      githubLink,
+                                      widget.githubLink,
                                     );
                                   },
                                 ),
-                          externalLink == '0'
+                          widget.externalLink == '0'
                               ? Container()
                               : IconHover(
                                   icon: MdiIcons.openInNew,
                                   color: kprimaryColor,
                                   click: () async {
                                     await launch(
-                                      externalLink,
+                                      widget.externalLink,
                                     );
                                   },
                                 ),
@@ -143,6 +151,116 @@ class SingleProjectCard extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+            ],
+          ),
+        ),
+      );
+    } else if (MediaQuery.of(context).size.width <= kTabletBreakpoint) {
+      return MouseRegion(
+        cursor: SystemMouseCursors.click,
+        onEnter: (_) {
+          setState(() {
+            _isHovered = true;
+          });
+        },
+        onExit: (_) {
+          setState(() {
+            _isHovered = false;
+          });
+        },
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          height: _isHovered ? 260 : 250,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: kdarkColor,
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: NetworkImage(
+                widget.imgUrl,
+              ),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                kdarkColor.withOpacity(_isHovered ? 0.6 : 0.95),
+                BlendMode.srcOver,
+              ),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    widget.type == 'Project'
+                        ? Icons.folder_open_rounded
+                        : Icons.design_services_outlined,
+                    color: kprimaryColor,
+                    size: 40,
+                  ),
+                  Row(
+                    children: [
+                      widget.dribbbleLink == '0'
+                          ? Container()
+                          : IconHover(
+                              icon: LineIcons.dribbble,
+                              color: kprimaryColor,
+                              click: () async {
+                                await launch(
+                                  widget.dribbbleLink,
+                                );
+                              },
+                              padding: 4,
+                            ),
+                      widget.githubLink == '0'
+                          ? Container()
+                          : IconHover(
+                              padding: 4,
+                              icon: LineIcons.github,
+                              color: kprimaryColor,
+                              click: () async {
+                                await launch(
+                                  widget.githubLink,
+                                );
+                              },
+                            ),
+                      widget.externalLink == '0'
+                          ? Container()
+                          : IconHover(
+                              padding: 4,
+                              icon: LineIcons.alternateExternalLink,
+                              color: kprimaryColor,
+                              click: () async {
+                                await launch(
+                                  widget.externalLink,
+                                );
+                              },
+                            ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                widget.name,
+                style: kMiniTitleTextStyleWhite.copyWith(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                widget.desc,
+                style: kNormalTextStyleGrey,
               ),
             ],
           ),

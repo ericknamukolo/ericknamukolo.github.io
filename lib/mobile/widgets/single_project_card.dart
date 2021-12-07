@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -84,7 +85,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
                     widget.dribbbleLink == '0'
                         ? Container()
                         : IconHover(
-                            icon: MdiIcons.basketball,
+                            icon: LineIcons.dribbble,
                             color: kprimaryColor,
                             click: () async {
                               await launch(
@@ -97,7 +98,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
                         ? Container()
                         : IconHover(
                             padding: 4,
-                            icon: MdiIcons.github,
+                            icon: LineIcons.github,
                             color: kprimaryColor,
                             click: () async {
                               await launch(
@@ -109,7 +110,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
                         ? Container()
                         : IconHover(
                             padding: 4,
-                            icon: MdiIcons.openInNew,
+                            icon: LineIcons.alternateExternalLink,
                             color: kprimaryColor,
                             click: () async {
                               await launch(
