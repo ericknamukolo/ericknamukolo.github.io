@@ -176,18 +176,9 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
           height: _isHovered ? 260 : 250,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: kdarkColor,
+            color: klightDarkColor,
             borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: NetworkImage(
-                widget.imgUrl,
-              ),
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
-                kdarkColor.withOpacity(_isHovered ? 0.6 : 0.95),
-                BlendMode.srcOver,
-              ),
-            ),
+      
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

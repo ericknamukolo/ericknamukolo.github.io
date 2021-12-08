@@ -34,7 +34,8 @@ class Portfolio extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Poppins',
           bottomSheetTheme: BottomSheetThemeData(
-              backgroundColor: Colors.black.withOpacity(0)),
+            backgroundColor: Colors.black.withOpacity(0),
+          ),
         ),
         home: const LoadingScreen(),
       ),

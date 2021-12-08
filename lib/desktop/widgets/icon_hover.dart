@@ -37,7 +37,7 @@ class _IconHoverState extends State<IconHover> {
         });
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: widget.padding!),
+        padding: EdgeInsets.only(left: widget.padding!),
         child: IconButton(
           icon: Icon(widget.icon, size: 34),
           onPressed: widget.click,

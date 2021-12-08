@@ -111,16 +111,29 @@ class _TabletBodyState extends State<TabletBody> {
             Expanded(
               flex: 1,
               child: Row(
-                children: const [
-                  Icon(
+                children: [
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: () {
+                        scrollToItem(homeKey);
+                      },
+                      child: const CircleAvatar(
+                        foregroundImage: AssetImage('assets/avatar.png'),
+                        backgroundColor: klightDarkColor,
+                        radius: 20,
+                      ),
+                    ),
+                  ),
+                  const Icon(
                     MdiIcons.chevronLeft,
                     color: kprimaryColor,
                   ),
-                  Text(
+                  const Text(
                     'Erick Namukolo',
                     style: kTextStyleWhite,
                   ),
-                  Icon(
+                  const Icon(
                     MdiIcons.chevronRight,
                     color: kprimaryColor,
                   ),

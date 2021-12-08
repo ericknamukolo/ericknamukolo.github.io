@@ -115,16 +115,29 @@ class _DesktopBodyState extends State<DesktopBody> {
           children: [
             Expanded(
               child: Row(
-                children: const [
-                  Icon(
+                children: [
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: () {
+                        scrollToItem(homeKey);
+                      },
+                      child: const CircleAvatar(
+                        foregroundImage: AssetImage('assets/avatar.png'),
+                        backgroundColor: klightDarkColor,
+                        radius: 23,
+                      ),
+                    ),
+                  ),
+                  const Icon(
                     MdiIcons.chevronLeft,
                     color: kprimaryColor,
                   ),
-                  Text(
+                  const Text(
                     'Erick Namukolo',
                     style: kTextStyleWhite,
                   ),
-                  Icon(
+                  const Icon(
                     MdiIcons.chevronRight,
                     color: kprimaryColor,
                   ),

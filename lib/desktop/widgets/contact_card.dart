@@ -17,7 +17,7 @@ class ContactCard extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: Colors.white,
+            color: const Color(0xffB3A595),
             size: 35,
           ),
           const SizedBox(

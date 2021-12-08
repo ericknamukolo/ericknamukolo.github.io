@@ -91,6 +91,7 @@ class ProjectsDesktopScreen extends StatelessWidget {
                 ),
                 itemCount: projectsData.length,
                 shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
               ),
             ),
           ],

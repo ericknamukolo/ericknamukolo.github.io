@@ -157,31 +157,8 @@ class _MobileBodyState extends State<MobileBody> {
                   Navigator.pop(context);
                 },
               ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 25),
-                height: 40,
-                width: 80,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: kprimaryColor,
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(4, 6),
-                      color: const Color(0xff000000).withOpacity(.16),
-                      blurRadius: 4.0,
-                      spreadRadius: 2.0,
-                    ),
-                  ],
-                ),
-                child: const Center(
-                  child: Text(
-                    'Resume',
-                    style: kNormalTextStyleWhite,
-                  ),
-                ),
-              ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               Center(
                 child: MouseRegion(
@@ -222,6 +199,21 @@ class _MobileBodyState extends State<MobileBody> {
               const Icon(
                 MdiIcons.chevronRight,
                 color: kprimaryColor,
+              ),
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    scrollToItem(homeKey);
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: CircleAvatar(
+                      foregroundImage: AssetImage('assets/avatar.png'),
+                      backgroundColor: klightDarkColor,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
