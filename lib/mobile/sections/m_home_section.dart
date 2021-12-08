@@ -50,7 +50,7 @@ class MHomeSection extends StatelessWidget {
                     'Flutter',
                     textStyle: kTitleTextStyle.copyWith(
                       color: kprimaryColor,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: MediaQuery.of(context).size.width >= 500 ? FontWeight.bold : null,
                       fontSize: 40.0,
                     ),
                     speed: const Duration(milliseconds: 200),
@@ -59,7 +59,7 @@ class MHomeSection extends StatelessWidget {
                     'Web',
                     textStyle: kTitleTextStyle.copyWith(
                       color: kprimaryColor,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: MediaQuery.of(context).size.width >= 500 ? FontWeight.bold : null,
                       fontSize: 40.0,
                     ),
                     speed: const Duration(milliseconds: 200),
@@ -68,7 +68,7 @@ class MHomeSection extends StatelessWidget {
                     'Software',
                     textStyle: kTitleTextStyle.copyWith(
                       color: kprimaryColor,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: MediaQuery.of(context).size.width >= 500 ? FontWeight.bold : null,
                       fontSize: 40.0,
                     ),
                     speed: const Duration(milliseconds: 200),
@@ -77,7 +77,7 @@ class MHomeSection extends StatelessWidget {
                     'Mobile',
                     textStyle: kTitleTextStyle.copyWith(
                       color: kprimaryColor,
-                      fontWeight: FontWeight.bold,
+                     fontWeight: MediaQuery.of(context).size.width >= 500 ? FontWeight.bold : null,
                       fontSize: 40.0,
                     ),
                     speed: const Duration(milliseconds: 200),
