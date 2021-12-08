@@ -29,17 +29,12 @@ class MHomeSection extends StatelessWidget {
                     fit: BoxFit.fill,
                     repeat: true,
                   )
-                : Container(
-                    height: 130,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/avatar.png',
-                        ),
-                      ),
-                    ),
+                : const CircleAvatar(
+                    foregroundImage: AssetImage('assets/avatar.png'),
+                    backgroundColor: klightDarkColor,
+                    radius: 120,
                   ),
-            height: 300,
+            height: MediaQuery.of(context).size.width >= 500 ? 300 : null,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
