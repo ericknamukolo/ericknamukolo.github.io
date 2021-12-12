@@ -106,7 +106,37 @@ class _MobileBodyState extends State<MobileBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.only(top: 30, bottom: 15),
+                child: CircleAvatar(
+                  foregroundImage: AssetImage('assets/serious.png'),
+                  backgroundColor: klightDarkColor,
+                  radius: 90,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    MdiIcons.chevronLeft,
+                    color: kprimaryColor,
+                  ),
+                  Text(
+                    'Erick Namukolo',
+                    style: kTextStyleWhite.copyWith(
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  const Icon(
+                    MdiIcons.chevronRight,
+                    color: kprimaryColor,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               HoverContainer(
                 child: AnimatedTexttt(
                   text: 'Home',
@@ -187,19 +217,8 @@ class _MobileBodyState extends State<MobileBody> {
         backgroundColor: kdarkColor,
         actions: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                MdiIcons.chevronLeft,
-                color: kprimaryColor,
-              ),
-              Text(
-                'Erick Namukolo',
-                style: kTextStyleWhite.copyWith(fontSize: 15),
-              ),
-              const Icon(
-                MdiIcons.chevronRight,
-                color: kprimaryColor,
-              ),
               MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(

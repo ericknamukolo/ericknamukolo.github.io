@@ -1,6 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/constants/colors.dart';
@@ -23,18 +24,19 @@ class MHomeSection extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(10),
-            child: MediaQuery.of(context).size.width >= 500
-                ? Lottie.asset(
-                    'assets/male.json',
-                    fit: BoxFit.fill,
-                    repeat: true,
-                  )
-                : const CircleAvatar(
-                    foregroundImage: AssetImage('assets/avatar.png'),
-                    backgroundColor: klightDarkColor,
-                    radius: 120,
-                  ),
-            height: MediaQuery.of(context).size.width >= 500 ? 300 : null,
+            child: const AvatarGlow(
+              endRadius: 120.0,
+              animate: true,
+              glowColor: kprimaryColor,
+              repeat: true,
+              duration: Duration(milliseconds: 2000),
+              // repeatPauseDuration: Duration(milliseconds: 30),
+              child: CircleAvatar(
+                foregroundImage: AssetImage('assets/avatar.png'),
+                backgroundColor: klightDarkColor,
+                radius: 90,
+              ),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +52,9 @@ class MHomeSection extends StatelessWidget {
                     'Flutter',
                     textStyle: kTitleTextStyle.copyWith(
                       color: kprimaryColor,
-                      fontWeight: MediaQuery.of(context).size.width >= 500 ? FontWeight.bold : null,
+                      fontWeight: MediaQuery.of(context).size.width >= 500
+                          ? FontWeight.bold
+                          : null,
                       fontSize: 40.0,
                     ),
                     speed: const Duration(milliseconds: 200),
@@ -59,7 +63,9 @@ class MHomeSection extends StatelessWidget {
                     'Web',
                     textStyle: kTitleTextStyle.copyWith(
                       color: kprimaryColor,
-                      fontWeight: MediaQuery.of(context).size.width >= 500 ? FontWeight.bold : null,
+                      fontWeight: MediaQuery.of(context).size.width >= 500
+                          ? FontWeight.bold
+                          : null,
                       fontSize: 40.0,
                     ),
                     speed: const Duration(milliseconds: 200),
@@ -68,7 +74,9 @@ class MHomeSection extends StatelessWidget {
                     'Software',
                     textStyle: kTitleTextStyle.copyWith(
                       color: kprimaryColor,
-                      fontWeight: MediaQuery.of(context).size.width >= 500 ? FontWeight.bold : null,
+                      fontWeight: MediaQuery.of(context).size.width >= 500
+                          ? FontWeight.bold
+                          : null,
                       fontSize: 40.0,
                     ),
                     speed: const Duration(milliseconds: 200),
@@ -77,7 +85,9 @@ class MHomeSection extends StatelessWidget {
                     'Mobile',
                     textStyle: kTitleTextStyle.copyWith(
                       color: kprimaryColor,
-                     fontWeight: MediaQuery.of(context).size.width >= 500 ? FontWeight.bold : null,
+                      fontWeight: MediaQuery.of(context).size.width >= 500
+                          ? FontWeight.bold
+                          : null,
                       fontSize: 40.0,
                     ),
                     speed: const Duration(milliseconds: 200),
