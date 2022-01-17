@@ -239,18 +239,17 @@ class _MobileBodyState extends State<MobileBody> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      body: SingleChildScrollView(
+      body: ListView(
         controller: _scrollController,
-        child: Column(
-          children: [
-            MHomeSection(key: homeKey),
-            MAboutSection(key: aboutKey),
-            MSkillSection(key: skillsKey),
-            MProjectsAndDesigns(key: projectsKey),
-            MContactSection(key: contactKey),
-            const FooterSection(),
-          ],
-        ),
+        //shrinkWrap: true,
+        children: [
+          MHomeSection(key: homeKey),
+          MAboutSection(key: aboutKey),
+          MSkillSection(key: skillsKey),
+          MProjectsAndDesigns(key: projectsKey),
+          MContactSection(key: contactKey),
+          const FooterSection(),
+        ],
       ),
     );
   }
