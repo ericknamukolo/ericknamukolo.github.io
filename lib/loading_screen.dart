@@ -25,9 +25,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const ResponsiveLayout(
-            tabletBody: TabletBody(),
-            desktopBody: DesktopBody(),
+          builder: (context) => ResponsiveLayout(
+            tabletBody: const TabletBody(),
+            desktopBody: const DesktopBody(),
             mobileBody: MobileBody(),
           ),
         ),
