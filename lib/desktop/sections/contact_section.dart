@@ -117,7 +117,7 @@ class _ContactSectionState extends State<ContactSection> {
                                 ),
                                 ContactCard(
                                   icon: MdiIcons.whatsapp,
-                                  content: '+260 962 85743',
+                                  content: '+260 962 885743',
                                 ),
                               ],
                             ),

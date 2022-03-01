@@ -62,7 +62,7 @@ class _MSkillCardState extends State<MSkillCard> {
                   Text(widget.name, style: kNormalTextStyleWhite),
                   const SizedBox(height: 15),
                   const Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    ' ',
                     style: kNormalTextStyleGrey,
                   ),
                 ],
