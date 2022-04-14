@@ -146,6 +146,15 @@ class _ContactSectionState extends State<ContactSection> {
                                   },
                                 ),
                                 IconHover(
+                                  icon: Icons.whatsapp_rounded,
+                                  color: const Color(0xff075e54),
+                                  click: () async {
+                                    var whatsappUrl =
+                                        'https://web.whatsapp.com/?send=260962885743';
+                                    await launch(whatsappUrl);
+                                  },
+                                ),
+                                IconHover(
                                   icon: MdiIcons.facebook,
                                   color: const Color(0xff4267B2),
                                   click: () async {

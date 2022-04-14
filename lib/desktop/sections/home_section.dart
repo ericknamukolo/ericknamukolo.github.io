@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/widgets/basic_button.dart';
-import 'package:lottie/lottie.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 
 class HomeSection extends StatelessWidget {
   final Function() scrollToProjects;
@@ -34,6 +34,14 @@ class HomeSection extends StatelessWidget {
                     AnimatedTextKit(
                       animatedTexts: [
                         TypewriterAnimatedText(
+                          'Flutter',
+                          textStyle: kTitleTextStyle.copyWith(
+                            color: kprimaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          speed: const Duration(milliseconds: 200),
+                        ),
+                        TypewriterAnimatedText(
                           'Front-End',
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
@@ -59,14 +67,6 @@ class HomeSection extends StatelessWidget {
                         ),
                         TypewriterAnimatedText(
                           'Mobile App',
-                          textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          speed: const Duration(milliseconds: 200),
-                        ),
-                        TypewriterAnimatedText(
-                          'Flutter',
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
                             fontWeight: FontWeight.bold,
@@ -101,10 +101,21 @@ class HomeSection extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Lottie.asset(
-              'assets/home.json',
-              fit: BoxFit.fill,
-              repeat: true,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: const AvatarGlow(
+                endRadius: 120.0 * 1.5,
+                animate: true,
+                glowColor: kprimaryColor,
+                repeat: true,
+                duration: Duration(milliseconds: 2000),
+                // repeatPauseDuration: Duration(milliseconds: 30),
+                child: CircleAvatar(
+                  foregroundImage: AssetImage('assets/avatar.png'),
+                  backgroundColor: klightDarkColor,
+                  radius: 90 * 1.5,
+                ),
+              ),
             ),
             // child: SvgPicture.asset(
             //   'assets/result.svg',

@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/constants/colors.dart';
@@ -77,11 +78,19 @@ class THomeSection extends StatelessWidget {
             ),
           ),
           MediaQuery.of(context).size.width >= 860
-              ? Expanded(
-                  child: Lottie.asset(
-                    'assets/home.json',
-                    fit: BoxFit.fill,
+              ? const Expanded(
+                  child: AvatarGlow(
+                    endRadius: 120.0 * 1.3,
+                    animate: true,
+                    glowColor: kprimaryColor,
                     repeat: true,
+                    duration: Duration(milliseconds: 2000),
+                    // repeatPauseDuration: Duration(milliseconds: 30),
+                    child: CircleAvatar(
+                      foregroundImage: AssetImage('assets/avatar.png'),
+                      backgroundColor: klightDarkColor,
+                      radius: 90 * 1.3,
+                    ),
                   ),
                 )
               : const Text(''),

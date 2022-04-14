@@ -10,6 +10,7 @@ import 'package:portfolio/mobile/sections/m_home_section.dart';
 import 'package:portfolio/mobile/sections/m_project_and_designs.dart';
 import 'package:portfolio/mobile/sections/m_skill_section.dart';
 import 'package:portfolio/mobile/widgets/hover_container.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MobileBody extends StatelessWidget {
   final contactKey = GlobalKey();
@@ -30,11 +31,25 @@ class MobileBody extends StatelessWidget {
   }
 
   final ScrollController _scrollController = ScrollController();
+  final phone = '+260962885743';
+  final text = 'Hello There,';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kdarkColor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          var whatsappUrl = 'whatsapp://send?phone=$phone&text=$text';
+          await launch(whatsappUrl);
+        },
+        child: const Icon(
+          Icons.whatsapp_rounded,
+          size: 30,
+        ),
+        backgroundColor: const Color(0xff075e54),
+      ),
+
       drawer: Drawer(
         child: Container(
           color: kdarkColor,
@@ -168,7 +183,7 @@ class MobileBody extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+      //  floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(

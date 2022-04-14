@@ -151,6 +151,15 @@ class _MContactSectionState extends State<MContactSection> {
                           },
                         ),
                         IconHover(
+                          icon: Icons.whatsapp_rounded,
+                          color: const Color(0xff075e54),
+                          click: () async {
+                            var whatsappUrl =
+                                'whatsapp://send?phone=260962885743&text=Hello,';
+                            await launch(whatsappUrl);
+                          },
+                        ),
+                        IconHover(
                           icon: LineIcons.facebook,
                           color: const Color(0xff4267B2),
                           click: () async {
