@@ -56,10 +56,10 @@ class _TContactSectionState extends State<TContactSection> {
     }
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 120),
+      padding: const EdgeInsets.symmetric(horizontal: 90),
       width: double.infinity,
       height: MediaQuery.of(context).size.width >= 1170 ? 750 : 1250,
-      color: kdarkColor,
+      color: klightDarkColor,
       child: Column(
         children: [
           Container(
@@ -85,7 +85,7 @@ class _TContactSectionState extends State<TContactSection> {
                               margin: const EdgeInsets.symmetric(vertical: 40),
                               height: 500,
                               decoration: BoxDecoration(
-                                color: klightDarkColor,
+                                color: kdarkColor,
                                 borderRadius: BorderRadius.circular(10.0),
                                 boxShadow: [
                                   BoxShadow(
@@ -238,7 +238,7 @@ class _TContactSectionState extends State<TContactSection> {
                             margin: const EdgeInsets.symmetric(vertical: 40),
                             height: 500,
                             decoration: BoxDecoration(
-                              color: klightDarkColor,
+                              color: kdarkColor,
                               borderRadius: BorderRadius.circular(10.0),
                               boxShadow: [
                                 BoxShadow(

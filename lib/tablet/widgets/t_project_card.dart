@@ -92,7 +92,7 @@ class _TProjectCardState extends State<TProjectCard> {
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(20.0),
                                 decoration: BoxDecoration(
-                                  color: kdarkColor,
+                                  color: klightDarkColor,
                                   borderRadius: BorderRadius.circular(6.0),
                                   boxShadow: [
                                     BoxShadow(
@@ -194,7 +194,7 @@ class _TProjectCardState extends State<TProjectCard> {
                       ),
                     ),
                     Container(
-                      color: kdarkColor,
+                      color: klightDarkColor,
                       width: double.infinity,
                       height: 60,
                       child: Row(

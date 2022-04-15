@@ -12,7 +12,7 @@ class TSkillSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final skillData = Provider.of<Skills>(context, listen: false).skills;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 120),
+      padding: const EdgeInsets.symmetric(horizontal: 90),
       width: double.infinity,
       height: 1900,
       color: kdarkColor,

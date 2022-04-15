@@ -224,7 +224,7 @@ class _TabletBodyState extends State<TabletBody> {
             ),
             TAboutSection(key: aboutKey),
             TSkillSection(key: skillsKey),
-            ExperienceSection(key: experienceKey),
+            ExperienceSection(key: experienceKey, isTabMode: true),
             TProjectsAndDesigns(key: projectsKey),
             TContactSection(key: contactKey),
             const FooterSection(),

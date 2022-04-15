@@ -8,11 +8,15 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ExperienceSection extends StatelessWidget {
-  const ExperienceSection({Key? key}) : super(key: key);
+  final bool isTabMode;
+  const ExperienceSection({
+    Key? key,
+    this.isTabMode = false,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 160),
+      padding: EdgeInsets.symmetric(horizontal: isTabMode ? 90 : 160),
       width: double.infinity,
       color: klightDarkColor,
       height: 600,
@@ -69,11 +73,28 @@ class ExperienceSection extends StatelessWidget {
                                 ],
                               ),
                               const SizedBox(height: 10),
-                              Text(
-                                work.duration,
-                                style: kNormalTextStyleGrey.copyWith(
-                                  fontSize: 14,
-                                ),
+                              Row(
+                                children: [
+                                  Text(
+                                    work.duration,
+                                    style: kNormalTextStyleGrey.copyWith(
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  const Icon(
+                                    MdiIcons.circle,
+                                    color: kprimaryColor,
+                                    size: 5,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    work.type,
+                                    style: kNormalTextStyleGrey.copyWith(
+                                      fontSize: 13,
+                                    ),
+                                  )
+                                ],
                               ),
                             ],
                           ),
@@ -84,7 +105,7 @@ class ExperienceSection extends StatelessWidget {
                             .map(
                               (workDone) => Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 13),
+                                    horizontal: 15, vertical: 8),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [

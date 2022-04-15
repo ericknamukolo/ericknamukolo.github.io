@@ -3,6 +3,7 @@ class Experience {
   String title;
   String workPlace;
   String duration;
+  String type;
   String? url;
   List<String> workDone;
 
@@ -10,6 +11,7 @@ class Experience {
     required this.id,
     required this.title,
     required this.workPlace,
+    required this.type,
     required this.workDone,
     required this.url,
     required this.duration,

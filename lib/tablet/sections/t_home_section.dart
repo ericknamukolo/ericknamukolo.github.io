@@ -16,7 +16,7 @@ class THomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 70),
+      padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 70),
       height: 600,
       width: double.infinity,
       child: Row(

@@ -9,7 +9,7 @@ class TAboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 120),
+      padding: const EdgeInsets.symmetric(horizontal: 90),
       color: klightDarkColor,
       width: double.infinity,
       height: MediaQuery.of(context).size.width >= 990 ? 800 : 1290,

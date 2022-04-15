@@ -17,7 +17,7 @@ class TProjectsAndDesigns extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 120),
       width: double.infinity,
       height: 1350,
-      color: klightDarkColor,
+      color: kdarkColor,
       child: Column(
         children: [
           Container(
