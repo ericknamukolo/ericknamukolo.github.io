@@ -44,8 +44,9 @@ class MobileBody extends StatelessWidget {
           await launch(whatsappUrl);
         },
         child: const Icon(
-          Icons.whatsapp_rounded,
+          MdiIcons.whatsapp,
           size: 30,
+          color: Colors.white,
         ),
         backgroundColor: const Color(0xff075e54),
       ),

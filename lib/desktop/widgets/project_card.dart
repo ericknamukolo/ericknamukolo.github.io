@@ -116,7 +116,7 @@ class _ProjectCardState extends State<ProjectCard> {
                             width: double.infinity,
                             padding: const EdgeInsets.all(20.0),
                             decoration: BoxDecoration(
-                              color: kdarkColor,
+                              color: klightDarkColor,
                               borderRadius: BorderRadius.circular(6.0),
                               boxShadow: [
                                 BoxShadow(

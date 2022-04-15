@@ -57,7 +57,7 @@ class _ContactSectionState extends State<ContactSection> {
       padding: const EdgeInsets.symmetric(horizontal: 160),
       width: double.infinity,
       height: 750,
-      color: kdarkColor,
+      color: klightDarkColor,
       child: Column(
         children: [
           Container(
@@ -82,7 +82,7 @@ class _ContactSectionState extends State<ContactSection> {
                         margin: const EdgeInsets.symmetric(vertical: 40),
                         height: 500,
                         decoration: BoxDecoration(
-                          color: klightDarkColor,
+                          color: kdarkColor,
                           borderRadius: BorderRadius.circular(10.0),
                           boxShadow: [
                             BoxShadow(
@@ -150,7 +150,7 @@ class _ContactSectionState extends State<ContactSection> {
                                   color: const Color(0xff075e54),
                                   click: () async {
                                     var whatsappUrl =
-                                        'https://web.whatsapp.com/?send=260962885743';
+                                        'https://wa.me/260962885743?text=Hello';
                                     await launch(whatsappUrl);
                                   },
                                 ),

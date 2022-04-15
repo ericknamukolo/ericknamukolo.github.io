@@ -6,6 +6,7 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/sections/about_section.dart';
 import 'package:portfolio/desktop/sections/contact_section.dart';
+import 'package:portfolio/desktop/sections/experience_section.dart';
 import 'package:portfolio/desktop/sections/footer_section.dart';
 import 'package:portfolio/desktop/sections/home_section.dart';
 import 'package:portfolio/desktop/sections/projects_and_designs.dart';
@@ -28,9 +29,11 @@ class _DesktopBodyState extends State<DesktopBody> {
   final aboutKey = GlobalKey();
   final skillsKey = GlobalKey();
   final projectsKey = GlobalKey();
+  final experienceKey = GlobalKey();
   double homeWidth = 0;
   double aboutWidth = 0;
   double skillsWidth = 0;
+  double experienceWidth = 0;
   double projectsWidth = 0;
   double contactWidth = 0;
 
@@ -57,6 +60,7 @@ class _DesktopBodyState extends State<DesktopBody> {
           skillsWidth = 0;
           projectsWidth = 0;
           contactWidth = 0;
+          experienceWidth = 0;
         });
       } else if (currentPositon >= 620 && currentPositon < 1500) {
         setState(() {
@@ -65,6 +69,7 @@ class _DesktopBodyState extends State<DesktopBody> {
           skillsWidth = 0;
           projectsWidth = 0;
           contactWidth = 0;
+          experienceWidth = 0;
         });
       } else if (currentPositon >= 1500 && currentPositon < 2400) {
         setState(() {
@@ -73,22 +78,34 @@ class _DesktopBodyState extends State<DesktopBody> {
           skillsWidth = 40;
           projectsWidth = 0;
           contactWidth = 0;
+          experienceWidth = 0;
         });
-      } else if (currentPositon >= 2400 && currentPositon < 4000) {
+      } else if (currentPositon >= 2400 && currentPositon < 3000) {
+        setState(() {
+          homeWidth = 0;
+          aboutWidth = 0;
+          skillsWidth = 0;
+          experienceWidth = 40;
+          projectsWidth = 0;
+          contactWidth = 0;
+        });
+      } else if (currentPositon >= 3000 && currentPositon < 4700) {
         setState(() {
           homeWidth = 0;
           aboutWidth = 0;
           skillsWidth = 0;
           projectsWidth = 40;
           contactWidth = 0;
+          experienceWidth = 0;
         });
-      } else if (currentPositon >= 4000) {
+      } else if (currentPositon >= 4700) {
         setState(() {
           homeWidth = 0;
           aboutWidth = 0;
           skillsWidth = 0;
           projectsWidth = 0;
           contactWidth = 40;
+          experienceWidth = 0;
         });
       }
     });
@@ -170,6 +187,13 @@ class _DesktopBodyState extends State<DesktopBody> {
                     width: skillsWidth,
                   ),
                   AnimatedTexttt(
+                    text: 'Experience',
+                    click: () {
+                      scrollToItem(experienceKey);
+                    },
+                    width: experienceWidth,
+                  ),
+                  AnimatedTexttt(
                     text: 'Projects',
                     click: () {
                       scrollToItem(projectsKey);
@@ -203,6 +227,7 @@ class _DesktopBodyState extends State<DesktopBody> {
             ),
             AboutSection(key: aboutKey),
             SkillsSection(key: skillsKey),
+            ExperienceSection(key: experienceKey),
             ProjectsAndDesigns(key: projectsKey),
             ContactSection(key: contactKey),
             const FooterSection(),

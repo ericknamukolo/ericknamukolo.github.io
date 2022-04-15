@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/desktop/sections/experience_section.dart';
 import 'package:portfolio/desktop/sections/footer_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
 import 'package:portfolio/tablet/sections/t_about_section.dart';
@@ -24,7 +25,9 @@ class _TabletBodyState extends State<TabletBody> {
   final aboutKey = GlobalKey();
   final skillsKey = GlobalKey();
   final projectsKey = GlobalKey();
+  final experienceKey = GlobalKey();
   double homeWidth = 0;
+  double experienceWidth = 0;
   double aboutWidth = 0;
   double skillsWidth = 0;
   double projectsWidth = 0;
@@ -53,6 +56,7 @@ class _TabletBodyState extends State<TabletBody> {
           skillsWidth = 0;
           projectsWidth = 0;
           contactWidth = 0;
+          experienceWidth = 0;
         });
       } else if (currentPositon >= 600 && currentPositon < 1400) {
         setState(() {
@@ -61,6 +65,7 @@ class _TabletBodyState extends State<TabletBody> {
           skillsWidth = 0;
           projectsWidth = 0;
           contactWidth = 0;
+          experienceWidth = 0;
         });
       } else if (currentPositon >= 1400 && currentPositon < 3300) {
         setState(() {
@@ -69,22 +74,34 @@ class _TabletBodyState extends State<TabletBody> {
           skillsWidth = 30;
           projectsWidth = 0;
           contactWidth = 0;
+          experienceWidth = 0;
         });
-      } else if (currentPositon >= 3300 && currentPositon < 4650) {
+      } else if (currentPositon >= 3300 && currentPositon < 4000) {
+        setState(() {
+          homeWidth = 0;
+          aboutWidth = 0;
+          skillsWidth = 0;
+          experienceWidth = 30;
+          projectsWidth = 0;
+          contactWidth = 0;
+        });
+      } else if (currentPositon >= 4000 && currentPositon < 5150) {
         setState(() {
           homeWidth = 0;
           aboutWidth = 0;
           skillsWidth = 0;
           projectsWidth = 30;
           contactWidth = 0;
+          experienceWidth = 0;
         });
-      } else if (currentPositon >= 4650) {
+      } else if (currentPositon >= 5150) {
         setState(() {
           homeWidth = 0;
           aboutWidth = 0;
           skillsWidth = 0;
           projectsWidth = 0;
           contactWidth = 30;
+          experienceWidth = 0;
         });
       }
     });
@@ -167,6 +184,13 @@ class _TabletBodyState extends State<TabletBody> {
                     width: skillsWidth,
                   ),
                   AnimatedTexttt(
+                    text: 'Experience',
+                    click: () {
+                      scrollToItem(experienceKey);
+                    },
+                    width: experienceWidth,
+                  ),
+                  AnimatedTexttt(
                     text: 'Projects',
                     click: () {
                       scrollToItem(projectsKey);
@@ -200,6 +224,7 @@ class _TabletBodyState extends State<TabletBody> {
             ),
             TAboutSection(key: aboutKey),
             TSkillSection(key: skillsKey),
+            ExperienceSection(key: experienceKey),
             TProjectsAndDesigns(key: projectsKey),
             TContactSection(key: contactKey),
             const FooterSection(),

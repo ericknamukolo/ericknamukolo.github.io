@@ -151,7 +151,7 @@ class _MContactSectionState extends State<MContactSection> {
                           },
                         ),
                         IconHover(
-                          icon: Icons.whatsapp_rounded,
+                          icon: MdiIcons.whatsapp,
                           color: const Color(0xff075e54),
                           click: () async {
                             var whatsappUrl =

@@ -310,7 +310,7 @@ class _TContactSectionState extends State<TContactSection> {
                                       color: const Color(0xff075e54),
                                       click: () async {
                                         var whatsappUrl =
-                                            'https://web.whatsapp.com/?send=260962885743';
+                                            'https://wa.me/260962885743?text=Hello';
                                         await launch(whatsappUrl);
                                       },
                                     ),
