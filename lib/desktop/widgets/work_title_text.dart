@@ -4,9 +4,11 @@ import 'package:portfolio/constants/constants.dart';
 
 class WorkTitleText extends StatefulWidget {
   final String title;
+  final bool isMobile;
   const WorkTitleText({
     Key? key,
     required this.title,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
@@ -51,6 +53,7 @@ class _WorkTitleTextState extends State<WorkTitleText> {
                       color: kprimaryColor,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1,
+                      fontSize: widget.isMobile ? 14 : 16,
                     ),
                   ),
                   AnimatedContainer(

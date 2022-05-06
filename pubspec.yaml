@@ -47,6 +47,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   line_icons: ^2.0.1
   avatar_glow: ^2.0.2
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:

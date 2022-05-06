@@ -17,7 +17,7 @@ class MProjectsAndDesigns extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       height: 1050,
       width: double.infinity,
-      color: klightDarkColor,
+      color: kdarkColor,
       child: Column(
         children: [
           Container(
@@ -31,8 +31,8 @@ class MProjectsAndDesigns extends StatelessWidget {
                 Divider(
                   color: kprimaryColor,
                   thickness: 3,
-                  endIndent: 250,
-                  indent: 250,
+                  endIndent: 120,
+                  indent: 120,
                 ),
               ],
             ),

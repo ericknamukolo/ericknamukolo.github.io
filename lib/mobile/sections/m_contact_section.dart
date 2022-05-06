@@ -60,7 +60,7 @@ class _MContactSectionState extends State<MContactSection> {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       height: 1200,
       width: double.infinity,
-      color: kdarkColor,
+      color: klightDarkColor,
       child: Column(
         children: [
           Container(
@@ -74,8 +74,8 @@ class _MContactSectionState extends State<MContactSection> {
                 Divider(
                   color: kprimaryColor,
                   thickness: 3,
-                  endIndent: 250,
-                  indent: 250,
+                  endIndent: 120,
+                  indent: 120,
                 ),
               ],
             ),
@@ -87,7 +87,7 @@ class _MContactSectionState extends State<MContactSection> {
                 margin: const EdgeInsets.symmetric(vertical: 20),
                 height: 500,
                 decoration: BoxDecoration(
-                  color: klightDarkColor,
+                  color: kdarkColor,
                   borderRadius: BorderRadius.circular(10.0),
                   boxShadow: [
                     BoxShadow(

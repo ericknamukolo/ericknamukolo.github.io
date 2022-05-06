@@ -14,7 +14,7 @@ class MSkillSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       width: double.infinity,
-      height: 1500,
+      //  height: 1500,
       color: kdarkColor,
       child: Column(
         children: [
@@ -29,8 +29,8 @@ class MSkillSection extends StatelessWidget {
                 Divider(
                   color: kprimaryColor,
                   thickness: 3,
-                  endIndent: 250,
-                  indent: 250,
+                  endIndent: 120,
+                  indent: 120,
                 ),
               ],
             ),
@@ -39,6 +39,7 @@ class MSkillSection extends StatelessWidget {
             itemBuilder: (context, index) => MSkillCard(
               name: Provider.of<Skills>(context).skills[index].skillName,
               path: Provider.of<Skills>(context).skills[index].imgPath,
+              desc: Provider.of<Skills>(context).skills[index].desc,
             ),
             itemCount: skillData.length,
             shrinkWrap: true,

@@ -5,10 +5,12 @@ import 'package:portfolio/constants/constants.dart';
 class MSkillCard extends StatefulWidget {
   final String path;
   final String name;
+  final String desc;
   const MSkillCard({
     Key? key,
     required this.path,
     required this.name,
+    required this.desc,
   }) : super(key: key);
 
   @override
@@ -45,9 +47,9 @@ class _MSkillCardState extends State<MSkillCard> {
                 color: _isHovered ? const Color(0xff15202B) : klightDarkColor,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(_isHovered ? 35 : 25),
-                  bottomLeft: Radius.circular(10),
+                  bottomLeft: const Radius.circular(10),
                   topLeft: Radius.circular(_isHovered ? 35 : 25),
-                  topRight: Radius.circular(10),
+                  topRight: const Radius.circular(10),
                 ),
               ),
               child: Container(
@@ -60,10 +62,12 @@ class _MSkillCardState extends State<MSkillCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(widget.name, style: kNormalTextStyleWhite),
-                  const SizedBox(height: 15),
-                  const Text(
-                    ' ',
-                    style: kNormalTextStyleGrey,
+                  const SizedBox(height: 5),
+                  Text(
+                    widget.desc,
+                    style: kNormalTextStyleGrey.copyWith(
+                      fontSize: 13,
+                    ),
                   ),
                 ],
               ),

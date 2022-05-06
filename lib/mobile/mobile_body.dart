@@ -9,6 +9,7 @@ import 'package:portfolio/mobile/sections/m_contact_section.dart';
 import 'package:portfolio/mobile/sections/m_home_section.dart';
 import 'package:portfolio/mobile/sections/m_project_and_designs.dart';
 import 'package:portfolio/mobile/sections/m_skill_section.dart';
+import 'package:portfolio/mobile/sections/m_work_experience.dart';
 import 'package:portfolio/mobile/widgets/hover_container.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,6 +18,7 @@ class MobileBody extends StatelessWidget {
   final homeKey = GlobalKey();
   final aboutKey = GlobalKey();
   final skillsKey = GlobalKey();
+  final expKey = GlobalKey();
   final projectsKey = GlobalKey();
 
   MobileBody({Key? key}) : super(key: key);
@@ -117,6 +119,15 @@ class MobileBody extends StatelessWidget {
               ),
               HoverContainer(
                 child: const AnimatedTexttt(
+                  text: 'Work Experience',
+                ),
+                click: () {
+                  scrollToItem(expKey);
+                  Navigator.pop(context);
+                },
+              ),
+              HoverContainer(
+                child: const AnimatedTexttt(
                   text: 'Projects',
                 ),
                 click: () {
@@ -192,6 +203,7 @@ class MobileBody extends StatelessWidget {
             MHomeSection(key: homeKey),
             MAboutSection(key: aboutKey),
             MSkillSection(key: skillsKey),
+            MWorkExperience(key: expKey),
             MProjectsAndDesigns(key: projectsKey),
             MContactSection(key: contactKey),
             const FooterSection(),

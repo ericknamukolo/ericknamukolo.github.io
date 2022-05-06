@@ -48,7 +48,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         margin: const EdgeInsets.symmetric(vertical: 10),
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         height: _isHovered ? 260 : 250,
@@ -62,7 +62,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
             ),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              kdarkColor.withOpacity(_isHovered ? 0.6 : 0.95),
+              klightDarkColor.withOpacity(_isHovered ? 0.6 : 0.95),
               BlendMode.srcOver,
             ),
           ),

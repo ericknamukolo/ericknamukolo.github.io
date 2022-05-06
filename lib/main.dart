@@ -6,10 +6,12 @@ import 'package:portfolio/providers/experiences.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/providers/skills.dart';
 import 'package:provider/provider.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  setPathUrlStrategy();
   runApp(const Portfolio());
 }
 

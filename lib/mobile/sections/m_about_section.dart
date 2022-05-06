@@ -12,7 +12,7 @@ class MAboutSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       color: klightDarkColor,
       width: double.infinity,
-      height: MediaQuery.of(context).size.width >= 570 ? 1300 : 1450,
+      height: MediaQuery.of(context).size.width >= 570 ? 1300 : 1550,
       child: Column(
         children: [
           Container(
@@ -26,8 +26,8 @@ class MAboutSection extends StatelessWidget {
                 Divider(
                   color: kprimaryColor,
                   thickness: 3,
-                  endIndent: 250,
-                  indent: 250,
+                  endIndent: 120,
+                  indent: 120,
                 ),
               ],
             ),

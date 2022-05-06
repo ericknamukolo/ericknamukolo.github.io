@@ -12,7 +12,7 @@ class Experiences with ChangeNotifier {
           'Communicate with multi-disciplinary teams of engineers, designers and clients on a daily basis',
           'Work with a variety of different languages, platforms, frameworks, and content management systems such as Dart, Flutter, Github, Gitlab, Jira and Time Management'
         ],
-        duration: 'March 2022 - Present',
+        duration: 'Mar 2022 - Present',
         url: 'https://lassod.com',
         type: 'Full - Time'),
     Experience(
@@ -24,7 +24,7 @@ class Experiences with ChangeNotifier {
           'Built both mobile and web applications with interactive & responsive layouts.',
           'API integrations throughout a software to keep data in sync and enhance productivity.'
         ],
-        duration: 'January 2021 - March 2022',
+        duration: 'Jan 2021 - Mar 2022',
         url: null,
         type: 'Full - Time'),
   ];
