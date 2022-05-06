@@ -15,7 +15,7 @@ class MWorkExperience extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 40),
       width: double.infinity,
       color: klightDarkColor,
       child: Column(
@@ -106,7 +106,7 @@ class MWorkExperience extends StatelessWidget {
                               .map(
                                 (workDone) => Container(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 15),
+                                      horizontal: 10, vertical: 5),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,

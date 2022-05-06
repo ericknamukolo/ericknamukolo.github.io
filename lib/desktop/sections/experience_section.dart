@@ -105,7 +105,7 @@ class ExperienceSection extends StatelessWidget {
                             .map(
                               (workDone) => Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 15),
+                                    horizontal: 15, vertical: 5),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [

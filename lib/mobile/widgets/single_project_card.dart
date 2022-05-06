@@ -62,7 +62,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
             ),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              klightDarkColor.withOpacity(_isHovered ? 0.6 : 0.95),
+              kdarkColor.withOpacity(_isHovered ? 0.6 : 0.95),
               BlendMode.srcOver,
             ),
           ),
