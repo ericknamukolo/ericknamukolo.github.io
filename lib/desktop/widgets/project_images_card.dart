@@ -78,15 +78,15 @@ class _ProjectImagesCardState extends State<ProjectImagesCard> {
                   itemBuilder: (context, index, realIndex) => Container(
                     margin: const EdgeInsets.symmetric(
                         vertical: 40, horizontal: 20),
-                    width: 900,
+                    width: 1000,
                     decoration: BoxDecoration(
                       color: kdarkColor,
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(8.0),
                       image: DecorationImage(
                         image: NetworkImage(
                           widget.clickedProject.images[index],
                         ),
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ),

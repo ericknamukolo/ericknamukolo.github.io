@@ -83,7 +83,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         borderRadius: BorderRadius.circular(6.0),
                         image: DecorationImage(
                           image: NetworkImage(widget.imgUrl),
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                           colorFilter: _isHovered
                               ? null
                               : ColorFilter.mode(
