@@ -54,7 +54,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
         height: _isHovered ? 260 : 250,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: kdarkColor,
+          color: klightDarkColor,
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
             image: NetworkImage(

@@ -1,10 +1,15 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:lottie/lottie.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/widgets/basic_button.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../../desktop/widgets/home_icon_hover.dart';
 
 class THomeSection extends StatelessWidget {
   final Function() scrollToProjects;
@@ -73,6 +78,67 @@ class THomeSection extends StatelessWidget {
                 BasicButton(
                   text: 'Browse Projects',
                   click: scrollToProjects,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    HomeIconHover(
+                      icon: MdiIcons.linkedin,
+                      color: const Color(0xff0A66C2),
+                      click: () async {
+                        await launch(
+                          'https://www.linkedin.com/in/ericknamukolo/',
+                        );
+                      },
+                    ),
+                    HomeIconHover(
+                      icon: MdiIcons.github,
+                      color: const Color(0xff171515),
+                      click: () async {
+                        await launch(
+                          'https://github.com/ericknamukolo',
+                        );
+                      },
+                    ),
+                    HomeIconHover(
+                      icon: Icons.whatsapp_rounded,
+                      color: const Color(0xff075e54),
+                      click: () async {
+                        var whatsappUrl =
+                            'https://wa.me/260962885743?text=Hello';
+                        await launch(whatsappUrl);
+                      },
+                    ),
+                    HomeIconHover(
+                      icon: MdiIcons.facebook,
+                      color: const Color(0xff4267B2),
+                      click: () async {
+                        await launch(
+                          'https://www.facebook.com/ericnamukolo/',
+                        );
+                      },
+                    ),
+                    HomeIconHover(
+                      icon: LineIcons.dribbble,
+                      color: const Color(0xffea4c89),
+                      click: () async {
+                        await launch(
+                          'https://dribbble.com/erickmndev',
+                        );
+                      },
+                    ),
+                    HomeIconHover(
+                      icon: MdiIcons.coffee,
+                      color: const Color(0xff29abe0),
+                      click: () async {
+                        await launch(
+                          'https://ko-fi.com/erickmndev',
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),

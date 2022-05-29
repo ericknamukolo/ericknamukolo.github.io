@@ -4,11 +4,13 @@ class HomeIconHover extends StatefulWidget {
   final IconData icon;
   final Color color;
   final Function() click;
-  const HomeIconHover({
+  bool isMobile;
+  HomeIconHover({
     Key? key,
     required this.icon,
     required this.color,
     required this.click,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,9 @@ class _HomeIconHoverState extends State<HomeIconHover> {
       child: GestureDetector(
         onTap: widget.click,
         child: Padding(
-          padding: const EdgeInsets.only(right: 10),
+          padding: widget.isMobile
+              ? const EdgeInsets.symmetric(horizontal: 8)
+              : const EdgeInsets.only(right: 10),
           child: Icon(
             widget.icon,
             size: 26,
