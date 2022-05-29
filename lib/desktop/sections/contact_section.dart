@@ -132,7 +132,7 @@ class _ContactSectionState extends State<ContactSection> {
                                   color: const Color(0xff0A66C2),
                                   click: () async {
                                     await launch(
-                                      'https://www.linkedin.com/in/erick-namukolo-a49482202/',
+                                      'https://www.linkedin.com/in/ericknamukolo/',
                                     );
                                   },
                                 ),
@@ -169,6 +169,15 @@ class _ContactSectionState extends State<ContactSection> {
                                   click: () async {
                                     await launch(
                                       'https://dribbble.com/erickmndev',
+                                    );
+                                  },
+                                ),
+                                IconHover(
+                                  icon: MdiIcons.coffee,
+                                  color: const Color(0xff29abe0),
+                                  click: () async {
+                                    await launch(
+                                      'https://ko-fi.com/erickmndev',
                                     );
                                   },
                                 ),
