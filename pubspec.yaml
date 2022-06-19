@@ -48,10 +48,16 @@ dependencies:
   line_icons: ^2.0.1
   avatar_glow: ^2.0.2
   url_strategy: ^0.2.0
+  icons_launcher: ^1.1.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  image_path: "assets/avatar.png"
+  web: true
+  android: false
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
