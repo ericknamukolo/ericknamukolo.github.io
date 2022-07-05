@@ -29,7 +29,7 @@ class Skills with ChangeNotifier {
     ),
     Skill(
       imgPath: 'assets/adobe-xd.png',
-      skillName: 'Abobe XD',
+      skillName: 'Adobe XD',
       desc:
           'Adobe XD is a prototyping tool for user experience and interaction designers used to design websites, mobile apps, and more. Design at the speed of thought.',
     ),

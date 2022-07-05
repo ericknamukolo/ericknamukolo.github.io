@@ -73,6 +73,7 @@ class _SkillCardState extends State<SkillCard> {
           widget.skillName,
           style: kMiniTitleTextStyleWhite,
         ),
+        SizedBox(),
       ],
     );
   }
