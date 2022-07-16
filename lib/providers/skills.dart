@@ -57,6 +57,12 @@ class Skills with ChangeNotifier {
       desc:
           'Node.js is an open source, cross-platform runtime environment for developing server-side and networking applications. Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, and Linux.',
     ),
+    Skill(
+      imgPath: 'assets/mongo.png',
+      skillName: 'MongoDB',
+      desc:
+          'MongoDB is an open source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.',
+    ),
   ];
 
   List<Skill> get skills {
