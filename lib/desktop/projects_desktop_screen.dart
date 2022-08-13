@@ -78,17 +78,16 @@ class ProjectsDesktopScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: containerPadding()),
               margin: const EdgeInsets.symmetric(vertical: 30),
-              child: ListView.builder(
-                itemBuilder: (context, index) => SingleProjectCard(
-                  id: projectsData[index].id,
-                  name: projectsData[index].name,
-                  type: projectsData[index].type,
-                  desc: projectsData[index].desc,
-                  imgUrl: projectsData[index].imgUrl,
-                  dribbbleLink: projectsData[index].dribbbleLink,
-                  externalLink: projectsData[index].externalLink,
-                  githubLink: projectsData[index].githubLink,
+              child: GridView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  childAspectRatio: 1,
+                  crossAxisSpacing: 20.0,
+                  mainAxisSpacing: 20.0,
                 ),
+                itemBuilder: (context, index) =>
+                    SingleProjectCard(proj: projectsData[index]),
                 itemCount: projectsData.length,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
