@@ -6,6 +6,7 @@ class Experience {
   String type;
   String? url;
   List<String> workDone;
+  bool isHovered;
 
   Experience({
     required this.id,
@@ -15,5 +16,6 @@ class Experience {
     required this.workDone,
     required this.url,
     required this.duration,
+    this.isHovered = false,
   });
 }

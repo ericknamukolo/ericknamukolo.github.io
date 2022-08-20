@@ -13,6 +13,7 @@ class ExperienceSection extends StatelessWidget {
     Key? key,
     this.isTabMode = false,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,54 +50,63 @@ class ExperienceSection extends StatelessWidget {
                       backgroundColor: kdarkColor,
                       value: work.id,
                       headerBuilder: ((context, isExpanded) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    work.title,
-                                    style: kNormalTextStyleWhite,
-                                  ),
-                                  const SizedBox(width: 10),
-                                  GestureDetector(
-                                    onTap: () async {
-                                      if (work.url != null) {
-                                        await launch(work.url!);
-                                      }
-                                    },
-                                    child: WorkTitleText(title: work.workPlace),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  Text(
-                                    work.duration,
-                                    style: kNormalTextStyleGrey.copyWith(
-                                      fontSize: 14,
+                        return MouseRegion(
+                          onEnter: (_) =>
+                              workData.triggerAnimation(work.id, true),
+                          onExit: (_) =>
+                              workData.triggerAnimation(work.id, false),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      work.title,
+                                      style: kNormalTextStyleWhite,
                                     ),
-                                  ),
-                                  const SizedBox(width: 10),
-                                  const Icon(
-                                    MdiIcons.circle,
-                                    color: kprimaryColor,
-                                    size: 5,
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Text(
-                                    work.type,
-                                    style: kNormalTextStyleGrey.copyWith(
-                                      fontSize: 13,
+                                    const SizedBox(width: 10),
+                                    GestureDetector(
+                                      onTap: () async {
+                                        if (work.url != null) {
+                                          await launch(work.url!);
+                                        }
+                                      },
+                                      child: WorkTitleText(
+                                        title: work.workPlace,
+                                        isHovered: work.isHovered,
+                                      ),
                                     ),
-                                  )
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    Text(
+                                      work.duration,
+                                      style: kNormalTextStyleGrey.copyWith(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    const Icon(
+                                      MdiIcons.circle,
+                                      color: kprimaryColor,
+                                      size: 5,
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      work.type,
+                                      style: kNormalTextStyleGrey.copyWith(
+                                        fontSize: 13,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       }),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/models/experience.dart';
 
 class Experiences with ChangeNotifier {
+  List<Experience> get workExperience => _workExperience;
   final List<Experience> _workExperience = [
     Experience(
         id: 0,
@@ -29,5 +30,9 @@ class Experiences with ChangeNotifier {
         type: 'Full - Time'),
   ];
 
-  List<Experience> get workExperience => _workExperience;
+  void triggerAnimation(int id, bool hover) {
+    Experience bs = _workExperience.firstWhere((element) => element.id == id);
+    bs.isHovered = hover;
+    notifyListeners();
+  }
 }

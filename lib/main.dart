@@ -14,6 +14,7 @@ Future<void> main() async {
   setPathUrlStrategy();
   runApp(const Portfolio());
 }
+
 //
 class Portfolio extends StatelessWidget {
   const Portfolio({Key? key}) : super(key: key);
@@ -43,4 +44,3 @@ class Portfolio extends StatelessWidget {
     );
   }
 }
-//
