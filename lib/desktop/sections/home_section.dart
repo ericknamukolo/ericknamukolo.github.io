@@ -188,7 +188,7 @@ class HomeSection extends StatelessWidget {
                 animate: true,
                 glowColor: kprimaryColor,
                 repeat: true,
-                duration: Duration(milliseconds: 2000),
+                duration: Duration(seconds: 4),
                 // repeatPauseDuration: Duration(milliseconds: 30),
                 child: CircleAvatar(
                   foregroundImage: AssetImage('assets/avatar.png'),
