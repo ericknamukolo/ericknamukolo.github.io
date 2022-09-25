@@ -8,6 +8,9 @@ import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/tablet/tablet_body.dart';
 import 'package:portfolio/widgets/responsive_layout.dart';
 import 'package:provider/provider.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+
+import 'constants/responsive_breakpoints.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({Key? key}) : super(key: key);
@@ -20,7 +23,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero).then((_) async {
+    Future.delayed(Duration(seconds: 4)).then((_) async {
       await Provider.of<Projects>(context, listen: false).fetchAndSetProjects();
       Navigator.push(
         context,
@@ -37,15 +40,21 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
+    print(_screenWidth);
     return Scaffold(
       backgroundColor: kdarkColor,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 200),
-            Lottie.asset(
-              'assets/loading.json',
-            ),
+            _screenWidth > kTabletBreakpoint
+                ? Lottie.asset(
+                    'assets/loading.json',
+                  )
+                : LoadingAnimationWidget.bouncingBall(
+                    color: kprimaryColor, size: 80.0),
+            SizedBox(height: _screenWidth > kTabletBreakpoint ? 0.0 : 10.0),
             const Text(
               'Loading',
               style: kNormalTextStyleWhite,
