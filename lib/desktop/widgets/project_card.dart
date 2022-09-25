@@ -10,26 +10,14 @@ import 'package:portfolio/providers/projects.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../models/project.dart';
+
 class ProjectCard extends StatefulWidget {
-  final String id;
-  final String name;
-  final String type;
-  final String imgUrl;
-  final String desc;
-  final String githubLink;
-  final String dribbbleLink;
-  final String externalLink;
+  final Project project;
 
   const ProjectCard({
     Key? key,
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.imgUrl,
-    required this.desc,
-    required this.githubLink,
-    required this.externalLink,
-    required this.dribbbleLink,
+    required this.project,
   }) : super(key: key);
 
   @override
@@ -40,9 +28,6 @@ class _ProjectCardState extends State<ProjectCard> {
   bool _isHovered = false;
   @override
   Widget build(BuildContext context) {
-    final clickedProject = Provider.of<Projects>(context, listen: false)
-        .projectsAndDesigns
-        .firstWhere((proj) => proj.id == widget.id);
     return Column(
       children: [
         MouseRegion(
@@ -62,7 +47,7 @@ class _ProjectCardState extends State<ProjectCard> {
               showModalBottomSheet(
                 context: context,
                 builder: (context) =>
-                    ProjectImagesCard(clickedProject: clickedProject),
+                    ProjectImagesCard(clickedProject: widget.project),
                 isScrollControlled: true,
               );
             },
@@ -82,7 +67,7 @@ class _ProjectCardState extends State<ProjectCard> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(6.0),
                         image: DecorationImage(
-                          image: NetworkImage(widget.imgUrl),
+                          image: NetworkImage(widget.project.imgUrl),
                           fit: BoxFit.contain,
                           colorFilter: _isHovered
                               ? null
@@ -105,9 +90,10 @@ class _ProjectCardState extends State<ProjectCard> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(widget.type, style: kMiniTitleTextStylePink),
+                          Text(widget.project.type,
+                              style: kMiniTitleTextStylePink),
                           Text(
-                            widget.name,
+                            widget.project.name,
                             textAlign: TextAlign.left,
                             style: kTitleTextStyle.copyWith(fontSize: 30),
                           ),
@@ -129,43 +115,43 @@ class _ProjectCardState extends State<ProjectCard> {
                               ],
                             ),
                             child: Text(
-                              widget.desc,
+                              widget.project.desc,
                               style: kNormalTextStyleGrey,
                             ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              widget.dribbbleLink == '0'
+                              widget.project.dribbbleLink == '0'
                                   ? Container()
                                   : IconHover(
                                       icon: MdiIcons.basketball,
                                       color: kprimaryColor,
                                       click: () async {
                                         await launch(
-                                          widget.dribbbleLink,
+                                          widget.project.dribbbleLink,
                                         );
                                       },
                                     ),
-                              widget.githubLink == '0'
+                              widget.project.githubLink == '0'
                                   ? Container()
                                   : IconHover(
                                       icon: MdiIcons.github,
                                       color: kprimaryColor,
                                       click: () async {
                                         await launch(
-                                          widget.githubLink,
+                                          widget.project.githubLink,
                                         );
                                       },
                                     ),
-                              widget.externalLink == '0'
+                              widget.project.externalLink == '0'
                                   ? Container()
                                   : IconHover(
                                       icon: MdiIcons.openInNew,
                                       color: kprimaryColor,
                                       click: () async {
                                         await launch(
-                                          widget.externalLink,
+                                          widget.project.externalLink,
                                         );
                                       },
                                     ),
@@ -180,12 +166,12 @@ class _ProjectCardState extends State<ProjectCard> {
             ),
           ),
         ),
-        const Divider(
-          color: kprimaryColor,
-          thickness: 3,
-          endIndent: 450,
-          indent: 450,
-        ),
+        // const Divider(
+        //   color: kprimaryColor,
+        //   thickness: 3,
+        //   endIndent: 450,
+        //   indent: 450,
+        // ),
       ],
     );
   }
