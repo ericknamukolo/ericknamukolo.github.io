@@ -108,44 +108,32 @@ class _DesktopBodyState extends State<DesktopBody> {
                     children: [
                       AnimatedTexttt(
                         text: 'Home',
-                        click: () {
-                          scrollToItem(homeKey);
-                        },
+                        click: () => scrollToItem(homeKey),
                         width: homeWidth,
                       ),
                       AnimatedTexttt(
                         text: 'About',
-                        click: () {
-                          scrollToItem(aboutKey);
-                        },
+                        click: () => scrollToItem(aboutKey),
                         width: aboutWidth,
                       ),
                       AnimatedTexttt(
                         text: 'Skills',
-                        click: () {
-                          scrollToItem(skillsKey);
-                        },
+                        click: () => scrollToItem(skillsKey),
                         width: skillsWidth,
                       ),
                       AnimatedTexttt(
                         text: 'Experience',
-                        click: () {
-                          scrollToItem(experienceKey);
-                        },
+                        click: () => scrollToItem(experienceKey),
                         width: experienceWidth,
                       ),
                       AnimatedTexttt(
                         text: 'Projects',
-                        click: () {
-                          scrollToItem(projectsKey);
-                        },
+                        click: () => scrollToItem(projectsKey),
                         width: projectsWidth,
                       ),
                       AnimatedTexttt(
                         text: 'Contact',
-                        click: () {
-                          scrollToItem(contactKey);
-                        },
+                        click: () => scrollToItem(contactKey),
                         width: contactWidth,
                       ),
                       const CVButton(),
