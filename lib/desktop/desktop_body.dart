@@ -121,121 +121,126 @@ class _DesktopBodyState extends State<DesktopBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kdarkColor,
-      floatingActionButton: Container(
-        width: double.infinity,
-        height: 70,
-        color: kdarkColor,
-        padding: const EdgeInsets.symmetric(horizontal: 80),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Row(
-                children: [
-                  MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: GestureDetector(
-                      onTap: () {
-                        scrollToItem(homeKey);
-                      },
-                      child: const CircleAvatar(
-                        foregroundImage: AssetImage('assets/avatar.png'),
-                        backgroundColor: klightDarkColor,
-                        radius: 23,
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            height: 70,
+            color: kdarkColor,
+            padding: const EdgeInsets.symmetric(horizontal: 80),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {
+                            scrollToItem(homeKey);
+                          },
+                          child: const CircleAvatar(
+                            foregroundImage: AssetImage('assets/avatar.png'),
+                            backgroundColor: klightDarkColor,
+                            radius: 23,
+                          ),
+                        ),
                       ),
-                    ),
+                      const Icon(
+                        MdiIcons.chevronLeft,
+                        color: kprimaryColor,
+                      ),
+                      const Text(
+                        'Erick Namukolo',
+                        style: kTextStyleWhite,
+                      ),
+                      const Icon(
+                        MdiIcons.chevronRight,
+                        color: kprimaryColor,
+                      ),
+                    ],
                   ),
-                  const Icon(
-                    MdiIcons.chevronLeft,
-                    color: kprimaryColor,
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      AnimatedTexttt(
+                        text: 'Home',
+                        click: () {
+                          scrollToItem(homeKey);
+                        },
+                        width: homeWidth,
+                      ),
+                      AnimatedTexttt(
+                        text: 'About',
+                        click: () {
+                          scrollToItem(aboutKey);
+                        },
+                        width: aboutWidth,
+                      ),
+                      AnimatedTexttt(
+                        text: 'Skills',
+                        click: () {
+                          scrollToItem(skillsKey);
+                        },
+                        width: skillsWidth,
+                      ),
+                      AnimatedTexttt(
+                        text: 'Experience',
+                        click: () {
+                          scrollToItem(experienceKey);
+                        },
+                        width: experienceWidth,
+                      ),
+                      AnimatedTexttt(
+                        text: 'Projects',
+                        click: () {
+                          scrollToItem(projectsKey);
+                        },
+                        width: projectsWidth,
+                      ),
+                      AnimatedTexttt(
+                        text: 'Contact',
+                        click: () {
+                          scrollToItem(contactKey);
+                        },
+                        width: contactWidth,
+                      ),
+                      const CVButton(),
+                    ],
                   ),
-                  const Text(
-                    'Erick Namukolo',
-                    style: kTextStyleWhite,
-                  ),
-                  const Icon(
-                    MdiIcons.chevronRight,
-                    color: kprimaryColor,
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  AnimatedTexttt(
-                    text: 'Home',
-                    click: () {
-                      scrollToItem(homeKey);
-                    },
-                    width: homeWidth,
-                  ),
-                  AnimatedTexttt(
-                    text: 'About',
-                    click: () {
-                      scrollToItem(aboutKey);
-                    },
-                    width: aboutWidth,
-                  ),
-                  AnimatedTexttt(
-                    text: 'Skills',
-                    click: () {
-                      scrollToItem(skillsKey);
-                    },
-                    width: skillsWidth,
-                  ),
-                  AnimatedTexttt(
-                    text: 'Experience',
-                    click: () {
-                      scrollToItem(experienceKey);
-                    },
-                    width: experienceWidth,
-                  ),
-                  AnimatedTexttt(
-                    text: 'Projects',
-                    click: () {
-                      scrollToItem(projectsKey);
-                    },
-                    width: projectsWidth,
-                  ),
-                  AnimatedTexttt(
-                    text: 'Contact',
-                    click: () {
-                      scrollToItem(contactKey);
-                    },
-                    width: contactWidth,
-                  ),
-                  const CVButton(),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      body: WebSmoothScroll(
-        controller: _scrollController,
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          physics: const NeverScrollableScrollPhysics(),
-          child: Column(
-            children: [
-              HomeSection(
-                key: homeKey,
-                scrollToProjects: () {
-                  scrollToItem(projectsKey);
-                },
-              ),
-              AboutSection(key: aboutKey),
-              SkillsSection(key: skillsKey),
-              ExperienceSection(key: experienceKey),
-              ProjectsAndDesigns(key: projectsKey),
-              ContactSection(key: contactKey),
-              const FooterSection(),
-            ],
           ),
-        ),
+          Expanded(
+            child: WebSmoothScroll(
+              controller: _scrollController,
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                physics: const NeverScrollableScrollPhysics(),
+                child: Column(
+                  children: [
+                    HomeSection(
+                      key: homeKey,
+                      scrollToProjects: () {
+                        scrollToItem(projectsKey);
+                      },
+                    ),
+                    AboutSection(key: aboutKey),
+                    SkillsSection(key: skillsKey),
+                    ExperienceSection(key: experienceKey),
+                    ProjectsAndDesigns(key: projectsKey),
+                    ContactSection(key: contactKey),
+                    const FooterSection(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

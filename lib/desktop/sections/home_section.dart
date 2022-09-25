@@ -26,7 +26,7 @@ class HomeSection extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: _screenWidth * .1172, vertical: _screenHeight * .1),
-      height: _screenHeight * .89,
+      height: _screenHeight * .8,
       width: double.infinity,
       child: Row(
         children: [
