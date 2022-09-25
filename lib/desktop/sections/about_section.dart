@@ -16,7 +16,7 @@ class AboutSection extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: _screenWidth * .1172, vertical: _screenHeight * .0575),
+          horizontal: _screenWidth * .1172, vertical: _screenHeight * .065),
       color: klightDarkColor,
       width: double.infinity,
       child: Column(

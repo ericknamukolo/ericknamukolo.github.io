@@ -4,6 +4,7 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/work_title_text.dart';
 import 'package:portfolio/providers/experiences.dart';
+import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,30 +17,16 @@ class ExperienceSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: isTabMode ? 90 : 160),
+      padding: EdgeInsets.symmetric(
+          horizontal: _screenWidth * .1172, vertical: _screenHeight * .065),
       width: double.infinity,
       color: klightDarkColor,
-      height: 600,
       child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 40),
-            child: Column(
-              children: const [
-                Text(
-                  'Work Experience',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 500,
-                  indent: 500,
-                ),
-              ],
-            ),
-          ),
+          SectionTitle(title: 'Work Experience'),
           Consumer<Experiences>(
             builder: (context, workData, __) => ExpansionPanelList.radio(
               // dividerColor: kprimaryColor,
