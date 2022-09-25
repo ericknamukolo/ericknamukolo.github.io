@@ -5,7 +5,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/home_icon_hover.dart';
-import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,9 +18,15 @@ class HomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
+
+    print(_screenWidth * .035);
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 160, vertical: 70),
-      height: 620,
+      padding: EdgeInsets.symmetric(
+          horizontal: _screenWidth * .1172, vertical: _screenHeight * .1),
+      height: _screenHeight * .89,
       width: double.infinity,
       child: Row(
         children: [
@@ -32,9 +37,11 @@ class HomeSection extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Text(
+                    Text(
                       'I am a ',
-                      style: kTitleTextStyle,
+                      style: kTitleTextStyle.copyWith(
+                        fontSize: _screenWidth * .035,
+                      ),
                     ),
                     AnimatedTextKit(
                       animatedTexts: [
@@ -43,6 +50,7 @@ class HomeSection extends StatelessWidget {
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
                             fontWeight: FontWeight.bold,
+                            fontSize: _screenWidth * .035,
                           ),
                           speed: const Duration(milliseconds: 200),
                         ),
@@ -51,6 +59,7 @@ class HomeSection extends StatelessWidget {
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
                             fontWeight: FontWeight.bold,
+                            fontSize: _screenWidth * .035,
                           ),
                           speed: const Duration(milliseconds: 200),
                         ),
@@ -59,6 +68,7 @@ class HomeSection extends StatelessWidget {
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
                             fontWeight: FontWeight.bold,
+                            fontSize: _screenWidth * .035,
                           ),
                           speed: const Duration(milliseconds: 200),
                         ),
@@ -67,6 +77,7 @@ class HomeSection extends StatelessWidget {
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
                             fontWeight: FontWeight.bold,
+                            fontSize: _screenWidth * .035,
                           ),
                           speed: const Duration(milliseconds: 200),
                         ),
@@ -75,6 +86,7 @@ class HomeSection extends StatelessWidget {
                           textStyle: kTitleTextStyle.copyWith(
                             color: kprimaryColor,
                             fontWeight: FontWeight.bold,
+                            fontSize: _screenWidth * .035,
                           ),
                           speed: const Duration(milliseconds: 200),
                         ),
@@ -84,9 +96,11 @@ class HomeSection extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Text(
+                Text(
                   'Developer.',
-                  style: kTitleTextStyle,
+                  style: kTitleTextStyle.copyWith(
+                    fontSize: _screenWidth * .035,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -169,8 +183,8 @@ class HomeSection extends StatelessWidget {
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(10),
-              child: const AvatarGlow(
-                endRadius: 120.0 * 1.5,
+              child: AvatarGlow(
+                endRadius: _screenWidth < 1200 ? _screenWidth * .15 : 300,
                 animate: true,
                 glowColor: kprimaryColor,
                 repeat: true,
@@ -179,7 +193,7 @@ class HomeSection extends StatelessWidget {
                 child: CircleAvatar(
                   foregroundImage: AssetImage('assets/avatar.png'),
                   backgroundColor: klightDarkColor,
-                  radius: 90 * 1.5,
+                  radius: _screenWidth * .099,
                 ),
               ),
             ),

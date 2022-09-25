@@ -12,9 +12,7 @@ import 'package:portfolio/desktop/sections/home_section.dart';
 import 'package:portfolio/desktop/sections/projects_and_designs.dart';
 import 'package:portfolio/desktop/sections/skills_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
-import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/tablet/widgets/cv_button.dart';
-import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class DesktopBody extends StatefulWidget {
