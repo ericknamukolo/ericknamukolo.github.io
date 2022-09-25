@@ -13,7 +13,7 @@ class AboutSection extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    print(_screenHeight * .0575);
+
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: _screenWidth * .1172, vertical: _screenHeight * .0575),
