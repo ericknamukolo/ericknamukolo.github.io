@@ -1,4 +1,4 @@
-# portfolio
+# Erick Namukolo
 
 Software Engineer | UI/UX Designer
 
