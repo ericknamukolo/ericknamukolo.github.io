@@ -15,6 +15,7 @@ import 'package:portfolio/desktop/widgets/animated_text.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/tablet/widgets/cv_button.dart';
 import 'package:provider/provider.dart';
+import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({Key? key}) : super(key: key);
@@ -37,7 +38,7 @@ class _DesktopBodyState extends State<DesktopBody> {
   double projectsWidth = 0;
   double contactWidth = 0;
 
-  Future scrollToItem(var sectionKey) async {
+  Future scrollToItem(GlobalKey sectionKey) async {
     final context = sectionKey.currentContext!;
     await Scrollable.ensureVisible(
       context,
@@ -48,68 +49,68 @@ class _DesktopBodyState extends State<DesktopBody> {
 
   final ScrollController _scrollController = ScrollController();
 
-  @override
-  void initState() {
-    super.initState();
-    _scrollController.addListener(() {
-      var currentPositon = _scrollController.position.pixels;
-      if (currentPositon >= 0 && currentPositon < 620) {
-        setState(() {
-          homeWidth = 40;
-          aboutWidth = 0;
-          skillsWidth = 0;
-          projectsWidth = 0;
-          contactWidth = 0;
-          experienceWidth = 0;
-        });
-      } else if (currentPositon >= 620 && currentPositon < 1500) {
-        setState(() {
-          homeWidth = 0;
-          aboutWidth = 40;
-          skillsWidth = 0;
-          projectsWidth = 0;
-          contactWidth = 0;
-          experienceWidth = 0;
-        });
-      } else if (currentPositon >= 1500 && currentPositon < 2400) {
-        setState(() {
-          homeWidth = 0;
-          aboutWidth = 0;
-          skillsWidth = 40;
-          projectsWidth = 0;
-          contactWidth = 0;
-          experienceWidth = 0;
-        });
-      } else if (currentPositon >= 2400 && currentPositon < 3000) {
-        setState(() {
-          homeWidth = 0;
-          aboutWidth = 0;
-          skillsWidth = 0;
-          experienceWidth = 40;
-          projectsWidth = 0;
-          contactWidth = 0;
-        });
-      } else if (currentPositon >= 3000 && currentPositon < 4700) {
-        setState(() {
-          homeWidth = 0;
-          aboutWidth = 0;
-          skillsWidth = 0;
-          projectsWidth = 40;
-          contactWidth = 0;
-          experienceWidth = 0;
-        });
-      } else if (currentPositon >= 4700) {
-        setState(() {
-          homeWidth = 0;
-          aboutWidth = 0;
-          skillsWidth = 0;
-          projectsWidth = 0;
-          contactWidth = 40;
-          experienceWidth = 0;
-        });
-      }
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _scrollController.addListener(() {
+  //     var currentPositon = _scrollController.position.pixels;
+  //     if (currentPositon >= 0 && currentPositon < 620) {
+  //       setState(() {
+  //         homeWidth = 40;
+  //         aboutWidth = 0;
+  //         skillsWidth = 0;
+  //         projectsWidth = 0;
+  //         contactWidth = 0;
+  //         experienceWidth = 0;
+  //       });
+  //     } else if (currentPositon >= 620 && currentPositon < 1500) {
+  //       setState(() {
+  //         homeWidth = 0;
+  //         aboutWidth = 40;
+  //         skillsWidth = 0;
+  //         projectsWidth = 0;
+  //         contactWidth = 0;
+  //         experienceWidth = 0;
+  //       });
+  //     } else if (currentPositon >= 1500 && currentPositon < 2400) {
+  //       setState(() {
+  //         homeWidth = 0;
+  //         aboutWidth = 0;
+  //         skillsWidth = 40;
+  //         projectsWidth = 0;
+  //         contactWidth = 0;
+  //         experienceWidth = 0;
+  //       });
+  //     } else if (currentPositon >= 2400 && currentPositon < 3000) {
+  //       setState(() {
+  //         homeWidth = 0;
+  //         aboutWidth = 0;
+  //         skillsWidth = 0;
+  //         experienceWidth = 40;
+  //         projectsWidth = 0;
+  //         contactWidth = 0;
+  //       });
+  //     } else if (currentPositon >= 3000 && currentPositon < 4700) {
+  //       setState(() {
+  //         homeWidth = 0;
+  //         aboutWidth = 0;
+  //         skillsWidth = 0;
+  //         projectsWidth = 40;
+  //         contactWidth = 0;
+  //         experienceWidth = 0;
+  //       });
+  //     } else if (currentPositon >= 4700) {
+  //       setState(() {
+  //         homeWidth = 0;
+  //         aboutWidth = 0;
+  //         skillsWidth = 0;
+  //         projectsWidth = 0;
+  //         contactWidth = 40;
+  //         experienceWidth = 0;
+  //       });
+  //     }
+  //   });
+  // }
 
   @override
   void dispose() {
@@ -215,23 +216,27 @@ class _DesktopBodyState extends State<DesktopBody> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      body: SingleChildScrollView(
+      body: WebSmoothScroll(
         controller: _scrollController,
-        child: Column(
-          children: [
-            HomeSection(
-              key: homeKey,
-              scrollToProjects: () {
-                scrollToItem(projectsKey);
-              },
-            ),
-            AboutSection(key: aboutKey),
-            SkillsSection(key: skillsKey),
-            ExperienceSection(key: experienceKey),
-            ProjectsAndDesigns(key: projectsKey),
-            ContactSection(key: contactKey),
-            const FooterSection(),
-          ],
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          physics: const NeverScrollableScrollPhysics(),
+          child: Column(
+            children: [
+              HomeSection(
+                key: homeKey,
+                scrollToProjects: () {
+                  scrollToItem(projectsKey);
+                },
+              ),
+              AboutSection(key: aboutKey),
+              SkillsSection(key: skillsKey),
+              ExperienceSection(key: experienceKey),
+              ProjectsAndDesigns(key: projectsKey),
+              ContactSection(key: contactKey),
+              const FooterSection(),
+            ],
+          ),
         ),
       ),
     );
