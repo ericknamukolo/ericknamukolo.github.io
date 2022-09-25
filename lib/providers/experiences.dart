@@ -27,7 +27,7 @@ class Experiences with ChangeNotifier {
         ],
         duration: 'Jan 2021 - Mar 2022',
         url: null,
-        type: 'Full - Time'),
+        type: 'Full - Time (Remote)'),
   ];
 
   void triggerAnimation(int id, bool hover) {
