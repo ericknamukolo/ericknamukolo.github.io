@@ -47,69 +47,6 @@ class _DesktopBodyState extends State<DesktopBody> {
 
   final ScrollController _scrollController = ScrollController();
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _scrollController.addListener(() {
-  //     var currentPositon = _scrollController.position.pixels;
-  //     if (currentPositon >= 0 && currentPositon < 620) {
-  //       setState(() {
-  //         homeWidth = 40;
-  //         aboutWidth = 0;
-  //         skillsWidth = 0;
-  //         projectsWidth = 0;
-  //         contactWidth = 0;
-  //         experienceWidth = 0;
-  //       });
-  //     } else if (currentPositon >= 620 && currentPositon < 1500) {
-  //       setState(() {
-  //         homeWidth = 0;
-  //         aboutWidth = 40;
-  //         skillsWidth = 0;
-  //         projectsWidth = 0;
-  //         contactWidth = 0;
-  //         experienceWidth = 0;
-  //       });
-  //     } else if (currentPositon >= 1500 && currentPositon < 2400) {
-  //       setState(() {
-  //         homeWidth = 0;
-  //         aboutWidth = 0;
-  //         skillsWidth = 40;
-  //         projectsWidth = 0;
-  //         contactWidth = 0;
-  //         experienceWidth = 0;
-  //       });
-  //     } else if (currentPositon >= 2400 && currentPositon < 3000) {
-  //       setState(() {
-  //         homeWidth = 0;
-  //         aboutWidth = 0;
-  //         skillsWidth = 0;
-  //         experienceWidth = 40;
-  //         projectsWidth = 0;
-  //         contactWidth = 0;
-  //       });
-  //     } else if (currentPositon >= 3000 && currentPositon < 4700) {
-  //       setState(() {
-  //         homeWidth = 0;
-  //         aboutWidth = 0;
-  //         skillsWidth = 0;
-  //         projectsWidth = 40;
-  //         contactWidth = 0;
-  //         experienceWidth = 0;
-  //       });
-  //     } else if (currentPositon >= 4700) {
-  //       setState(() {
-  //         homeWidth = 0;
-  //         aboutWidth = 0;
-  //         skillsWidth = 0;
-  //         projectsWidth = 0;
-  //         contactWidth = 40;
-  //         experienceWidth = 0;
-  //       });
-  //     }
-  //   });
-  // }
-
   @override
   void dispose() {
     _scrollController.dispose();
@@ -119,6 +56,8 @@ class _DesktopBodyState extends State<DesktopBody> {
 //easeInOutCubic
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
+    print(_screenWidth);
     return Scaffold(
       backgroundColor: kdarkColor,
       body: Column(
@@ -127,11 +66,12 @@ class _DesktopBodyState extends State<DesktopBody> {
             width: double.infinity,
             height: 70,
             color: kdarkColor,
-            padding: const EdgeInsets.symmetric(horizontal: 80),
+            padding: EdgeInsets.symmetric(horizontal: _screenWidth * .059),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
+                  flex: _screenWidth > 1700 ? 2 : 1,
                   child: Row(
                     children: [
                       MouseRegion(

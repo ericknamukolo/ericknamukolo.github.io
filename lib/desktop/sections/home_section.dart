@@ -21,8 +21,6 @@ class HomeSection extends StatelessWidget {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
 
-    print(_screenWidth * .035);
-
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: _screenWidth * .1172, vertical: _screenHeight * .1),
@@ -184,7 +182,7 @@ class HomeSection extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(10),
               child: AvatarGlow(
-                endRadius: _screenWidth < 1200 ? _screenWidth * .15 : 300,
+                endRadius: _screenWidth < 1700 ? _screenWidth * .15 : 340,
                 animate: true,
                 glowColor: kprimaryColor,
                 repeat: true,
