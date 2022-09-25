@@ -11,6 +11,7 @@ import 'package:portfolio/tablet/sections/t_home_section.dart';
 import 'package:portfolio/tablet/sections/t_projects_and_designs.dart';
 import 'package:portfolio/tablet/sections/t_skill_section.dart';
 import 'package:portfolio/tablet/widgets/cv_button.dart';
+import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class TabletBody extends StatefulWidget {
   const TabletBody({Key? key}) : super(key: key);
@@ -212,23 +213,27 @@ class _TabletBodyState extends State<TabletBody> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      body: SingleChildScrollView(
+      body: WebSmoothScroll(
         controller: _scrollController,
-        child: Column(
-          children: [
-            THomeSection(
-              key: homeKey,
-              scrollToProjects: () {
-                scrollToItem(projectsKey);
-              },
-            ),
-            TAboutSection(key: aboutKey),
-            TSkillSection(key: skillsKey),
-            ExperienceSection(key: experienceKey, isTabMode: true),
-            TProjectsAndDesigns(key: projectsKey),
-            TContactSection(key: contactKey),
-            const FooterSection(),
-          ],
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          physics: const NeverScrollableScrollPhysics(),
+          child: Column(
+            children: [
+              THomeSection(
+                key: homeKey,
+                scrollToProjects: () {
+                  scrollToItem(projectsKey);
+                },
+              ),
+              TAboutSection(key: aboutKey),
+              TSkillSection(key: skillsKey),
+              ExperienceSection(key: experienceKey, isTabMode: true),
+              TProjectsAndDesigns(key: projectsKey),
+              TContactSection(key: contactKey),
+              const FooterSection(),
+            ],
+          ),
         ),
       ),
     );

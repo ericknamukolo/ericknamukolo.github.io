@@ -48,6 +48,9 @@ dependencies:
   line_icons: ^2.0.1
   avatar_glow: ^2.0.2
   url_strategy: ^0.2.0
+  web_smooth_scroll: ^1.0.0
+  loading_animation_widget: ^1.2.0+3
+  sizer: ^2.0.15
 
 dev_dependencies:
   icons_launcher: ^1.1.8
