@@ -21,7 +21,8 @@ class ExperienceSection extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: _screenWidth * .1172, vertical: _screenHeight * .065),
+          horizontal: isTabMode ? 90.0 : _screenWidth * .1172,
+          vertical: isTabMode ? 50.0 : _screenHeight * .065),
       width: double.infinity,
       color: klightDarkColor,
       child: Column(

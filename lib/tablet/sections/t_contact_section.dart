@@ -13,6 +13,8 @@ import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../widgets/section_title.dart';
+
 class TContactSection extends StatefulWidget {
   const TContactSection({Key? key}) : super(key: key);
 
@@ -48,7 +50,7 @@ class _TContactSectionState extends State<TContactSection> {
         BotToast.showText(
           duration: const Duration(seconds: 6),
           text:
-              'Thank You for contacting me ${name!.trim()} , I will get back to you shortly',
+              'Thank You for contacting me ${name!.trim()} , I will get back to you shortly.',
           textStyle: kNormalTextStyleGrey,
         );
         _form.currentState!.reset();
@@ -58,7 +60,6 @@ class _TContactSectionState extends State<TContactSection> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 90),
       width: double.infinity,
-      height: MediaQuery.of(context).size.width >= 1170 ? 750 : 1250,
       color: klightDarkColor,
       child: Column(
         children: [
@@ -66,16 +67,7 @@ class _TContactSectionState extends State<TContactSection> {
             margin: const EdgeInsets.symmetric(vertical: 40),
             child: Column(
               children: [
-                const Text(
-                  'Contact',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                const Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 500,
-                  indent: 500,
-                ),
+                SectionTitle(title: 'Contact'),
                 MediaQuery.of(context).size.width >= 1170
                     ? Row(
                         children: [
