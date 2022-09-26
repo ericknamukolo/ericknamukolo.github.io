@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/about_card.dart';
+import 'package:portfolio/widgets/section_title.dart';
 
 class MAboutSection extends StatelessWidget {
   const MAboutSection({Key? key}) : super(key: key);
@@ -9,29 +10,12 @@ class MAboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       color: klightDarkColor,
       width: double.infinity,
-      height: MediaQuery.of(context).size.width >= 570 ? 1300 : 1550,
       child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 30),
-            child: Column(
-              children: const [
-                Text(
-                  'About',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 120,
-                  indent: 120,
-                ),
-              ],
-            ),
-          ),
+          SectionTitle(title: 'About'),
           MediaQuery.of(context).size.width >= 990
               ? Row(
                   crossAxisAlignment: CrossAxisAlignment.start,

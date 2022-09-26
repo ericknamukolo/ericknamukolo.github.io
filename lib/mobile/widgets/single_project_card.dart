@@ -6,25 +6,14 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
+import 'package:portfolio/models/project.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SingleProjectCard extends StatefulWidget {
-  final String imgUrl;
-  final String desc;
-  final String type;
-  final String name;
-  final String dribbbleLink;
-  final String githubLink;
-  final String externalLink;
+  final Project project;
   const SingleProjectCard({
     Key? key,
-    required this.imgUrl,
-    required this.desc,
-    required this.type,
-    required this.name,
-    required this.dribbbleLink,
-    required this.githubLink,
-    required this.externalLink,
+    required this.project,
   }) : super(key: key);
 
   @override
@@ -58,7 +47,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
             image: NetworkImage(
-              widget.imgUrl,
+              widget.project.imgUrl,
             ),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
@@ -74,7 +63,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Icon(
-                  widget.type == 'Project'
+                  widget.project.type == 'Project'
                       ? Icons.folder_open_rounded
                       : Icons.design_services_outlined,
                   color: kprimaryColor,
@@ -82,19 +71,19 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
                 ),
                 Row(
                   children: [
-                    widget.dribbbleLink == '0'
+                    widget.project.dribbbleLink == '0'
                         ? Container()
                         : IconHover(
                             icon: LineIcons.dribbble,
                             color: kprimaryColor,
                             click: () async {
                               await launch(
-                                widget.dribbbleLink,
+                                widget.project.dribbbleLink,
                               );
                             },
                             padding: 4,
                           ),
-                    widget.githubLink == '0'
+                    widget.project.githubLink == '0'
                         ? Container()
                         : IconHover(
                             padding: 4,
@@ -102,11 +91,11 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
                             color: kprimaryColor,
                             click: () async {
                               await launch(
-                                widget.githubLink,
+                                widget.project.githubLink,
                               );
                             },
                           ),
-                    widget.externalLink == '0'
+                    widget.project.externalLink == '0'
                         ? Container()
                         : IconHover(
                             padding: 4,
@@ -114,7 +103,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
                             color: kprimaryColor,
                             click: () async {
                               await launch(
-                                widget.externalLink,
+                                widget.project.externalLink,
                               );
                             },
                           ),
@@ -126,7 +115,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
               height: 20,
             ),
             Text(
-              widget.name,
+              widget.project.name,
               style: kMiniTitleTextStyleWhite.copyWith(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -137,7 +126,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
               height: 10,
             ),
             Text(
-              widget.desc,
+              widget.project.desc,
               style: kNormalTextStyleGrey,
             ),
           ],
