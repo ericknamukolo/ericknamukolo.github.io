@@ -11,7 +11,6 @@ class MSkillSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final skillData = Provider.of<Skills>(context, listen: false).skills;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       width: double.infinity,
@@ -19,15 +18,15 @@ class MSkillSection extends StatelessWidget {
       child: Column(
         children: [
           SectionTitle(title: 'Skills'),
-          ListView.builder(
-            itemBuilder: (context, index) => MSkillCard(
-              name: Provider.of<Skills>(context).skills[index].skillName,
-              path: Provider.of<Skills>(context).skills[index].imgPath,
-              desc: Provider.of<Skills>(context).skills[index].desc,
+          Consumer<Skills>(
+            builder: (context, skillData, __) => ListView.builder(
+              itemBuilder: (context, index) => MSkillCard(
+                skill: skillData.skills[index],
+              ),
+              itemCount: skillData.skills.length,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
             ),
-            itemCount: skillData.length,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
           ),
         ],
       ),
