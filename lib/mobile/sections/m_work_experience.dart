@@ -4,6 +4,7 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/work_title_text.dart';
 import 'package:portfolio/providers/experiences.dart';
+import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,28 +16,12 @@ class MWorkExperience extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       width: double.infinity,
       color: klightDarkColor,
       child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              children: const [
-                Text(
-                  'Work Experience',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 120,
-                  indent: 120,
-                ),
-              ],
-            ),
-          ),
+          SectionTitle(title: 'Work Experience'),
           Consumer<Experiences>(
             builder: (context, expData, __) => ExpansionPanelList.radio(
               children: expData.workExperience

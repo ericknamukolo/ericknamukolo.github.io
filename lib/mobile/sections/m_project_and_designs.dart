@@ -5,6 +5,7 @@ import 'package:portfolio/desktop/projects_desktop_screen.dart';
 import 'package:portfolio/mobile/widgets/single_project_card.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/widgets/basic_button.dart';
+import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 
 class MProjectsAndDesigns extends StatelessWidget {
@@ -12,44 +13,22 @@ class MProjectsAndDesigns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final projectsData = Provider.of<Projects>(context).projectsAndDesigns;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      height: 1050,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       width: double.infinity,
       color: kdarkColor,
       child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              children: const [
-                Text(
-                  'Projects & Designs',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 120,
-                  indent: 120,
-                ),
-              ],
+          SectionTitle(title: 'Projects & Designs'),
+          Consumer<Projects>(
+            builder: (context, projectsData, __) => ListView.builder(
+              itemBuilder: (conetxt, index) => SingleProjectCard(
+                project: projectsData.projectsAndDesigns[index],
+              ),
+              itemCount: 3,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
             ),
-          ),
-          ListView.builder(
-            itemBuilder: (conetxt, index) => SingleProjectCard(
-              imgUrl: projectsData[index].imgUrl,
-              desc: projectsData[index].desc,
-              dribbbleLink: projectsData[index].dribbbleLink,
-              externalLink: projectsData[index].externalLink,
-              githubLink: projectsData[index].githubLink,
-              name: projectsData[index].name,
-              type: projectsData[index].type,
-            ),
-            itemCount: 3,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
           ),
           const SizedBox(height: 25),
           BasicButton(
