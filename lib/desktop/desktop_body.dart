@@ -13,7 +13,11 @@ import 'package:portfolio/desktop/sections/projects_and_designs.dart';
 import 'package:portfolio/desktop/sections/skills_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
 import 'package:portfolio/tablet/widgets/cv_button.dart';
+import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
+
+import '../providers/projects.dart';
+import '../widgets/basic_button.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({Key? key}) : super(key: key);
@@ -36,6 +40,14 @@ class _DesktopBodyState extends State<DesktopBody> {
   double projectsWidth = 0;
   double contactWidth = 0;
 
+  double _getPosition(GlobalKey key) {
+    RenderBox box = key.currentContext!.findRenderObject() as RenderBox;
+    Offset position = box.localToGlobal(Offset.zero); //this is global position
+    double pos = position.dy;
+
+    return pos - 70.0;
+  }
+
   Future scrollToItem(GlobalKey sectionKey) async {
     final context = sectionKey.currentContext!;
     await Scrollable.ensureVisible(
@@ -57,7 +69,7 @@ class _DesktopBodyState extends State<DesktopBody> {
   @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
-    print(_screenWidth);
+
     return Scaffold(
       backgroundColor: kdarkColor,
       body: Column(
@@ -105,50 +117,46 @@ class _DesktopBodyState extends State<DesktopBody> {
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       AnimatedTexttt(
                         text: 'Home',
-                        click: () {
-                          scrollToItem(homeKey);
-                        },
+                        click: () => scrollToItem(homeKey),
                         width: homeWidth,
                       ),
                       AnimatedTexttt(
                         text: 'About',
-                        click: () {
-                          scrollToItem(aboutKey);
-                        },
+                        click: () => scrollToItem(aboutKey),
                         width: aboutWidth,
                       ),
                       AnimatedTexttt(
                         text: 'Skills',
-                        click: () {
-                          scrollToItem(skillsKey);
-                        },
+                        click: () => scrollToItem(skillsKey),
                         width: skillsWidth,
                       ),
                       AnimatedTexttt(
                         text: 'Experience',
-                        click: () {
-                          scrollToItem(experienceKey);
-                        },
+                        click: () => scrollToItem(experienceKey),
                         width: experienceWidth,
                       ),
                       AnimatedTexttt(
                         text: 'Projects',
-                        click: () {
-                          scrollToItem(projectsKey);
-                        },
+                        click: () => scrollToItem(projectsKey),
                         width: projectsWidth,
                       ),
                       AnimatedTexttt(
                         text: 'Contact',
-                        click: () {
-                          scrollToItem(contactKey);
-                        },
+                        click: () => scrollToItem(contactKey),
                         width: contactWidth,
                       ),
-                      const CVButton(),
+                      BasicButton(
+                        text: 'CV',
+                        wid: 120,
+                        click: () {
+                          Provider.of<Projects>(context, listen: false)
+                              .downloadCV();
+                        },
+                      ),
                     ],
                   ),
                 ),

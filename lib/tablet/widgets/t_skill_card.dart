@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 
+import '../../models/skill.dart';
+
 class TSkillCard extends StatefulWidget {
-  final String skillName;
-  final String path;
+  final Skill skill;
   const TSkillCard({
     Key? key,
-    required this.skillName,
-    required this.path,
+    required this.skill,
   }) : super(key: key);
 
   @override
@@ -56,7 +56,7 @@ class _TSkillCardState extends State<TSkillCard> {
               flex: 1,
               child: Container(
                 margin: const EdgeInsets.only(right: 30),
-                child: Image.asset(widget.path),
+                child: Image.asset(widget.skill.imgPath),
               ),
             ),
             Expanded(
@@ -66,11 +66,11 @@ class _TSkillCardState extends State<TSkillCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.skillName,
+                    widget.skill.skillName,
                     style: kNormalTextStyleWhite.copyWith(fontSize: 18),
                   ),
-                  const Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                  Text(
+                    widget.skill.desc,
                     style: kNormalTextStyleGrey,
                   ),
                 ],

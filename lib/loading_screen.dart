@@ -25,7 +25,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 4)).then((_) async {
       await Provider.of<Projects>(context, listen: false).fetchAndSetProjects();
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => ResponsiveLayout(

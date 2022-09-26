@@ -1,6 +1,6 @@
-# portfolio
+# Erick Namukolo
 
-A new Flutter project.
+Software Engineer | UI/UX Designer
 
 ## Getting Started
 
