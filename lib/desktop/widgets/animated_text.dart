@@ -39,28 +39,12 @@ class _AnimatedTextttState extends State<AnimatedTexttt> {
       },
       child: GestureDetector(
         onTap: widget.click,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.text,
-              style: kNormalTextStyleWhite.copyWith(
-                color: color,
-                fontWeight: bold,
-              ),
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 600),
-              curve: Curves.ease,
-              width: widget.width,
-              height: 5,
-              color: kprimaryColor,
-            ),
-          ],
+        child: Text(
+          widget.text,
+          style: kNormalTextStyleWhite.copyWith(
+            color: color,
+            fontWeight: bold,
+          ),
         ),
       ),
     );

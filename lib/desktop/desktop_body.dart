@@ -13,7 +13,11 @@ import 'package:portfolio/desktop/sections/projects_and_designs.dart';
 import 'package:portfolio/desktop/sections/skills_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
 import 'package:portfolio/tablet/widgets/cv_button.dart';
+import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
+
+import '../providers/projects.dart';
+import '../widgets/basic_button.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({Key? key}) : super(key: key);
@@ -113,6 +117,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       AnimatedTexttt(
                         text: 'Home',
@@ -144,7 +149,14 @@ class _DesktopBodyState extends State<DesktopBody> {
                         click: () => scrollToItem(contactKey),
                         width: contactWidth,
                       ),
-                      const CVButton(),
+                      BasicButton(
+                        text: 'CV',
+                        wid: 120,
+                        click: () {
+                          Provider.of<Projects>(context, listen: false)
+                              .downloadCV();
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -152,50 +164,26 @@ class _DesktopBodyState extends State<DesktopBody> {
             ),
           ),
           Expanded(
-            child: NotificationListener<ScrollNotification>(
-              onNotification: (ScrollNotification info) {
-                if (_getPosition(homeKey) <= 0.0 &&
-                    _getPosition(aboutKey) > 0.0) {
-                  //data.triggerSelection(0);
-                } else if (_getPosition(aboutKey) <= 0.0 &&
-                    _getPosition(skillsKey) > 0.0) {
-                  //data.triggerSelection(1);
-                } else if (_getPosition(skillsKey) <= 0.0 &&
-                    _getPosition(experienceKey) > 0.0) {
-                  //data.triggerSelection(2);
-                } else if (_getPosition(experienceKey) <= 0.0 &&
-                    _getPosition(projectsKey) > 0.0) {
-                  // data.triggerSelection(3);
-                } else if (_getPosition(projectsKey) <= 0.0 &&
-                    _getPosition(contactKey) > 0) {
-                  //  data.triggerSelection(4);
-                } else if (_getPosition(contactKey) <= 0.0) {
-                  //  data.triggerSelection(5);
-                }
-
-                return true;
-              },
-              child: WebSmoothScroll(
+            child: WebSmoothScroll(
+              controller: _scrollController,
+              child: SingleChildScrollView(
                 controller: _scrollController,
-                child: SingleChildScrollView(
-                  controller: _scrollController,
-                  physics: const NeverScrollableScrollPhysics(),
-                  child: Column(
-                    children: [
-                      HomeSection(
-                        key: homeKey,
-                        scrollToProjects: () {
-                          scrollToItem(projectsKey);
-                        },
-                      ),
-                      AboutSection(key: aboutKey),
-                      SkillsSection(key: skillsKey),
-                      ExperienceSection(key: experienceKey),
-                      ProjectsAndDesigns(key: projectsKey),
-                      ContactSection(key: contactKey),
-                      const FooterSection(),
-                    ],
-                  ),
+                physics: const NeverScrollableScrollPhysics(),
+                child: Column(
+                  children: [
+                    HomeSection(
+                      key: homeKey,
+                      scrollToProjects: () {
+                        scrollToItem(projectsKey);
+                      },
+                    ),
+                    AboutSection(key: aboutKey),
+                    SkillsSection(key: skillsKey),
+                    ExperienceSection(key: experienceKey),
+                    ProjectsAndDesigns(key: projectsKey),
+                    ContactSection(key: contactKey),
+                    const FooterSection(),
+                  ],
                 ),
               ),
             ),
