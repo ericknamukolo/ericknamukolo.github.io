@@ -3,6 +3,7 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/mobile/widgets/m_skill_card.dart';
 import 'package:portfolio/providers/skills.dart';
+import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 
 class MSkillSection extends StatelessWidget {
@@ -12,29 +13,12 @@ class MSkillSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final skillData = Provider.of<Skills>(context, listen: false).skills;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       width: double.infinity,
-      //  height: 1500,
       color: kdarkColor,
       child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              children: const [
-                Text(
-                  'Skills',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 120,
-                  indent: 120,
-                ),
-              ],
-            ),
-          ),
+          SectionTitle(title: 'Skills'),
           ListView.builder(
             itemBuilder: (context, index) => MSkillCard(
               name: Provider.of<Skills>(context).skills[index].skillName,

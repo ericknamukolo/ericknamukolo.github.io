@@ -39,6 +39,7 @@ class THomeSection extends StatelessWidget {
                       style: kTitleTextStyle.copyWith(fontSize: 40),
                     ),
                     AnimatedTextKit(
+                      repeatForever: true,
                       animatedTexts: [
                         TypewriterAnimatedText(
                           'Flutter',
