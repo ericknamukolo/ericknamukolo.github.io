@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -5,6 +6,7 @@ import 'package:portfolio/desktop/projects_desktop_screen.dart';
 import 'package:portfolio/mobile/widgets/single_project_card.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/widgets/basic_button.dart';
+import 'package:portfolio/widgets/custom_toast.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 
@@ -34,9 +36,16 @@ class MProjectsAndDesigns extends StatelessWidget {
           BasicButton(
             text: 'Browse All Projects',
             click: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const ProjectsDesktopScreen(),
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (context) => const ProjectsDesktopScreen(),
+              //   ),
+              // );
+              BotToast.showCustomNotification(
+                duration: Duration(seconds: 5),
+                toastBuilder: (context) => CustomToast(
+                  message: 'Relax 🙄 , I\'m still working on that page! 😐',
+                  type: 'success',
                 ),
               );
             },
