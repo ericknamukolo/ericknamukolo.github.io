@@ -1,8 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
-import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/desktop/projects_desktop_screen.dart';
 import 'package:portfolio/mobile/widgets/single_project_card.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/widgets/basic_button.dart';

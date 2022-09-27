@@ -6,8 +6,6 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/desktop/widgets/project_images_card.dart';
-import 'package:portfolio/providers/projects.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../models/project.dart';

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';

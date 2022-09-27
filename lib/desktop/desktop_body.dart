@@ -12,7 +12,6 @@ import 'package:portfolio/desktop/sections/home_section.dart';
 import 'package:portfolio/desktop/sections/projects_and_designs.dart';
 import 'package:portfolio/desktop/sections/skills_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
-import 'package:portfolio/tablet/widgets/cv_button.dart';
 import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
@@ -39,14 +38,6 @@ class _DesktopBodyState extends State<DesktopBody> {
   double experienceWidth = 0;
   double projectsWidth = 0;
   double contactWidth = 0;
-
-  double _getPosition(GlobalKey key) {
-    RenderBox box = key.currentContext!.findRenderObject() as RenderBox;
-    Offset position = box.localToGlobal(Offset.zero); //this is global position
-    double pos = position.dy;
-
-    return pos - 70.0;
-  }
 
   Future scrollToItem(GlobalKey sectionKey) async {
     final context = sectionKey.currentContext!;

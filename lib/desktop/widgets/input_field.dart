@@ -21,6 +21,7 @@ class InputField extends StatelessWidget {
         if (value!.isEmpty) {
           return 'This field is required';
         }
+        return null;
       },
       controller: controller,
       onSaved: onSaved,
