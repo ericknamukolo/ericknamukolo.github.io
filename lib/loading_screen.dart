@@ -41,7 +41,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
-    print(_screenWidth);
+
     return Scaffold(
       backgroundColor: kdarkColor,
       body: Center(

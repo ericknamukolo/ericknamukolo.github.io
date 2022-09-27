@@ -69,7 +69,6 @@ class _DesktopBodyState extends State<DesktopBody> {
   @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: kdarkColor,
       body: Column(

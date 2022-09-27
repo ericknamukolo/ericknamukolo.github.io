@@ -55,6 +55,7 @@ class MobileBody extends StatelessWidget {
 
       drawer: Drawer(
         child: Container(
+          padding: EdgeInsets.only(bottom: 30),
           color: kdarkColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -144,9 +145,7 @@ class MobileBody extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const Spacer(),
               Center(
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
