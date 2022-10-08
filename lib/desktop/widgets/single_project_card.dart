@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/constants/responsive_breakpoints.dart';
-import 'package:portfolio/desktop/widgets/icon_hover.dart';
-import 'package:portfolio/desktop/widgets/project_images_card.dart';
-import 'package:portfolio/providers/projects.dart';
-import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../models/project.dart';
 

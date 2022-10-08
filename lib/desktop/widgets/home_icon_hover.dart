@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class HomeIconHover extends StatefulWidget {
   final IconData icon;
   final Color color;

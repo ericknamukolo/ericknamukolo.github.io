@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
-import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/tablet/widgets/t_project_card.dart';
 import 'package:portfolio/widgets/basic_button.dart';

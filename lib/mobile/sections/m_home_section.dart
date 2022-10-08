@@ -170,21 +170,11 @@ class MHomeSection extends StatelessWidget {
               ),
               HomeIconHover(
                 isMobile: true,
-                icon: LineIcons.dribbble,
-                color: const Color(0xffea4c89),
+                icon: MdiIcons.googlePlay,
+                color: const Color(0xff48ff48),
                 click: () async {
                   await launch(
-                    'https://dribbble.com/erickmndev',
-                  );
-                },
-              ),
-              HomeIconHover(
-                isMobile: true,
-                icon: MdiIcons.coffee,
-                color: const Color(0xff29abe0),
-                click: () async {
-                  await launch(
-                    'https://ko-fi.com/erickmndev',
+                    'https://play.google.com/console/u/0/developers/8203990443766365712/accountdetails',
                   );
                 },
               ),

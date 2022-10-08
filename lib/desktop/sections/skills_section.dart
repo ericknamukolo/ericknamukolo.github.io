@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
-import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/skill_card.dart';
 import 'package:portfolio/providers/skills.dart';
 import 'package:portfolio/widgets/section_title.dart';
