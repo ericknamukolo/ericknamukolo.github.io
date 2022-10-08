@@ -160,7 +160,7 @@ class HomeSection extends StatelessWidget {
                       color: const Color(0xff48ff48),
                       click: () async {
                         await launch(
-                          'https://play.google.com/console/u/0/developers/8203990443766365712/accountdetails',
+                          'https://play.google.com/store/apps/dev?id=8203990443766365712',
                         );
                       },
                     ),
