@@ -154,11 +154,11 @@ class _TContactSectionState extends State<TContactSection> {
                                         },
                                       ),
                                       IconHover(
-                                        icon: LineIcons.dribbble,
-                                        color: const Color(0xffea4c89),
+                                        icon: MdiIcons.googlePlay,
+                                        color: const Color(0xff48ff48),
                                         click: () async {
                                           await launch(
-                                            'https://dribbble.com/erickmndev',
+                                            'https://play.google.com/console/u/0/developers/8203990443766365712/accountdetails',
                                           );
                                         },
                                       ),
@@ -316,11 +316,11 @@ class _TContactSectionState extends State<TContactSection> {
                                       },
                                     ),
                                     IconHover(
-                                      icon: LineIcons.dribbble,
-                                      color: const Color(0xffea4c89),
+                                      icon: MdiIcons.googlePlay,
+                                      color: const Color(0xff48ff48),
                                       click: () async {
                                         await launch(
-                                          'https://dribbble.com/erickmndev',
+                                          'https://play.google.com/console/u/0/developers/8203990443766365712/accountdetails',
                                         );
                                       },
                                     ),
