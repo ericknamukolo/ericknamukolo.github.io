@@ -123,15 +123,6 @@ class THomeSection extends StatelessWidget {
                       },
                     ),
                     HomeIconHover(
-                      icon: MdiIcons.coffee,
-                      color: const Color(0xff29abe0),
-                      click: () async {
-                        await launch(
-                          'https://ko-fi.com/erickmndev',
-                        );
-                      },
-                    ),
-                    HomeIconHover(
                       icon: MdiIcons.googlePlay,
                       color: const Color(0xff48ff48),
                       click: () async {
