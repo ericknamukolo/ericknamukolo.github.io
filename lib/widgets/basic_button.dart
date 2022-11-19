@@ -6,11 +6,13 @@ class BasicButton extends StatefulWidget {
   final String text;
   final Function() click;
   final bool isSending;
+  final double? wid;
 
   const BasicButton({
     Key? key,
     required this.text,
     required this.click,
+    this.wid,
     this.isSending = false,
   }) : super(key: key);
 
@@ -37,8 +39,8 @@ class _BasicButtonState extends State<BasicButton> {
       child: GestureDetector(
         onTap: widget.click,
         child: Container(
-          height: 50,
-          width: 170,
+          height: widget.wid == null ? 50 : 45,
+          width: widget.wid ?? 170,
           child: Center(
             child: widget.isSending
                 ? const SizedBox(

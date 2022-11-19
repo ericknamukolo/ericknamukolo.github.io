@@ -9,6 +9,7 @@ import 'package:portfolio/desktop/widgets/contact_card.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/widgets/basic_button.dart';
+import 'package:portfolio/widgets/section_title.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MContactSection extends StatefulWidget {
@@ -57,29 +58,12 @@ class _MContactSectionState extends State<MContactSection> {
     }
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      height: 1200,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       width: double.infinity,
       color: klightDarkColor,
       child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              children: const [
-                Text(
-                  'Contact',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 120,
-                  indent: 120,
-                ),
-              ],
-            ),
-          ),
+          SectionTitle(title: 'Contact'),
           Column(
             children: [
               Container(
@@ -169,11 +153,11 @@ class _MContactSectionState extends State<MContactSection> {
                           },
                         ),
                         IconHover(
-                          icon: LineIcons.dribbble,
-                          color: const Color(0xffea4c89),
+                          icon: MdiIcons.googlePlay,
+                          color: const Color(0xff48ff48),
                           click: () async {
                             await launch(
-                              'https://dribbble.com/erickmndev',
+                              'https://play.google.com/store/apps/dev?id=8203990443766365712',
                             );
                           },
                         ),

@@ -11,6 +11,8 @@ import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../widgets/section_title.dart';
+
 class ContactSection extends StatefulWidget {
   const ContactSection({Key? key}) : super(key: key);
 
@@ -20,8 +22,11 @@ class ContactSection extends StatefulWidget {
 
 class _ContactSectionState extends State<ContactSection> {
   bool _isSending = false;
+
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
     final _form = GlobalKey<FormState>();
     String? name;
     String? email;
@@ -54,9 +59,9 @@ class _ContactSectionState extends State<ContactSection> {
     }
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 160),
+      padding: EdgeInsets.symmetric(
+          horizontal: _screenWidth * .1172, vertical: _screenHeight * .065),
       width: double.infinity,
-      height: 750,
       color: klightDarkColor,
       child: Column(
         children: [
@@ -64,16 +69,7 @@ class _ContactSectionState extends State<ContactSection> {
             margin: const EdgeInsets.symmetric(vertical: 40),
             child: Column(
               children: [
-                const Text(
-                  'Contact',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                const Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 500,
-                  indent: 500,
-                ),
+                SectionTitle(title: 'Contact'),
                 Row(
                   children: [
                     Expanded(
@@ -164,20 +160,11 @@ class _ContactSectionState extends State<ContactSection> {
                                   },
                                 ),
                                 IconHover(
-                                  icon: LineIcons.dribbble,
-                                  color: const Color(0xffea4c89),
+                                  icon: MdiIcons.googlePlay,
+                                  color: const Color(0xff48ff48),
                                   click: () async {
                                     await launch(
-                                      'https://dribbble.com/erickmndev',
-                                    );
-                                  },
-                                ),
-                                IconHover(
-                                  icon: MdiIcons.coffee,
-                                  color: const Color(0xff29abe0),
-                                  click: () async {
-                                    await launch(
-                                      'https://ko-fi.com/erickmndev',
+                                      'https://play.google.com/store/apps/dev?id=8203990443766365712',
                                     );
                                   },
                                 ),

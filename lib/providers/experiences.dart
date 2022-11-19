@@ -15,7 +15,7 @@ class Experiences with ChangeNotifier {
         ],
         duration: 'Mar 2022 - Present',
         url: 'https://lassod.com',
-        type: 'Full - Time'),
+        type: 'Full - Time (Remote)'),
     Experience(
         id: 1,
         title: 'UI / UX Designer & Flutter Developer',
@@ -27,7 +27,7 @@ class Experiences with ChangeNotifier {
         ],
         duration: 'Jan 2021 - Mar 2022',
         url: null,
-        type: 'Full - Time (Remote)'),
+        type: 'Full - Time'),
   ];
 
   void triggerAnimation(int id, bool hover) {

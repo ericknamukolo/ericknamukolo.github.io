@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/models/skill.dart';
 
 class SkillCard extends StatefulWidget {
-  final String skillName;
-  final String path;
+  final Skill skill;
+  final double size;
 
   const SkillCard({
     Key? key,
-    required this.skillName,
-    required this.path,
+    required this.skill,
+    required this.size,
   }) : super(key: key);
 
   @override
@@ -18,7 +19,14 @@ class SkillCard extends StatefulWidget {
 
 class _SkillCardState extends State<SkillCard> {
   Color color = klightDarkColor;
-  double height = 160;
+  double height = 0.0;
+
+  @override
+  void initState() {
+    height = widget.size;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,7 +38,11 @@ class _SkillCardState extends State<SkillCard> {
               () {
                 if (MediaQuery.of(context).size.width >= 1320) {
                   color = const Color(0xff15202B);
-                  height = 170;
+                  if (height > 200) {
+                    height = widget.size + 20.0;
+                  } else {
+                    height = 170;
+                  }
                 } else {
                   color = const Color(0xff15202B);
                 }
@@ -41,7 +53,7 @@ class _SkillCardState extends State<SkillCard> {
             setState(
               () {
                 color = klightDarkColor;
-                height = 160;
+                height = widget.size;
               },
             );
           },
@@ -64,15 +76,16 @@ class _SkillCardState extends State<SkillCard> {
             child: Container(
               margin: const EdgeInsets.all(30.0),
               child: Image.asset(
-                widget.path,
+                widget.skill.imgPath,
               ),
             ),
           ),
         ),
         Text(
-          widget.skillName,
+          widget.skill.skillName,
           style: kMiniTitleTextStyleWhite,
         ),
+        SizedBox(),
         SizedBox(),
       ],
     );

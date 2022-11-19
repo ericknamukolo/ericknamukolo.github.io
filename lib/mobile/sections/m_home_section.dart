@@ -4,7 +4,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:lottie/lottie.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -21,16 +20,16 @@ class MHomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      height: 650,
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 50),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             padding: const EdgeInsets.all(10),
             child: const AvatarGlow(
-              endRadius: 120.0,
+              endRadius: 160.0,
               animate: true,
               glowColor: kprimaryColor,
               repeat: true,
@@ -171,21 +170,11 @@ class MHomeSection extends StatelessWidget {
               ),
               HomeIconHover(
                 isMobile: true,
-                icon: LineIcons.dribbble,
-                color: const Color(0xffea4c89),
+                icon: MdiIcons.googlePlay,
+                color: const Color(0xff48ff48),
                 click: () async {
                   await launch(
-                    'https://dribbble.com/erickmndev',
-                  );
-                },
-              ),
-              HomeIconHover(
-                isMobile: true,
-                icon: MdiIcons.coffee,
-                color: const Color(0xff29abe0),
-                click: () async {
-                  await launch(
-                    'https://ko-fi.com/erickmndev',
+                    'https://play.google.com/store/apps/dev?id=8203990443766365712',
                   );
                 },
               ),

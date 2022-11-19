@@ -4,35 +4,24 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/about_card.dart';
 
+import '../../widgets/section_title.dart';
+
 class AboutSection extends StatelessWidget {
   const AboutSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 160),
+      padding: EdgeInsets.symmetric(
+          horizontal: _screenWidth * .1172, vertical: _screenHeight * .065),
       color: klightDarkColor,
       width: double.infinity,
-      height: 880,
       child: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 40),
-            child: Column(
-              children: const [
-                Text(
-                  'About',
-                  style: kMiniTitleTextStyleWhite,
-                ),
-                Divider(
-                  color: kprimaryColor,
-                  thickness: 3,
-                  endIndent: 500,
-                  indent: 500,
-                ),
-              ],
-            ),
-          ),
+          SectionTitle(title: 'About'),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -75,7 +64,9 @@ class AboutSection extends StatelessWidget {
                   children: [
                     RichText(
                       text: TextSpan(
-                        style: kTitleTextStyle,
+                        style: kTitleTextStyle.copyWith(
+                          fontSize: _screenWidth * .035,
+                        ),
                         children: [
                           const TextSpan(text: 'Hi there! I\'m '),
                           TextSpan(
@@ -83,6 +74,7 @@ class AboutSection extends StatelessWidget {
                             style: kTitleTextStyle.copyWith(
                               color: kprimaryColor,
                               decoration: TextDecoration.underline,
+                              fontSize: _screenWidth * .035,
                             ),
                           ),
                         ],

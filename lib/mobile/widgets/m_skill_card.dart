@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 
+import '../../models/skill.dart';
+
 class MSkillCard extends StatefulWidget {
-  final String path;
-  final String name;
-  final String desc;
+  final Skill skill;
   const MSkillCard({
     Key? key,
-    required this.path,
-    required this.name,
-    required this.desc,
+    required this.skill,
   }) : super(key: key);
 
   @override
@@ -54,17 +52,17 @@ class _MSkillCardState extends State<MSkillCard> {
               ),
               child: Container(
                 margin: const EdgeInsets.all(25),
-                child: Image.asset(widget.path),
+                child: Image.asset(widget.skill.imgPath),
               ),
             ),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.name, style: kNormalTextStyleWhite),
+                  Text(widget.skill.skillName, style: kNormalTextStyleWhite),
                   const SizedBox(height: 5),
                   Text(
-                    widget.desc,
+                    widget.skill.desc,
                     style: kNormalTextStyleGrey.copyWith(
                       fontSize: 13,
                     ),

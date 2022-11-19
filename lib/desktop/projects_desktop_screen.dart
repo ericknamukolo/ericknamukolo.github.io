@@ -35,7 +35,7 @@ class ProjectsDesktopScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Opacity(
-              opacity: 0.0,
+              opacity: 0,
               child: CircleAvatar(
                 radius: 30,
                 backgroundColor: klightDarkColor,

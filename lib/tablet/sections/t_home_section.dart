@@ -2,7 +2,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:lottie/lottie.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -20,9 +19,11 @@ class THomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 70),
-      height: 600,
+      height: _screenHeight * .83,
       width: double.infinity,
       child: Row(
         children: [
@@ -38,6 +39,7 @@ class THomeSection extends StatelessWidget {
                       style: kTitleTextStyle.copyWith(fontSize: 40),
                     ),
                     AnimatedTextKit(
+                      repeatForever: true,
                       animatedTexts: [
                         TypewriterAnimatedText(
                           'Flutter',
@@ -121,20 +123,11 @@ class THomeSection extends StatelessWidget {
                       },
                     ),
                     HomeIconHover(
-                      icon: LineIcons.dribbble,
-                      color: const Color(0xffea4c89),
+                      icon: MdiIcons.googlePlay,
+                      color: const Color(0xff48ff48),
                       click: () async {
                         await launch(
-                          'https://dribbble.com/erickmndev',
-                        );
-                      },
-                    ),
-                    HomeIconHover(
-                      icon: MdiIcons.coffee,
-                      color: const Color(0xff29abe0),
-                      click: () async {
-                        await launch(
-                          'https://ko-fi.com/erickmndev',
+                          'https://play.google.com/store/apps/dev?id=8203990443766365712',
                         );
                       },
                     ),
