@@ -3,7 +3,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -20,7 +19,7 @@ class MHomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

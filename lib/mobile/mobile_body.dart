@@ -10,8 +10,10 @@ import 'package:portfolio/mobile/sections/m_home_section.dart';
 import 'package:portfolio/mobile/sections/m_project_and_designs.dart';
 import 'package:portfolio/mobile/sections/m_skill_section.dart';
 import 'package:portfolio/mobile/sections/m_work_experience.dart';
+import 'package:portfolio/mobile/widgets/app_bar_icon.dart';
 import 'package:portfolio/mobile/widgets/hover_container.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:blurrycontainer/blurrycontainer.dart';
 
 class MobileBody extends StatelessWidget {
   final contactKey = GlobalKey();
@@ -52,7 +54,6 @@ class MobileBody extends StatelessWidget {
         ),
         backgroundColor: const Color(0xff075e54),
       ),
-
       drawer: Drawer(
         child: Container(
           padding: EdgeInsets.only(bottom: 30),
@@ -169,45 +170,70 @@ class MobileBody extends StatelessWidget {
           ),
         ),
       ),
-      appBar: AppBar(
-        backgroundColor: kdarkColor,
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: GestureDetector(
-                  onTap: () {
-                    scrollToItem(homeKey);
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    child: CircleAvatar(
-                      foregroundImage: AssetImage('assets/avatar.png'),
-                      backgroundColor: klightDarkColor,
+      body: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          SingleChildScrollView(
+            controller: _scrollController,
+            child: Column(
+              children: [
+                MHomeSection(key: homeKey),
+                MAboutSection(key: aboutKey),
+                MSkillSection(key: skillsKey),
+                MWorkExperience(key: expKey),
+                MProjectsAndDesigns(key: projectsKey),
+                MContactSection(key: contactKey),
+                const FooterSection(),
+              ],
+            ),
+          ),
+          Positioned(
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              child: BlurryContainer(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Builder(builder: (context) {
+                      return AppBarIcon(
+                          icon: MdiIcons.menuOpen,
+                          click: () => Scaffold.of(context).openDrawer());
+                    }),
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () {
+                          scrollToItem(homeKey);
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.0),
+                          child: CircleAvatar(
+                            foregroundImage: AssetImage('assets/avatar.png'),
+                            backgroundColor: klightDarkColor,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    AppBarIcon(
+                      icon: MdiIcons.phone,
+                      click: () async {
+                        var lauchPhone = 'tel://+260962885743';
+                        await launch(lauchPhone);
+                      },
+                    ),
+                  ],
                 ),
+                blur: 1.5,
+                width: double.infinity,
+                height: 60,
+                elevation: 6,
+                color: Colors.white.withOpacity(0.2),
+                padding: const EdgeInsets.all(8),
+                borderRadius: const BorderRadius.all(Radius.circular(45)),
               ),
-            ],
+            ),
           ),
         ],
-      ),
-      //  floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Column(
-          children: [
-            MHomeSection(key: homeKey),
-            MAboutSection(key: aboutKey),
-            MSkillSection(key: skillsKey),
-            MWorkExperience(key: expKey),
-            MProjectsAndDesigns(key: projectsKey),
-            MContactSection(key: contactKey),
-            const FooterSection(),
-          ],
-        ),
       ),
     );
   }
