@@ -25,7 +25,6 @@ class AppBarIcon extends StatelessWidget {
         child: GlowIcon(
           icon,
           glowColor: Colors.white,
-          blurRadius: 6.0,
         ),
       ),
     );
