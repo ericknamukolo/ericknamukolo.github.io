@@ -51,6 +51,7 @@ dependencies:
   web_smooth_scroll: ^1.0.0
   loading_animation_widget: ^1.2.0+3
   sizer: ^2.0.15
+  blurrycontainer: ^1.0.2
 
 dev_dependencies:
   icons_launcher:
