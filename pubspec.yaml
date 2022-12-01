@@ -52,6 +52,7 @@ dependencies:
   loading_animation_widget: ^1.2.0+3
   sizer: ^2.0.15
   blurrycontainer: ^1.0.2
+  flutter_glow: ^0.2.0
 
 dev_dependencies:
   icons_launcher:
