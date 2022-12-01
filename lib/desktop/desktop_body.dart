@@ -13,13 +13,8 @@ import 'package:portfolio/desktop/sections/home_section.dart';
 import 'package:portfolio/desktop/sections/projects_and_designs.dart';
 import 'package:portfolio/desktop/sections/skills_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
-import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/desktop/widgets/app_bar_button.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
-
-import '../mobile/widgets/app_bar_icon.dart';
-import '../providers/projects.dart';
-import '../widgets/basic_button.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({Key? key}) : super(key: key);
@@ -167,16 +162,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                             click: () => scrollToItem(contactKey),
                             width: contactWidth,
                           ),
-                          // BasicButton(
-                          //   text: 'CV',
-                          //   wid: 120,
-                          //   click: () {
-                          //     Provider.of<Projects>(context, listen: false)
-                          //         .downloadCV();
-                          //   },
-                          // ),
-                          AppBarIcon(
-                              icon: Icons.download_rounded, click: () {}),
+                          AppBarButton(),
                         ],
                       ),
                     ),
@@ -187,7 +173,8 @@ class _DesktopBodyState extends State<DesktopBody> {
                 height: 70,
                 elevation: 6,
                 color: Colors.white.withOpacity(0.2),
-                padding: const EdgeInsets.all(16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 borderRadius: const BorderRadius.all(Radius.circular(45)),
               ),
             ),
@@ -197,11 +184,3 @@ class _DesktopBodyState extends State<DesktopBody> {
     );
   }
 }
-
-//  Container(
-//             width: double.infinity,
-//             height: 70,
-//             color: kdarkColor,
-//             padding: EdgeInsets.symmetric(horizontal: _screenWidth * .059),
-//             child: ,
-//           ),
