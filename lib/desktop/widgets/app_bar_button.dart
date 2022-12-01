@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_glow/flutter_glow.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/colors.dart';
@@ -27,10 +28,15 @@ class AppBarButton extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(45)),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('CV', style: kNormalTextStyleWhite),
               SizedBox(width: 10),
-              Icon(Icons.download_rounded, color: Colors.white),
+              GlowIcon(
+                Icons.download_rounded,
+                glowColor: Colors.white,
+                blurRadius: 6.0,
+              ),
             ],
           ),
         ),

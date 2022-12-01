@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
+import 'package:flutter_glow/flutter_glow.dart';
 import '../../constants/colors.dart';
 
 class AppBarIcon extends StatelessWidget {
@@ -23,7 +22,11 @@ class AppBarIcon extends StatelessWidget {
           color: kdarkColor,
           shape: BoxShape.circle,
         ),
-        child: Icon(icon, color: Colors.white),
+        child: GlowIcon(
+          icon,
+          glowColor: Colors.white,
+          blurRadius: 6.0,
+        ),
       ),
     );
   }
