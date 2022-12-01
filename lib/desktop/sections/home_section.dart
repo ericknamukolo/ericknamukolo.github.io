@@ -1,6 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -22,6 +21,7 @@ class HomeSection extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
+      margin: EdgeInsets.only(top: 70),
       padding: EdgeInsets.symmetric(
           horizontal: _screenWidth * .1172, vertical: _screenHeight * .1),
       height: _screenHeight * .8,

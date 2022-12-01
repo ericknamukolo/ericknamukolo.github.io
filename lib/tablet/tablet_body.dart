@@ -1,3 +1,4 @@
+import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
@@ -13,6 +14,7 @@ import 'package:portfolio/tablet/sections/t_skill_section.dart';
 import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
+import '../desktop/widgets/app_bar_button.dart';
 import '../providers/projects.dart';
 import '../widgets/basic_button.dart';
 
@@ -56,133 +58,124 @@ class _TabletBodyState extends State<TabletBody> {
 
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: kdarkColor,
-      body: Column(
+      body: Stack(
+        clipBehavior: Clip.none,
         children: [
-          Container(
-            width: double.infinity,
-            height: 70,
-            color: kdarkColor,
-            padding: const EdgeInsets.symmetric(horizontal: 50),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Row(
-                    children: [
-                      MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: GestureDetector(
-                          onTap: () {
-                            scrollToItem(homeKey);
-                          },
-                          child: const CircleAvatar(
-                            foregroundImage: AssetImage('assets/avatar.png'),
-                            backgroundColor: klightDarkColor,
-                            radius: 20,
-                          ),
-                        ),
-                      ),
-                      const Icon(
-                        MdiIcons.chevronLeft,
-                        color: kprimaryColor,
-                      ),
-                      const Text(
-                        'Erick Namukolo',
-                        style: kTextStyleWhite,
-                      ),
-                      const Icon(
-                        MdiIcons.chevronRight,
-                        color: kprimaryColor,
-                      ),
-                    ],
+          WebSmoothScroll(
+            controller: _scrollController,
+            child: SingleChildScrollView(
+              controller: _scrollController,
+              physics: const NeverScrollableScrollPhysics(),
+              child: Column(
+                children: [
+                  THomeSection(
+                    key: homeKey,
+                    scrollToProjects: () {
+                      scrollToItem(projectsKey);
+                    },
                   ),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AnimatedTexttt(
-                        text: 'Home',
-                        click: () {
-                          scrollToItem(homeKey);
-                        },
-                        width: homeWidth,
-                      ),
-                      AnimatedTexttt(
-                        text: 'About',
-                        click: () {
-                          scrollToItem(aboutKey);
-                        },
-                        width: aboutWidth,
-                      ),
-                      AnimatedTexttt(
-                        text: 'Skills',
-                        click: () {
-                          scrollToItem(skillsKey);
-                        },
-                        width: skillsWidth,
-                      ),
-                      AnimatedTexttt(
-                        text: 'Experience',
-                        click: () {
-                          scrollToItem(experienceKey);
-                        },
-                        width: experienceWidth,
-                      ),
-                      AnimatedTexttt(
-                        text: 'Projects',
-                        click: () {
-                          scrollToItem(projectsKey);
-                        },
-                        width: projectsWidth,
-                      ),
-                      AnimatedTexttt(
-                        text: 'Contact',
-                        click: () {
-                          scrollToItem(contactKey);
-                        },
-                        width: contactWidth,
-                      ),
-                      BasicButton(
-                        text: 'CV',
-                        wid: 100,
-                        click: () {
-                          Provider.of<Projects>(context, listen: false)
-                              .downloadCV();
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+                  TAboutSection(key: aboutKey),
+                  TSkillSection(key: skillsKey),
+                  ExperienceSection(key: experienceKey, isTabMode: true),
+                  TProjectsAndDesigns(key: projectsKey),
+                  TContactSection(key: contactKey),
+                  const FooterSection(),
+                ],
+              ),
             ),
           ),
-          Expanded(
-            child: WebSmoothScroll(
-              controller: _scrollController,
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                physics: const NeverScrollableScrollPhysics(),
-                child: Column(
+          Positioned(
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: _screenWidth * .03),
+              child: BlurryContainer(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    THomeSection(
-                      key: homeKey,
-                      scrollToProjects: () {
-                        scrollToItem(projectsKey);
-                      },
+                    Expanded(
+                      child: Row(
+                        children: [
+                          MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: GestureDetector(
+                              onTap: () {
+                                scrollToItem(homeKey);
+                              },
+                              child: const CircleAvatar(
+                                foregroundImage:
+                                    AssetImage('assets/avatar.png'),
+                                backgroundColor: klightDarkColor,
+                                radius: 23,
+                              ),
+                            ),
+                          ),
+                          const Icon(
+                            MdiIcons.chevronLeft,
+                            color: kprimaryColor,
+                          ),
+                          const Text(
+                            'Erick Namukolo',
+                            style: kTextStyleWhite,
+                          ),
+                          const Icon(
+                            MdiIcons.chevronRight,
+                            color: kprimaryColor,
+                          ),
+                        ],
+                      ),
                     ),
-                    TAboutSection(key: aboutKey),
-                    TSkillSection(key: skillsKey),
-                    ExperienceSection(key: experienceKey, isTabMode: true),
-                    TProjectsAndDesigns(key: projectsKey),
-                    TContactSection(key: contactKey),
-                    const FooterSection(),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          AnimatedTexttt(
+                            text: 'Home',
+                            click: () => scrollToItem(homeKey),
+                            width: homeWidth,
+                          ),
+                          AnimatedTexttt(
+                            text: 'About',
+                            click: () => scrollToItem(aboutKey),
+                            width: aboutWidth,
+                          ),
+                          AnimatedTexttt(
+                            text: 'Skills',
+                            click: () => scrollToItem(skillsKey),
+                            width: skillsWidth,
+                          ),
+                          AnimatedTexttt(
+                            text: 'Experience',
+                            click: () => scrollToItem(experienceKey),
+                            width: experienceWidth,
+                          ),
+                          AnimatedTexttt(
+                            text: 'Projects',
+                            click: () => scrollToItem(projectsKey),
+                            width: projectsWidth,
+                          ),
+                          AnimatedTexttt(
+                            text: 'Contact',
+                            click: () => scrollToItem(contactKey),
+                            width: contactWidth,
+                          ),
+                          AppBarButton(),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
+                blur: 1.5,
+                width: double.infinity,
+                height: 70,
+                elevation: 6,
+                color: Colors.white.withOpacity(0.2),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                borderRadius: const BorderRadius.all(Radius.circular(45)),
               ),
             ),
           ),
