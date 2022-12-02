@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_glow/flutter_glow.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/models/skill.dart';
@@ -81,10 +82,8 @@ class _SkillCardState extends State<SkillCard> {
             ),
           ),
         ),
-        Text(
-          widget.skill.skillName,
-          style: kMiniTitleTextStyleWhite,
-        ),
+        GlowText(widget.skill.skillName,
+            style: kMiniTitleTextStyleWhite, glowColor: Colors.white),
         SizedBox(),
         SizedBox(),
       ],
