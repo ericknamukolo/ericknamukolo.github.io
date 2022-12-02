@@ -29,8 +29,9 @@ class AppBarButton extends StatelessWidget {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text('CV', style: kNormalTextStyleWhite),
+              Text('Download CV', style: kNormalTextStyleWhite),
               SizedBox(width: 10),
               GlowIcon(
                 Icons.download_rounded,

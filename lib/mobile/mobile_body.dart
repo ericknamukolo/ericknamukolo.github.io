@@ -215,10 +215,11 @@ class MobileBody extends StatelessWidget {
                       ),
                     ),
                     AppBarIcon(
-                      icon: MdiIcons.phone,
+                      icon: MdiIcons.googlePlay,
                       click: () async {
-                        var lauchPhone = 'tel://+260962885743';
-                        await launch(lauchPhone);
+                        await launch(
+                          'https://play.google.com/store/apps/dev?id=8203990443766365712',
+                        );
                       },
                     ),
                   ],
