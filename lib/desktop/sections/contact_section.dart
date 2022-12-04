@@ -8,6 +8,7 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/contact_card.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/desktop/widgets/input_field.dart';
+import 'package:portfolio/providers/send_message.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -39,12 +40,8 @@ class _ContactSectionState extends State<ContactSection> {
         setState(() {
           _isSending = true;
         });
-        await FirebaseFirestore.instance.collection('messages').add({
-          'sender': name!.trim(),
-          'email': email!.trim(),
-          'message': message!.trim(),
-          'createdAt': FieldValue.serverTimestamp(),
-        });
+        await Message.sendMessage(
+            sender: name!, email: email!, message: message!);
         setState(() {
           _isSending = false;
         });

@@ -13,6 +13,7 @@ import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../providers/send_message.dart';
 import '../../widgets/section_title.dart';
 
 class TContactSection extends StatefulWidget {
@@ -38,12 +39,8 @@ class _TContactSectionState extends State<TContactSection> {
         setState(() {
           _isSending = true;
         });
-        await FirebaseFirestore.instance.collection('messages').add({
-          'sender': name!.trim(),
-          'email': email!.trim(),
-          'message': message!.trim(),
-          'createdAt': FieldValue.serverTimestamp(),
-        });
+        await Message.sendMessage(
+            sender: name!, email: email!, message: message!);
         setState(() {
           _isSending = false;
         });

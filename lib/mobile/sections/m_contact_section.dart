@@ -12,6 +12,8 @@ import 'package:portfolio/widgets/basic_button.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../providers/send_message.dart';
+
 class MContactSection extends StatefulWidget {
   const MContactSection({Key? key}) : super(key: key);
 
@@ -38,12 +40,8 @@ class _MContactSectionState extends State<MContactSection> {
         setState(() {
           _isSending = true;
         });
-        await FirebaseFirestore.instance.collection('messages').add({
-          'sender': name.text.trim(),
-          'email': email.text.trim(),
-          'message': message.text.trim(),
-          'createdAt': FieldValue.serverTimestamp(),
-        });
+        await Message.sendMessage(
+            sender: name.text, email: email.text, message: message.text);
         setState(() {
           _isSending = false;
         });
