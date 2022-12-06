@@ -1,11 +1,13 @@
 class Skill {
-  final String skillName;
-  final String imgPath;
-  final String desc;
+  final String id;
+  final String name;
+  final String iconUrl;
+  final String des;
 
   Skill({
-    required this.imgPath,
-    required this.skillName,
-    required this.desc,
+    required this.id,
+    required this.name,
+    required this.iconUrl,
+    required this.des,
   });
 }

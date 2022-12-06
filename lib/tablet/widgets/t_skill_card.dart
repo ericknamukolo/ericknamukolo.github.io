@@ -56,7 +56,7 @@ class _TSkillCardState extends State<TSkillCard> {
               flex: 1,
               child: Container(
                 margin: const EdgeInsets.only(right: 30),
-                child: Image.asset(widget.skill.imgPath),
+                child: Image.network(widget.skill.iconUrl),
               ),
             ),
             Expanded(
@@ -66,11 +66,11 @@ class _TSkillCardState extends State<TSkillCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.skill.skillName,
+                    widget.skill.name,
                     style: kNormalTextStyleWhite.copyWith(fontSize: 18),
                   ),
                   Text(
-                    widget.skill.desc,
+                    widget.skill.des,
                     style: kNormalTextStyleGrey,
                   ),
                 ],
