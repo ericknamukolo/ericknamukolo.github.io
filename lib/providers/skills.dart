@@ -32,8 +32,6 @@ class Skills with ChangeNotifier {
       var ref = await adminRef.child('skills').once();
       var data = (ref.value as Map);
       List<Skill> _loadedSkills = [];
-      print(data);
-
       data.forEach((key, skillData) {
         if (!skillData['hidden']) {
           _loadedSkills.add(
