@@ -53,18 +53,18 @@ class _MSkillCardState extends State<MSkillCard> {
               ),
               child: Container(
                 margin: const EdgeInsets.all(25),
-                child: Image.asset(widget.skill.imgPath),
+                child: Image.network(widget.skill.iconUrl),
               ),
             ),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GlowText(widget.skill.skillName,
+                  GlowText(widget.skill.name,
                       style: kNormalTextStyleWhite, glowColor: Colors.white),
                   const SizedBox(height: 5),
                   Text(
-                    widget.skill.desc,
+                    widget.skill.des,
                     style: kNormalTextStyleGrey.copyWith(
                       fontSize: 13,
                     ),

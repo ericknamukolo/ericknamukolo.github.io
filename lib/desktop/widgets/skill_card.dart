@@ -76,13 +76,13 @@ class _SkillCardState extends State<SkillCard> {
             ),
             child: Container(
               margin: const EdgeInsets.all(30.0),
-              child: Image.asset(
-                widget.skill.imgPath,
+              child: Image.network(
+                widget.skill.iconUrl,
               ),
             ),
           ),
         ),
-        GlowText(widget.skill.skillName,
+        GlowText(widget.skill.name,
             style: kMiniTitleTextStyleWhite, glowColor: Colors.white),
         SizedBox(),
         SizedBox(),

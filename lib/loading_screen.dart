@@ -5,6 +5,7 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/desktop_body.dart';
 import 'package:portfolio/mobile/mobile_body.dart';
 import 'package:portfolio/providers/projects.dart';
+import 'package:portfolio/providers/skills.dart';
 import 'package:portfolio/tablet/tablet_body.dart';
 import 'package:portfolio/widgets/responsive_layout.dart';
 import 'package:provider/provider.dart';
@@ -23,8 +24,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 4)).then((_) async {
+    Future.delayed(Duration(seconds: 3)).then((_) async {
       await Provider.of<Projects>(context, listen: false).fetchAndSetProjects();
+      await Provider.of<Skills>(context, listen: false).fetchSkills();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
