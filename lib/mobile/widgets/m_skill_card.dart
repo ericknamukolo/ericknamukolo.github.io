@@ -60,8 +60,7 @@ class _MSkillCardState extends State<MSkillCard> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GlowText(widget.skill.name,
-                      style: kNormalTextStyleWhite, glowColor: Colors.white),
+                  Text(widget.skill.name, style: kNormalTextStyleWhite),
                   const SizedBox(height: 5),
                   Text(
                     widget.skill.des,

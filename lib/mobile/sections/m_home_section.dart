@@ -7,11 +7,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/app_bar_button.dart';
-import 'package:portfolio/providers/projects.dart';
-import 'package:portfolio/widgets/basic_button.dart';
-import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../desktop/widgets/home_icon_hover.dart';
 
 class MHomeSection extends StatelessWidget {
@@ -125,51 +120,27 @@ class MHomeSection extends StatelessWidget {
               HomeIconHover(
                 icon: MdiIcons.linkedin,
                 color: const Color(0xff0A66C2),
-                click: () async {
-                  await launch(
-                    'https://www.linkedin.com/in/ericknamukolo/',
-                  );
-                },
                 isMobile: true,
               ),
               HomeIconHover(
                 isMobile: true,
                 icon: MdiIcons.github,
                 color: const Color(0xff171515),
-                click: () async {
-                  await launch(
-                    'https://github.com/ericknamukolo',
-                  );
-                },
               ),
               HomeIconHover(
                 isMobile: true,
                 icon: Icons.whatsapp_rounded,
                 color: const Color(0xff075e54),
-                click: () async {
-                  var whatsappUrl = 'https://wa.me/260962885743?text=Hello';
-                  await launch(whatsappUrl);
-                },
               ),
               HomeIconHover(
                 isMobile: true,
                 icon: MdiIcons.facebook,
                 color: const Color(0xff4267B2),
-                click: () async {
-                  await launch(
-                    'https://www.facebook.com/ericnamukolo/',
-                  );
-                },
               ),
               HomeIconHover(
                 isMobile: true,
                 icon: MdiIcons.googlePlay,
                 color: const Color(0xff48ff48),
-                click: () async {
-                  await launch(
-                    'https://play.google.com/store/apps/dev?id=8203990443766365712',
-                  );
-                },
               ),
             ],
           ),

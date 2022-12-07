@@ -89,47 +89,22 @@ class THomeSection extends StatelessWidget {
                     HomeIconHover(
                       icon: MdiIcons.linkedin,
                       color: const Color(0xff0A66C2),
-                      click: () async {
-                        await launch(
-                          'https://www.linkedin.com/in/ericknamukolo/',
-                        );
-                      },
                     ),
                     HomeIconHover(
                       icon: MdiIcons.github,
                       color: const Color(0xff171515),
-                      click: () async {
-                        await launch(
-                          'https://github.com/ericknamukolo',
-                        );
-                      },
                     ),
                     HomeIconHover(
                       icon: Icons.whatsapp_rounded,
                       color: const Color(0xff075e54),
-                      click: () async {
-                        var whatsappUrl =
-                            'https://wa.me/260962885743?text=Hello';
-                        await launch(whatsappUrl);
-                      },
                     ),
                     HomeIconHover(
                       icon: MdiIcons.facebook,
                       color: const Color(0xff4267B2),
-                      click: () async {
-                        await launch(
-                          'https://www.facebook.com/ericnamukolo/',
-                        );
-                      },
                     ),
                     HomeIconHover(
                       icon: MdiIcons.googlePlay,
                       color: const Color(0xff48ff48),
-                      click: () async {
-                        await launch(
-                          'https://play.google.com/store/apps/dev?id=8203990443766365712',
-                        );
-                      },
                     ),
                   ],
                 ),

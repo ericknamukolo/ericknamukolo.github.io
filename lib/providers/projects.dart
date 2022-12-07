@@ -5,6 +5,8 @@ import 'dart:convert';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 
+import 'package:portfolio/providers/analytics.dart';
+
 class Projects with ChangeNotifier {
   List<Project> _projectsAndDesigns = [];
 
@@ -65,6 +67,7 @@ class Projects with ChangeNotifier {
   }
 
   downloadCV() {
+    Analytics.trackVisit('cv');
     String url =
         'https://drive.google.com/uc?id=1egQA4dMBeMb8SQIx4aX6coryumbxsBXX&export=download';
     AnchorElement anchorElement = AnchorElement(href: url);

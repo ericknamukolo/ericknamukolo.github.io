@@ -1,18 +1,14 @@
 import 'package:bot_toast/bot_toast.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/contact_card.dart';
-import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/providers/send_message.dart';
 import 'package:portfolio/widgets/basic_button.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../widgets/section_title.dart';
+import '../widgets/home_icon_hover.dart';
 
 class ContactSection extends StatefulWidget {
   const ContactSection({Key? key}) : super(key: key);
@@ -120,50 +116,30 @@ class _ContactSectionState extends State<ContactSection> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                IconHover(
+                                HomeIconHover(
                                   icon: MdiIcons.linkedin,
                                   color: const Color(0xff0A66C2),
-                                  click: () async {
-                                    await launch(
-                                      'https://www.linkedin.com/in/ericknamukolo/',
-                                    );
-                                  },
+                                  isMobile: true,
                                 ),
-                                IconHover(
+                                HomeIconHover(
+                                  isMobile: true,
                                   icon: MdiIcons.github,
                                   color: const Color(0xff171515),
-                                  click: () async {
-                                    await launch(
-                                      'https://github.com/ericknamukolo',
-                                    );
-                                  },
                                 ),
-                                IconHover(
+                                HomeIconHover(
+                                  isMobile: true,
                                   icon: Icons.whatsapp_rounded,
                                   color: const Color(0xff075e54),
-                                  click: () async {
-                                    var whatsappUrl =
-                                        'https://wa.me/260962885743?text=Hello';
-                                    await launch(whatsappUrl);
-                                  },
                                 ),
-                                IconHover(
+                                HomeIconHover(
+                                  isMobile: true,
                                   icon: MdiIcons.facebook,
                                   color: const Color(0xff4267B2),
-                                  click: () async {
-                                    await launch(
-                                      'https://www.facebook.com/ericnamukolo/',
-                                    );
-                                  },
                                 ),
-                                IconHover(
+                                HomeIconHover(
+                                  isMobile: true,
                                   icon: MdiIcons.googlePlay,
                                   color: const Color(0xff48ff48),
-                                  click: () async {
-                                    await launch(
-                                      'https://play.google.com/store/apps/dev?id=8203990443766365712',
-                                    );
-                                  },
                                 ),
                               ],
                             ),
