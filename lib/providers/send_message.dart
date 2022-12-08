@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/services/send_notification.dart';
+import 'package:portfolio/services/notification.dart';
 
 class Message {
   static Future<void> sendMessage({

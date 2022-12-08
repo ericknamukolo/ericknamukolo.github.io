@@ -7,7 +7,7 @@ import 'dart:html';
 
 import 'package:portfolio/providers/analytics.dart';
 
-import '../services/send_notification.dart';
+import '../services/notification.dart';
 
 class Projects with ChangeNotifier {
   List<Project> _projectsAndDesigns = [];

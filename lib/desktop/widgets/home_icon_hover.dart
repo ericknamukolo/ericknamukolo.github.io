@@ -4,7 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:portfolio/providers/analytics.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../services/send_notification.dart';
+import '../../services/notification.dart';
 
 // ignore: must_be_immutable
 class HomeIconHover extends StatefulWidget {
