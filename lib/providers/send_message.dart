@@ -15,7 +15,7 @@ class Message {
       'createdAt': FieldValue.serverTimestamp(),
     });
     var ref = await adminRef.once();
-    await SendNotification.sendMessageNotification(
+    await Notification.sendMessageNotification(
         sender: sender, message: message, userToken: ref.value['fcmToken']);
   }
 }

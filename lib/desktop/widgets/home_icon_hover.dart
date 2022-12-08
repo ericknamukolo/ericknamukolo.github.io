@@ -4,6 +4,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:portfolio/providers/analytics.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../services/send_notification.dart';
+
 // ignore: must_be_immutable
 class HomeIconHover extends StatefulWidget {
   final IconData icon;
@@ -42,26 +44,26 @@ class _HomeIconHoverState extends State<HomeIconHover> {
       child: GestureDetector(
         onTap: () async {
           if (widget.icon == MdiIcons.linkedin) {
-            Analytics.trackVisit('linkedIn');
+            Analytics.trackVisit(NotificationType.linkedIn);
             await launch(
               'https://www.linkedin.com/in/ericknamukolo/',
             );
           } else if (widget.icon == MdiIcons.github) {
-            Analytics.trackVisit('github');
+            Analytics.trackVisit(NotificationType.github);
             await launch(
               'https://github.com/ericknamukolo',
             );
           } else if (widget.icon == Icons.whatsapp_rounded) {
-            Analytics.trackVisit('whatsApp');
+            Analytics.trackVisit(NotificationType.whatsApp);
             var whatsappUrl = 'https://wa.me/260962885743?text=Hello';
             await launch(whatsappUrl);
           } else if (widget.icon == MdiIcons.facebook) {
-            Analytics.trackVisit('fb');
+            Analytics.trackVisit(NotificationType.fb);
             await launch(
               'https://www.facebook.com/ericnamukolo/',
             );
           } else if (widget.icon == MdiIcons.googlePlay) {
-            Analytics.trackVisit('playStore');
+            Analytics.trackVisit(NotificationType.playStore);
             await launch(
               'https://play.google.com/store/apps/dev?id=8203990443766365712',
             );

@@ -16,6 +16,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 
 import '../providers/analytics.dart';
+import '../services/send_notification.dart';
 
 class MobileBody extends StatelessWidget {
   final contactKey = GlobalKey();
@@ -46,7 +47,7 @@ class MobileBody extends StatelessWidget {
       backgroundColor: kdarkColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          Analytics.trackVisit('whatsApp');
+          Analytics.trackVisit(NotificationType.whatsApp);
           var whatsappUrl = 'whatsapp://send?phone=$phone&text=$text';
           await launch(whatsappUrl);
         },
@@ -220,7 +221,7 @@ class MobileBody extends StatelessWidget {
                     AppBarIcon(
                       icon: MdiIcons.googlePlay,
                       click: () async {
-                        Analytics.trackVisit('playStore');
+                        Analytics.trackVisit(NotificationType.playStore);
                         await launch(
                           'https://play.google.com/store/apps/dev?id=8203990443766365712',
                         );
