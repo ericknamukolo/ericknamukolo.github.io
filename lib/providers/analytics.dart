@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:portfolio/services/send_notification.dart';
+import 'package:portfolio/services/notification.dart';
 
 class Analytics {
   static Future<void> trackVisit(Enum type) async {
     try {
       Notification.sendNotification(type);
+      Notification.storeNotification(type);
 
       var data = await FirebaseFirestore.instance
           .collection('analytics')

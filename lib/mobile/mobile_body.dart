@@ -16,7 +16,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 
 import '../providers/analytics.dart';
-import '../services/send_notification.dart';
+import '../services/notification.dart';
 
 class MobileBody extends StatelessWidget {
   final contactKey = GlobalKey();
