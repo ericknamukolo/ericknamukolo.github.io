@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/models/experience.dart';
 
 class WorkTitleText extends StatelessWidget {
-  final String title;
   final bool isMobile;
-  final bool isHovered;
+  final Experience work;
   const WorkTitleText({
     Key? key,
-    required this.title,
+    required this.work,
     this.isMobile = false,
-    this.isHovered = false,
   }) : super(key: key);
 
   @override
@@ -33,7 +32,7 @@ class WorkTitleText extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  work.workPlace,
                   style: kNormalTextStyleWhite.copyWith(
                     color: kprimaryColor,
                     fontWeight: FontWeight.bold,
@@ -45,11 +44,23 @@ class WorkTitleText extends StatelessWidget {
                   duration: const Duration(milliseconds: 750),
                   curve: Curves.bounceOut,
                   height: 2,
-                  width: isHovered ? 160.0 : 50,
+                  width: work.isHovered ? 160.0 : 50,
                   color: kprimaryColor,
                 ),
               ],
             ),
+            Container(
+              margin: EdgeInsets.only(left: 10),
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: kSecondaryColor,
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              child: Text(
+                work.type,
+                style: kNormalTextStyleWhite.copyWith(fontSize: 11),
+              ),
+            )
           ],
         ),
       ],

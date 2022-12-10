@@ -52,30 +52,34 @@ class MWorkExperience extends StatelessWidget {
                                         }
                                       },
                                       child: WorkTitleText(
-                                        title: work.workPlace,
-                                        isMobile: true,
-                                      ),
+                                          work: work, isMobile: true),
                                     ),
                                   ],
                                 ),
                                 const SizedBox(height: 10),
                                 Row(
                                   children: [
+                                    Icon(
+                                      Icons.timer_rounded,
+                                      color: kprimaryColor,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(width: 6),
                                     Text(
                                       work.duration,
                                       style: kNormalTextStyleGrey.copyWith(
                                         fontSize: 12,
                                       ),
                                     ),
-                                    const SizedBox(width: 6),
-                                    const Icon(
-                                      MdiIcons.circle,
+                                    const SizedBox(width: 10),
+                                    Icon(
+                                      MdiIcons.mapMarker,
                                       color: kprimaryColor,
-                                      size: 4,
+                                      size: 16,
                                     ),
                                     const SizedBox(width: 6),
                                     Text(
-                                      work.type,
+                                      work.location,
                                       style: kNormalTextStyleGrey.copyWith(
                                         fontSize: 12,
                                       ),
