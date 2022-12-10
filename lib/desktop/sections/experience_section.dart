@@ -30,7 +30,6 @@ class ExperienceSection extends StatelessWidget {
           SectionTitle(title: 'Work Experience'),
           Consumer<Experiences>(
             builder: (context, workData, __) => ExpansionPanelList.radio(
-              // dividerColor: kprimaryColor,
               children: workData.workExperience
                   .map(
                     (work) => ExpansionPanelRadio(
@@ -62,33 +61,36 @@ class ExperienceSection extends StatelessWidget {
                                           await launch(work.url!);
                                         }
                                       },
-                                      child: WorkTitleText(
-                                        title: work.workPlace,
-                                        isHovered: work.isHovered,
-                                      ),
+                                      child: WorkTitleText(work: work),
                                     ),
                                   ],
                                 ),
                                 const SizedBox(height: 10),
                                 Row(
                                   children: [
+                                    Icon(
+                                      Icons.timer_rounded,
+                                      color: kprimaryColor,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(width: 8),
                                     Text(
                                       work.duration,
                                       style: kNormalTextStyleGrey.copyWith(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                       ),
                                     ),
-                                    const SizedBox(width: 10),
-                                    const Icon(
-                                      MdiIcons.circle,
+                                    const SizedBox(width: 12),
+                                    Icon(
+                                      MdiIcons.mapMarker,
                                       color: kprimaryColor,
-                                      size: 5,
+                                      size: 16,
                                     ),
-                                    const SizedBox(width: 10),
+                                    const SizedBox(width: 8),
                                     Text(
-                                      work.type,
+                                      work.location,
                                       style: kNormalTextStyleGrey.copyWith(
-                                        fontSize: 13,
+                                        fontSize: 12,
                                       ),
                                     )
                                   ],
@@ -112,7 +114,7 @@ class ExperienceSection extends StatelessWidget {
                                       color: kprimaryColor,
                                     ),
                                     Container(
-                                      margin: const EdgeInsets.only(left: 20),
+                                      margin: const EdgeInsets.only(left: 10),
                                       width: 600,
                                       child: Text(
                                         workDone,

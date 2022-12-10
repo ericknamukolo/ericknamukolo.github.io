@@ -8,6 +8,7 @@ class Experiences with ChangeNotifier {
         id: 0,
         title: 'Software Engineer',
         workPlace: 'Lassod Consulting Limited',
+        location: 'Gravesend, England.',
         workDone: [
           'Write modern, performant, maintainable code for a diverse array of client and internal projects with Flutter',
           'Communicate with multi-disciplinary teams of engineers, designers and clients on a daily basis',
@@ -20,6 +21,7 @@ class Experiences with ChangeNotifier {
         id: 1,
         title: 'UI / UX Designer & Flutter Developer',
         workPlace: 'Omnis Corporation',
+        location: 'Lusaka, Zambia.',
         workDone: [
           'Designed clean & Simple yet thoughtful UI/UX design patterns for both mobile and web applications.',
           'Built both mobile and web applications with interactive & responsive layouts.',
@@ -27,7 +29,7 @@ class Experiences with ChangeNotifier {
         ],
         duration: 'Jan 2021 - Mar 2022',
         url: null,
-        type: 'Full - Time'),
+        type: 'Part - Time'),
   ];
 
   void triggerAnimation(int id, bool hover) {
