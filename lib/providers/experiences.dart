@@ -6,7 +6,7 @@ class Experiences with ChangeNotifier {
   final List<Experience> _workExperience = [
     Experience(
         id: 0,
-        title: 'Software Engineer',
+        title: 'Software Engineer (Remote)',
         workPlace: 'Lassod Consulting Limited',
         location: 'Gravesend, England.',
         workDone: [
@@ -16,7 +16,7 @@ class Experiences with ChangeNotifier {
         ],
         duration: 'Mar 2022 - Present',
         url: 'https://lassod.com',
-        type: 'Full - Time (Remote)'),
+        type: 'Full - Time'),
     Experience(
         id: 1,
         title: 'UI / UX Designer & Flutter Developer',
