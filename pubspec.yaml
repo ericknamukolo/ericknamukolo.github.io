@@ -52,6 +52,7 @@ dependencies:
   blurrycontainer: ^1.0.2
   flutter_glow: ^0.2.0
   firebase_database: any
+  platform_device_id_web: ^0.0.1
 
 dev_dependencies:
   icons_launcher:
