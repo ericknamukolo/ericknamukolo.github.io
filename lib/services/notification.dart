@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'package:flutter/services.dart';
+import 'package:platform_device_id_platform_interface/platform_device_id_platform_interface.dart';
 import '../constants/constants.dart';
 
 enum NotificationType { visit, cv, fb, github, linkedIn, playStore, whatsApp }
@@ -97,6 +98,12 @@ class Notification {
   }
 
   static Future<void> storeNotification(Enum type) async {
+    String deviceInfo = '';
+    try {
+      deviceInfo = (await PlatformDeviceIdPlatform.instance.getDeviceId())!;
+    } on PlatformException {
+      deviceInfo = 'Failed to get deviceId.';
+    }
     List<String> getContent() {
       List<String> content = ['', ''];
       if (type == NotificationType.cv) {
@@ -121,7 +128,6 @@ class Notification {
         content[0] = 'Someone visited your WhatsApp Account';
         content[1] = 'WhatsApp';
       }
-
       return content;
     }
 
@@ -130,6 +136,7 @@ class Notification {
       'title': getContent()[1],
       'category': type.name,
       'date': DateTime.now().toIso8601String(),
+      'device_info': deviceInfo,
     };
 
     await adminRef.child('notifications').push().set(dataMap);
