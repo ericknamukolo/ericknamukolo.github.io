@@ -51,7 +51,7 @@ class _FooterSectionState extends State<FooterSection> {
           Text(
             '© 2021 - ${DateTime.now().year} Erick Namukolo. All rights reserved.',
             style: kNormalTextStyleGrey.copyWith(
-              fontSize: 11,
+              fontSize: 13,
             ),
           ),
         ],
