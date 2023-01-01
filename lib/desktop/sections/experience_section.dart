@@ -62,7 +62,8 @@ class ExperienceSection extends StatelessWidget {
                                     GestureDetector(
                                       onTap: () async {
                                         if (work.siteUrl != null) {
-                                          await launch(work.siteUrl!);
+                                          await launch(
+                                              'https://${work.siteUrl}');
                                         }
                                       },
                                       child: WorkTitleText(work: work),
