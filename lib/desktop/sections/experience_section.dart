@@ -7,6 +7,7 @@ import 'package:portfolio/desktop/widgets/work_title_text.dart';
 import 'package:portfolio/providers/experiences.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
+import 'package:collection/collection.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ExperienceSection extends StatelessWidget {
@@ -29,8 +30,10 @@ class ExperienceSection extends StatelessWidget {
       child: Column(
         children: [
           SectionTitle(title: 'Work Experience'),
-          Consumer<Experiences>(
-            builder: (context, workData, __) => ExpansionPanelList.radio(
+          Consumer<Experiences>(builder: (context, workData, __) {
+            workData.workExperience
+                .sort((a, b) => b.startDate.compareTo(a.startDate));
+            return ExpansionPanelList.radio(
               children: workData.workExperience
                   .map(
                     (work) => ExpansionPanelRadio(
@@ -103,19 +106,21 @@ class ExperienceSection extends StatelessWidget {
                       }),
                       body: Column(
                         children: work.workDone
-                            .map(
-                              (workDone) => Container(
+                            .mapIndexed(
+                              (i, workDone) => Container(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 5),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Icon(
-                                      MdiIcons.menuRight,
-                                      color: kprimaryColor,
+                                    Text(
+                                      '${i + 1}.',
+                                      style: kNormalTextStyleGrey.copyWith(
+                                        fontSize: 14,
+                                      ),
                                     ),
                                     Container(
-                                      margin: const EdgeInsets.only(left: 10),
+                                      margin: const EdgeInsets.only(left: 6),
                                       width: 600,
                                       child: Text(
                                         workDone,
@@ -133,8 +138,8 @@ class ExperienceSection extends StatelessWidget {
                     ),
                   )
                   .toList(),
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );
