@@ -53,6 +53,7 @@ dependencies:
   flutter_glow: ^0.2.0
   firebase_database: any
   platform_device_id_web: ^0.0.1
+  intl: ^0.18.0
 
 dev_dependencies:
   icons_launcher:

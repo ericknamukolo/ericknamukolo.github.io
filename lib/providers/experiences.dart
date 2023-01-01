@@ -1,39 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/models/experience.dart';
+import '../constants/constants.dart';
+import '../models/work.dart';
 
 class Experiences with ChangeNotifier {
-  List<Experience> get workExperience => _workExperience;
-  final List<Experience> _workExperience = [
-    Experience(
-        id: 0,
-        title: 'Software Engineer (Remote)',
-        workPlace: 'Lassod Consulting Limited',
-        location: 'Gravesend, England.',
-        workDone: [
-          'Write modern, performant, maintainable code for a diverse array of client and internal projects with Flutter',
-          'Communicate with multi-disciplinary teams of engineers, designers and clients on a daily basis',
-          'Work with a variety of different languages, platforms, frameworks, and content management systems such as Dart, Flutter, Github, Gitlab, Jira and Time Management'
-        ],
-        duration: 'Mar 2022 - Present',
-        url: 'https://lassod.com',
-        type: 'Full - Time'),
-    Experience(
-        id: 1,
-        title: 'UI / UX Designer & Flutter Developer',
-        workPlace: 'Omnis Corporation',
-        location: 'Lusaka, Zambia.',
-        workDone: [
-          'Designed clean & Simple yet thoughtful UI/UX design patterns for both mobile and web applications.',
-          'Built both mobile and web applications with interactive & responsive layouts.',
-          'API integrations throughout a software to keep data in sync and enhance productivity.'
-        ],
-        duration: 'Jan 2021 - Mar 2022',
-        url: null,
-        type: 'Part - Time'),
-  ];
+  List<Work> get workExperience => _workExperience;
+  List<Work> _workExperience = [];
 
-  void triggerAnimation(int id, bool hover) {
-    Experience bs = _workExperience.firstWhere((element) => element.id == id);
+  Future<void> fetchWorkData() async {
+    try {
+      var ref = await adminRef.child('experience').once();
+      var data = (ref.value as Map);
+      List<Work> _loadedWork = [];
+      data.forEach((key, workData) {
+        if (!workData['is_hidden']) {
+          _loadedWork.add(
+            Work(
+              id: key,
+              company: workData['company'],
+              position: workData['position'],
+              country: workData['country'],
+              empType: workData['emp_type'],
+              state: workData['state'],
+              startDate: workData['start_date'],
+              workDone: workData['work_done'].toString().split('#').toList(),
+              createdDate: workData['created_at'],
+              endDate: workData['end_date'],
+              siteUrl: workData['site_url'],
+              worksHere: workData['works_here'],
+              isHidden: workData['is_hidden'],
+            ),
+          );
+        }
+      });
+      _workExperience = _loadedWork;
+    } catch (e) {
+      throw e;
+    }
+    notifyListeners();
+  }
+
+  void triggerAnimation(String id, bool hover) {
+    Work bs = _workExperience.firstWhere((element) => element.id == id);
     bs.isHovered = hover;
     notifyListeners();
   }

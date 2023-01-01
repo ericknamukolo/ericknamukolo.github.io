@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/models/experience.dart';
+import 'package:portfolio/models/work.dart';
 
 class WorkTitleText extends StatelessWidget {
   final bool isMobile;
-  final Experience work;
+  final Work work;
   const WorkTitleText({
     Key? key,
     required this.work,
@@ -32,7 +33,7 @@ class WorkTitleText extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  work.workPlace,
+                  work.company,
                   style: kNormalTextStyleWhite.copyWith(
                     color: kprimaryColor,
                     fontWeight: FontWeight.bold,
@@ -57,7 +58,7 @@ class WorkTitleText extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5.0),
               ),
               child: Text(
-                work.type,
+                work.empType,
                 style: kNormalTextStyleWhite.copyWith(fontSize: 11),
               ),
             )
