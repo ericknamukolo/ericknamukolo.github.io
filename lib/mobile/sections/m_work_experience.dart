@@ -7,6 +7,7 @@ import 'package:portfolio/desktop/widgets/work_title_text.dart';
 import 'package:portfolio/providers/experiences.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
+import 'package:collection/collection.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MWorkExperience extends StatelessWidget {
@@ -95,17 +96,19 @@ class MWorkExperience extends StatelessWidget {
                         }),
                         body: Column(
                           children: work.workDone
-                              .map(
-                                (workDone) => Container(
+                              .mapIndexed(
+                                (i, workDone) => Container(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      const Icon(
-                                        MdiIcons.menuRight,
-                                        color: kprimaryColor,
+                                      Text(
+                                        '${i + 1}.',
+                                        style: kNormalTextStyleGrey.copyWith(
+                                          fontSize: 14,
+                                        ),
                                       ),
                                       Container(
                                         margin: const EdgeInsets.only(left: 5),
