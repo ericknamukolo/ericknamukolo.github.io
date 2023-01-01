@@ -5,6 +5,7 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/desktop_body.dart';
 import 'package:portfolio/mobile/mobile_body.dart';
 import 'package:portfolio/providers/analytics.dart';
+import 'package:portfolio/providers/experiences.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/providers/skills.dart';
 import 'package:portfolio/services/notification.dart';
@@ -29,6 +30,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Future.delayed(Duration.zero).then((_) async {
       await Provider.of<Projects>(context, listen: false).fetchAndSetProjects();
       await Provider.of<Skills>(context, listen: false).fetchSkills();
+      await Provider.of<Experiences>(context, listen: false).fetchWorkData();
       await Analytics.trackVisit(NotificationType.visit);
       Navigator.pushReplacement(
         context,

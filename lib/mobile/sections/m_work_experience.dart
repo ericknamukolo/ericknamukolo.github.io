@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
@@ -22,13 +23,15 @@ class MWorkExperience extends StatelessWidget {
       child: Column(
         children: [
           SectionTitle(title: 'Work Experience'),
-          Consumer<Experiences>(
-            builder: (context, expData, __) => ExpansionPanelList.radio(
+          Consumer<Experiences>(builder: (context, expData, __) {
+            expData.workExperience
+                .sort((a, b) => b.startDate.compareTo(a.startDate));
+            return ExpansionPanelList.radio(
               children: expData.workExperience
                   .map((work) => ExpansionPanelRadio(
                         canTapOnHeader: true,
                         backgroundColor: kdarkColor,
-                        value: work.id,
+                        value: work.id!,
                         headerBuilder: ((context, isExpanded) {
                           return Container(
                             padding: const EdgeInsets.symmetric(
@@ -40,15 +43,15 @@ class MWorkExperience extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      work.title,
+                                      work.position,
                                       style: kNormalTextStyleWhite.copyWith(
                                         fontSize: 13,
                                       ),
                                     ),
                                     GestureDetector(
                                       onTap: () async {
-                                        if (work.url != null) {
-                                          await launch(work.url!);
+                                        if (work.siteUrl != null) {
+                                          await launch(work.siteUrl!);
                                         }
                                       },
                                       child: WorkTitleText(
@@ -66,7 +69,7 @@ class MWorkExperience extends StatelessWidget {
                                     ),
                                     const SizedBox(width: 6),
                                     Text(
-                                      work.duration,
+                                      '${DateFormat.yMMM().format(DateTime.parse(work.startDate))} - ${work.worksHere ? 'Present' : DateFormat.yMMM().format(DateTime.parse(work.startDate))}',
                                       style: kNormalTextStyleGrey.copyWith(
                                         fontSize: 12,
                                       ),
@@ -79,7 +82,7 @@ class MWorkExperience extends StatelessWidget {
                                     ),
                                     const SizedBox(width: 6),
                                     Text(
-                                      work.location,
+                                      '${work.state}, ${work.country}.',
                                       style: kNormalTextStyleGrey.copyWith(
                                         fontSize: 12,
                                       ),
@@ -124,8 +127,8 @@ class MWorkExperience extends StatelessWidget {
                         ),
                       ))
                   .toList(),
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );
