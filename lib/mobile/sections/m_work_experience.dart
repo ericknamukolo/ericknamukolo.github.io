@@ -63,7 +63,8 @@ class MWorkExperience extends StatelessWidget {
                                     GestureDetector(
                                       onTap: () async {
                                         if (work.siteUrl != null) {
-                                          await launch(work.siteUrl!);
+                                          await launch(
+                                              'https://${work.siteUrl!}');
                                         }
                                       },
                                       child: WorkTitleText(
@@ -77,18 +78,18 @@ class MWorkExperience extends StatelessWidget {
                                     Icon(
                                       Icons.timer_rounded,
                                       color: kprimaryColor,
-                                      size: 16,
+                                      size: 15,
                                     ),
-                                    const SizedBox(width: 6),
+                                    const SizedBox(width: 4),
                                     Text(
                                       '${DateFormat.yMMM().format(DateTime.parse(work.startDate))} - ${work.worksHere ? 'Present' : DateFormat.yMMM().format(DateTime.parse(work.endDate!))}',
                                       style: kNormalTextStyleGrey.copyWith(
-                                        fontSize: 12,
+                                        fontSize: 11,
                                       ),
                                     ),
                                     Container(
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 6.0),
+                                          horizontal: 4.0),
                                       child: Icon(
                                         MdiIcons.circle,
                                         color: kprimaryColor,
@@ -101,17 +102,17 @@ class MWorkExperience extends StatelessWidget {
                                         fontSize: 11,
                                       ),
                                     ),
-                                    const SizedBox(width: 10),
+                                    const SizedBox(width: 6),
                                     Icon(
                                       MdiIcons.mapMarker,
                                       color: kprimaryColor,
-                                      size: 16,
+                                      size: 15,
                                     ),
-                                    const SizedBox(width: 6),
+                                    const SizedBox(width: 4),
                                     Text(
                                       '${work.state}, ${work.country}.',
                                       style: kNormalTextStyleGrey.copyWith(
-                                        fontSize: 12,
+                                        fontSize: 11,
                                       ),
                                     )
                                   ],
