@@ -106,7 +106,7 @@ class ExperienceSection extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      '${diff.years == 0 ? '${diff.months} months ${diff.days} days' : '${diff.years} ${diff.years >= 2 ? 'years' : 'year'} ${diff.months} months ${diff.days} days'}',
+                                      '${diff.years == 0 ? '${diff.months} ${diff.months >= 2 ? 'months' : 'month'} ${diff.days} days' : '${diff.years} ${diff.years >= 2 ? 'years' : 'year'} ${diff.months} months ${diff.days} days'}',
                                       style: kNormalTextStyleGrey.copyWith(
                                         fontSize: 12,
                                       ),

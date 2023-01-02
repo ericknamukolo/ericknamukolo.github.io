@@ -9,6 +9,7 @@ import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 import 'package:collection/collection.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:time_machine/time_machine.dart';
 
 class MWorkExperience extends StatelessWidget {
   const MWorkExperience({
@@ -34,6 +35,16 @@ class MWorkExperience extends StatelessWidget {
                         backgroundColor: kdarkColor,
                         value: work.id!,
                         headerBuilder: ((context, isExpanded) {
+                          LocalDate a;
+                          if (work.worksHere) {
+                            a = LocalDate.today();
+                          } else {
+                            a = LocalDate.dateTime(
+                                DateTime.parse(work.endDate!));
+                          }
+                          LocalDate b = LocalDate.dateTime(
+                              DateTime.parse(work.startDate));
+                          Period diff = a.periodSince(b);
                           return Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 10),
@@ -70,7 +81,22 @@ class MWorkExperience extends StatelessWidget {
                                     ),
                                     const SizedBox(width: 6),
                                     Text(
-                                      '${DateFormat.yMMM().format(DateTime.parse(work.startDate))} - ${work.worksHere ? 'Present' : DateFormat.yMMM().format(DateTime.parse(work.startDate))}',
+                                      '${DateFormat.yMMM().format(DateTime.parse(work.startDate))} - ${work.worksHere ? 'Present' : DateFormat.yMMM().format(DateTime.parse(work.endDate!))}',
+                                      style: kNormalTextStyleGrey.copyWith(
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 6.0),
+                                      child: Icon(
+                                        MdiIcons.circle,
+                                        color: kprimaryColor,
+                                        size: 8,
+                                      ),
+                                    ),
+                                    Text(
+                                      '${diff.years == 0 ? '${diff.months} ${diff.months >= 2 ? 'months' : 'month'} ${diff.days} days' : '${diff.years} ${diff.years >= 2 ? 'years' : 'year'} ${diff.months} months'}',
                                       style: kNormalTextStyleGrey.copyWith(
                                         fontSize: 12,
                                       ),
