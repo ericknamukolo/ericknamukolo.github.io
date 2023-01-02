@@ -9,6 +9,7 @@ import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 import 'package:collection/collection.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:time_machine/time_machine.dart';
 
 class ExperienceSection extends StatelessWidget {
   final bool isTabMode;
@@ -21,6 +22,7 @@ class ExperienceSection extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: isTabMode ? 90.0 : _screenWidth * .1172,
@@ -41,6 +43,15 @@ class ExperienceSection extends StatelessWidget {
                       backgroundColor: kdarkColor,
                       value: work.id!,
                       headerBuilder: ((context, isExpanded) {
+                        LocalDate a;
+                        if (work.worksHere) {
+                          a = LocalDate.today();
+                        } else {
+                          a = LocalDate.dateTime(DateTime.parse(work.endDate!));
+                        }
+                        LocalDate b =
+                            LocalDate.dateTime(DateTime.parse(work.startDate));
+                        Period diff = a.periodSince(b);
                         return MouseRegion(
                           onEnter: (_) =>
                               workData.triggerAnimation(work.id!, true),
@@ -80,7 +91,22 @@ class ExperienceSection extends StatelessWidget {
                                     ),
                                     const SizedBox(width: 8),
                                     Text(
-                                      '${DateFormat.yMMM().format(DateTime.parse(work.startDate))} - ${work.worksHere ? 'Present' : DateFormat.yMMM().format(DateTime.parse(work.startDate))}',
+                                      '${DateFormat.yMMM().format(DateTime.parse(work.startDate))} - ${work.worksHere ? 'Present' : DateFormat.yMMM().format(DateTime.parse(work.endDate!))}',
+                                      style: kNormalTextStyleGrey.copyWith(
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 6.0),
+                                      child: Icon(
+                                        MdiIcons.circle,
+                                        color: kprimaryColor,
+                                        size: 8,
+                                      ),
+                                    ),
+                                    Text(
+                                      '${diff.years == 0 ? '${diff.months} months ${diff.days} days' : '${diff.years} ${diff.years >= 2 ? 'years' : 'year'} ${diff.months} months ${diff.days} days'}',
                                       style: kNormalTextStyleGrey.copyWith(
                                         fontSize: 12,
                                       ),
