@@ -93,7 +93,7 @@ class MWorkExperience extends StatelessWidget {
                                       child: Icon(
                                         MdiIcons.circle,
                                         color: kprimaryColor,
-                                        size: 8,
+                                        size: 6,
                                       ),
                                     ),
                                     Text(
