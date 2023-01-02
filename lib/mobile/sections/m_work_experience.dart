@@ -96,9 +96,9 @@ class MWorkExperience extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      '${diff.years == 0 ? '${diff.months} ${diff.months >= 2 ? 'months' : 'month'} ${diff.days} days' : '${diff.years} ${diff.years >= 2 ? 'years' : 'year'} ${diff.months} months'}',
+                                      '${diff.years == 0 ? '${diff.months} ${diff.months >= 2 ? 'mons' : 'mon'} ${diff.days} days' : '${diff.years} ${diff.years >= 2 ? 'yrs' : 'yr'} ${diff.months} mons'}',
                                       style: kNormalTextStyleGrey.copyWith(
-                                        fontSize: 12,
+                                        fontSize: 11,
                                       ),
                                     ),
                                     const SizedBox(width: 10),
