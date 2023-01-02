@@ -83385,11 +83385,11 @@ i=m}i=A.b_(r+" - "+i,k,k,k,k,B.J.bD(12),k,k)
 r=A.af(k,A.m7(B.zU,B.v,k,8),B.j,k,k,k,k,k,k,B.pc,k,k,k)
 m=q.y
 if(m===0){m=q.x
-l=m>=2?"months":"month"
+l=m>=2?"mons":"mon"
 l=""+m+" "+l+" "+q.r+" days"
-m=l}else{l=m>=2?"years":"year"
-l=""+m+" "+l+" "+q.x+" months"
-m=l}return A.af(k,A.aN(A.a([o,B.h8,A.bC(A.a([n,B.z9,i,r,A.b_(m,k,k,k,k,B.J.bD(12),k,k),B.z7,A.m7(B.zR,B.v,k,16),B.z9,A.b_(j.r+", "+j.e+".",k,k,k,k,B.J.bD(12),k,k)],p),B.m,B.n,B.k)],p),B.N,B.n,B.k),B.j,k,k,k,k,k,k,B.d2,k,k,k)},
+m=l}else{l=m>=2?"yrs":"yr"
+l=""+m+" "+l+" "+q.x+" mons"
+m=l}return A.af(k,A.aN(A.a([o,B.h8,A.bC(A.a([n,B.z9,i,r,A.b_(m,k,k,k,k,B.J.bD(11),k,k),B.z7,A.m7(B.zR,B.v,k,16),B.z9,A.b_(j.r+", "+j.e+".",k,k,k,k,B.J.bD(12),k,k)],p),B.m,B.n,B.k)],p),B.N,B.n,B.k),B.j,k,k,k,k,k,k,B.d2,k,k,k)},
 $S:477}
 A.adl.prototype={
 $0(){var s=0,r=A.O(t.H),q=this,p
