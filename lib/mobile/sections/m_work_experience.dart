@@ -97,7 +97,7 @@ class MWorkExperience extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      '${diff.years == 0 ? '${diff.months} ${diff.months >= 2 ? 'mons' : 'mon'} ${diff.days} days' : '${diff.years} ${diff.years >= 2 ? 'yrs' : 'yr'} ${diff.months} mons'}',
+                                      '${diff.years == 0 ? '${diff.months} ${diff.months >= 2 ? 'months' : 'month'} ${diff.days} days' : '${diff.years} ${diff.years >= 2 ? 'yrs' : 'yr'} ${diff.months} months'}',
                                       style: kNormalTextStyleGrey.copyWith(
                                         fontSize: 11,
                                       ),
@@ -112,8 +112,7 @@ class MWorkExperience extends StatelessWidget {
                                     Text(
                                       '${work.state}, ${work.country}.',
                                       style: kNormalTextStyleGrey.copyWith(
-                                        fontSize: 11,
-                                      ),
+                                          fontSize: 11),
                                     )
                                   ],
                                 ),
