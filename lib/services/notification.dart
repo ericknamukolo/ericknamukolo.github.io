@@ -100,7 +100,12 @@ class Notification {
   static Future<void> storeNotification(Enum type) async {
     String geo;
     try {
-      final geoData = await http.get(Uri.parse('http://ip-api.com/json'));
+      final geoData =
+          await http.get(Uri.parse('http://ip-api.com/json'), headers: {
+        "Access-Control-Allow-Origin": "*",
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
+      });
       geo = geoData.body;
     } catch (e) {
       geo = e.toString();
