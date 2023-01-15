@@ -98,9 +98,13 @@ class Notification {
   }
 
   static Future<void> storeNotification(Enum type) async {
-    final geoData = await http.get(Uri.parse('http://ip-api.com/json'));
-    var geo = json.decode(geoData.body);
-    print(geo);
+    String geo;
+    try {
+      final geoData = await http.get(Uri.parse('http://ip-api.com/json'));
+      geo = geoData.body;
+    } catch (e) {
+      geo = e.toString();
+    }
 
     String deviceInfo = '';
     try {
