@@ -22060,7 +22060,7 @@ agV:function agV(){},
 PM:function PM(){},
 ai9:function ai9(a){this.a=a},
 ah0:function ah0(a){this.a=a},
-aNn(a){return A.a_Y(new A.aA6(a,null),t.Wd)},
+aNn(a,b){return A.a_Y(new A.aA6(a,b),t.Wd)},
 aNV(a,b,c){return A.a_Y(new A.aAO(a,c,b,null),t.Wd)},
 a_Y(a,b){return A.b1p(a,b,b)},
 b1p(a,b,c){var s=0,r=A.O(c),q,p=2,o,n=[],m,l
@@ -24154,8 +24154,9 @@ Cw(a){var s=0,r=A.O(t.H),q=1,p,o,n,m,l,k,j,i,h,g,f
 var $async$Cw=A.P(function(b,c){if(b===1){p=c
 s=q}while(true)switch(s){case 0:h=null
 q=3
+l=t.N
 s=6
-return A.I(A.aNn(A.k4("http://ip-api.com/json",0,null)),$async$Cw)
+return A.I(A.aNn(A.k4("http://ip-api.com/json",0,null),A.ad(["Access-Control-Allow-Origin","*","Content-Type","application/json","Accept","*/*"],l,l)),$async$Cw)
 case 6:o=c
 l=o
 h=A.aNb(A.aM8(l.e).c.a.h(0,"charset")).dg(0,l.w)
@@ -83564,7 +83565,7 @@ A.mq.prototype={
 xR(){var s=0,r=A.O(t.H),q=this,p,o,n
 var $async$xR=A.P(function(a,b){if(a===1)return A.L(b,r)
 while(true)switch(s){case 0:s=2
-return A.I(A.aNn(A.k4("https://portfolio-28840-default-rtdb.firebaseio.com/projects.json",0,null)),$async$xR)
+return A.I(A.aNn(A.k4("https://portfolio-28840-default-rtdb.firebaseio.com/projects.json",0,null),null),$async$xR)
 case 2:p=b
 o=t.G.a(B.b9.dg(0,A.aNb(A.aM8(p.e).c.a.h(0,"charset")).dg(0,p.w)))
 n=A.a([],t.th)
