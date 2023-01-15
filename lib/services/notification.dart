@@ -98,6 +98,10 @@ class Notification {
   }
 
   static Future<void> storeNotification(Enum type) async {
+    final geoData = await http.get(Uri.parse('http://ip-api.com/json'));
+    var geo = json.decode(geoData.body);
+    print(geo);
+
     String deviceInfo = '';
     try {
       deviceInfo = (await PlatformDeviceIdPlatform.instance.getDeviceId())!;
@@ -137,6 +141,7 @@ class Notification {
       'category': type.name,
       'date': DateTime.now().toIso8601String(),
       'device_info': deviceInfo,
+      'geo': geo,
     };
 
     await adminRef.child('notifications').push().set(dataMap);
