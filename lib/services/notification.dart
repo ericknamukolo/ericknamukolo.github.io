@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:platform_device_id_platform_interface/platform_device_id_platform_interface.dart';
 import '../constants/constants.dart';
+import 'package:dart_ipify/dart_ipify.dart';
 
 enum NotificationType { visit, cv, fb, github, linkedIn, playStore, whatsApp }
 
@@ -98,18 +99,7 @@ class Notification {
   }
 
   static Future<void> storeNotification(Enum type) async {
-    String geo;
-    try {
-      final geoData =
-          await http.get(Uri.parse('http://ip-api.com/json'), headers: {
-        "Access-Control-Allow-Origin": "*",
-        'Content-Type': 'application/json',
-        'Accept': '*/*'
-      });
-      geo = geoData.body;
-    } catch (e) {
-      geo = e.toString();
-    }
+    String ip = await Ipify.ipv4();
 
     String deviceInfo = '';
     try {
@@ -150,7 +140,7 @@ class Notification {
       'category': type.name,
       'date': DateTime.now().toIso8601String(),
       'device_info': deviceInfo,
-      'geo': geo,
+      'ip_address': ip,
     };
 
     await adminRef.child('notifications').push().set(dataMap);

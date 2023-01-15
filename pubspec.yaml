@@ -55,6 +55,7 @@ dependencies:
   platform_device_id_web: ^0.0.1
   intl: ^0.18.0
   time_machine: ^0.9.17
+  dart_ipify: ^1.1.1
 
 dev_dependencies:
   icons_launcher:
