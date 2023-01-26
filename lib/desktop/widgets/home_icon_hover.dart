@@ -53,7 +53,7 @@ class _HomeIconHoverState extends State<HomeIconHover> {
             await launch(
               'https://github.com/ericknamukolo',
             );
-          } else if (widget.icon == Icons.whatsapp_rounded) {
+          } else if (widget.icon == MdiIcons.whatsapp) {
             Analytics.trackVisit(NotificationType.whatsApp);
             var whatsappUrl = 'https://wa.me/260962885743?text=Hello';
             await launch(whatsappUrl);

@@ -95,7 +95,7 @@ class THomeSection extends StatelessWidget {
                       color: const Color(0xff171515),
                     ),
                     HomeIconHover(
-                      icon: Icons.whatsapp_rounded,
+                      icon: MdiIcons.whatsapp,
                       color: const Color(0xff075e54),
                     ),
                     HomeIconHover(

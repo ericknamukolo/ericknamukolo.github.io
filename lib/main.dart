@@ -10,12 +10,19 @@ import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "AIzaSyAvy06o6RMyc7cJblmIbskKlNg0bZHgNws",
+      messagingSenderId: "825638715348",
+      projectId: "portfolio-28840",
+      databaseURL: "https://portfolio-28840-default-rtdb.firebaseio.com/",
+      appId: "1:825638715348:web:624d4539afbbf8ef93a041",
+    ),
+  );
   setPathUrlStrategy();
   runApp(const Portfolio());
 }
 
-//
 class Portfolio extends StatelessWidget {
   const Portfolio({Key? key}) : super(key: key);
 
@@ -33,6 +40,7 @@ class Portfolio extends StatelessWidget {
         builder: BotToastInit(),
         navigatorObservers: [BotToastNavigatorObserver()],
         theme: ThemeData(
+          useMaterial3: true,
           fontFamily: 'Poppins',
           brightness: Brightness.dark,
           bottomSheetTheme: BottomSheetThemeData(
