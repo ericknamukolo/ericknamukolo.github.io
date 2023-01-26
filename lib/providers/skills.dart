@@ -30,7 +30,7 @@ class Skills with ChangeNotifier {
   Future<void> fetchSkills() async {
     try {
       var ref = await adminRef.child('skills').once();
-      var data = (ref.value as Map);
+      var data = (ref.snapshot.value as Map);
       List<Skill> _loadedSkills = [];
       data.forEach((key, skillData) {
         if (!skillData['hidden']) {

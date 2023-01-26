@@ -9,7 +9,7 @@ class Experiences with ChangeNotifier {
   Future<void> fetchWorkData() async {
     try {
       var ref = await adminRef.child('experience').once();
-      var data = (ref.value as Map);
+      var data = (ref.snapshot.value as Map);
       List<Work> _loadedWork = [];
       data.forEach((key, workData) {
         if (!workData['is_hidden']) {

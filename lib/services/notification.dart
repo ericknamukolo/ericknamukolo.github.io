@@ -72,6 +72,8 @@ class Notification {
     }
 
     var ref = await adminRef.once();
+    var data = (ref.snapshot.value as Map);
+
     Map<String, String> headerMap = {
       'Content-Type': 'application/json',
       'Authorization': serverToken,
@@ -89,7 +91,7 @@ class Notification {
       'notification': notificationMap,
       'data': dataMap,
       'priority': 'high',
-      'to': ref.value['fcmToken'],
+      'to': data['fcmToken'],
     };
     http.post(
       Uri.parse(url),

@@ -122,7 +122,7 @@ class _MContactSectionState extends State<MContactSection> {
                         ),
                         HomeIconHover(
                           isMobile: true,
-                          icon: Icons.whatsapp_rounded,
+                          icon: MdiIcons.whatsapp,
                           color: const Color(0xff075e54),
                         ),
                         HomeIconHover(
