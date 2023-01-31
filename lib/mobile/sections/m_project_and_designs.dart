@@ -34,11 +34,6 @@ class MProjectsAndDesigns extends StatelessWidget {
           BasicButton(
             text: 'Browse All Projects',
             click: () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (context) => const ProjectsDesktopScreen(),
-              //   ),
-              // );
               BotToast.showCustomNotification(
                 duration: Duration(seconds: 5),
                 toastBuilder: (context) => CustomToast(

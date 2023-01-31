@@ -65,12 +65,22 @@ class MobileBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 30, bottom: 15),
-                child: CircleAvatar(
-                  foregroundImage: AssetImage('assets/serious.png'),
-                  backgroundColor: klightDarkColor,
-                  radius: 90,
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(30.0),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: klightDarkColor,
+                    border: Border.all(color: kprimaryColor, width: 2.0),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15.0),
+                    child: Image.network(
+                      'https://firebasestorage.googleapis.com/v0/b/portfolio-28840.appspot.com/o/project-images%2Fadmin_2023-01-31T13%3A34%3A23.793033?alt=media&token=466588bb-d478-4ed6-99e2-e2338f21f439',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ),
               Row(
@@ -150,7 +160,6 @@ class MobileBody extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
-              const Spacer(),
               Center(
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
