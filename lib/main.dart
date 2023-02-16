@@ -1,12 +1,17 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/loading_screen.dart';
+import 'package:portfolio/tablet/tablet_body.dart';
+import 'package:portfolio/widgets/responsive_layout.dart';
 import 'package:portfolio/providers/experiences.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/providers/skills.dart';
 import 'package:provider/provider.dart';
+
 import 'package:url_strategy/url_strategy.dart';
+
+import 'desktop/desktop_body.dart';
+import 'mobile/mobile_body.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +52,11 @@ class Portfolio extends StatelessWidget {
             backgroundColor: Colors.black.withOpacity(0),
           ),
         ),
-        home: const LoadingScreen(),
+        home: ResponsiveLayout(
+          tabletBody: const TabletBody(),
+          desktopBody: const DesktopBody(),
+          mobileBody: MobileBody(),
+        ),
       ),
     );
   }

@@ -25,7 +25,7 @@ class MProjectsAndDesigns extends StatelessWidget {
               itemBuilder: (conetxt, index) => SingleProjectCard(
                 project: projectsData.projectsAndDesigns[index],
               ),
-              itemCount: 3,
+              itemCount: projectsData.projectsAndDesigns.isEmpty ? 0 : 3,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
             ),

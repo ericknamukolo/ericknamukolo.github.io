@@ -28,7 +28,7 @@ class ProjectsAndDesigns extends StatelessWidget {
             builder: (context, projectsData, __) => ListView.builder(
               itemBuilder: (context, index) =>
                   ProjectCard(project: projectsData.projectsAndDesigns[index]),
-              itemCount: 3,
+              itemCount: projectsData.projectsAndDesigns.isEmpty ? 0 : 3,
               shrinkWrap: true,
             ),
           ),
