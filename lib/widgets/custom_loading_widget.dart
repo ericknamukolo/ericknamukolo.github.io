@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:lottie/lottie.dart';
-
 import '../constants/colors.dart';
 import '../constants/constants.dart';
 import '../constants/responsive_breakpoints.dart';
@@ -21,12 +19,7 @@ class CustomLoadingWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          !isMobile
-              ? Lottie.asset(
-                  'assets/loading.json',
-                )
-              : LoadingAnimationWidget.bouncingBall(
-                  color: kprimaryColor, size: 40.0),
+          LoadingAnimationWidget.bouncingBall(color: kprimaryColor, size: 40.0),
           SizedBox(height: isMobile ? 0.0 : 10.0),
           const Text(
             'Loading',
