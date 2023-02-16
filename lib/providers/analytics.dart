@@ -16,8 +16,6 @@ class Analytics {
           .collection('analytics')
           .doc('data')
           .update({type.name: newValue});
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
 }
