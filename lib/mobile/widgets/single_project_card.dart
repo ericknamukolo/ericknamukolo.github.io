@@ -18,7 +18,6 @@ class SingleProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
-    print(_screenWidth * .521);
     return Container(
       margin: EdgeInsets.only(bottom: 40.0),
       child: Column(
