@@ -5,6 +5,8 @@ import 'package:portfolio/providers/skills.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/custom_loading_widget.dart';
+
 class SkillsSection extends StatelessWidget {
   const SkillsSection({Key? key}) : super(key: key);
 
@@ -21,22 +23,25 @@ class SkillsSection extends StatelessWidget {
         children: [
           SectionTitle(title: 'Skills'),
           Consumer<Skills>(
-            builder: (context, skillData, __) => GridView.builder(
-              padding: EdgeInsets.zero,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                childAspectRatio: 180 / 180,
-                crossAxisSpacing: 0.0,
-                mainAxisSpacing: 20.0,
-              ),
-              itemBuilder: (context, index) => SkillCard(
-                skill: skillData.skills[index],
-                size: _screenWidth * .117,
-              ),
-              itemCount: skillData.skills.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-            ),
+            builder: (context, skillData, __) => skillData.skills.isEmpty
+                ? CustomLoadingWidget()
+                : GridView.builder(
+                    padding: EdgeInsets.zero,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      childAspectRatio: 180 / 180,
+                      crossAxisSpacing: 0.0,
+                      mainAxisSpacing: 20.0,
+                    ),
+                    itemBuilder: (context, index) => SkillCard(
+                      skill: skillData.skills[index],
+                      size: _screenWidth * .117,
+                    ),
+                    itemCount: skillData.skills.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                  ),
           ),
         ],
       ),

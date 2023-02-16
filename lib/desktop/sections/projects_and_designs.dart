@@ -5,6 +5,7 @@ import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/custom_loading_widget.dart';
 import '../../widgets/section_title.dart';
 import '../projects_desktop_screen.dart';
 
@@ -25,12 +26,15 @@ class ProjectsAndDesigns extends StatelessWidget {
         children: [
           SectionTitle(title: 'Projects & Designs'),
           Consumer<Projects>(
-            builder: (context, projectsData, __) => ListView.builder(
-              itemBuilder: (context, index) =>
-                  ProjectCard(project: projectsData.projectsAndDesigns[index]),
-              itemCount: projectsData.projectsAndDesigns.isEmpty ? 0 : 3,
-              shrinkWrap: true,
-            ),
+            builder: (context, projectsData, __) => projectsData
+                    .projectsAndDesigns.isEmpty
+                ? CustomLoadingWidget()
+                : ListView.builder(
+                    itemBuilder: (context, index) => ProjectCard(
+                        project: projectsData.projectsAndDesigns[index]),
+                    itemCount: projectsData.projectsAndDesigns.isEmpty ? 0 : 3,
+                    shrinkWrap: true,
+                  ),
           ),
           const SizedBox(
             height: 20,

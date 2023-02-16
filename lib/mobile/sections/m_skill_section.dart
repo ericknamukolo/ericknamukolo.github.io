@@ -5,6 +5,8 @@ import 'package:portfolio/providers/skills.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/custom_loading_widget.dart';
+
 class MSkillSection extends StatelessWidget {
   const MSkillSection({Key? key}) : super(key: key);
 
@@ -18,14 +20,16 @@ class MSkillSection extends StatelessWidget {
         children: [
           SectionTitle(title: 'Skills'),
           Consumer<Skills>(
-            builder: (context, skillData, __) => ListView.builder(
-              itemBuilder: (context, index) => MSkillCard(
-                skill: skillData.skills[index],
-              ),
-              itemCount: skillData.skills.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-            ),
+            builder: (context, skillData, __) => skillData.skills.isEmpty
+                ? CustomLoadingWidget()
+                : ListView.builder(
+                    itemBuilder: (context, index) => MSkillCard(
+                      skill: skillData.skills[index],
+                    ),
+                    itemCount: skillData.skills.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                  ),
           ),
         ],
       ),

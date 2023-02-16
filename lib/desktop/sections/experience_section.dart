@@ -11,6 +11,8 @@ import 'package:collection/collection.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:time_machine/time_machine.dart';
 
+import '../../widgets/custom_loading_widget.dart';
+
 class ExperienceSection extends StatelessWidget {
   final bool isTabMode;
   const ExperienceSection({
@@ -35,7 +37,9 @@ class ExperienceSection extends StatelessWidget {
           Consumer<Experiences>(builder: (context, workData, __) {
             workData.workExperience
                 .sort((a, b) => b.startDate.compareTo(a.startDate));
-            return ExpansionPanelList.radio(
+            return workData.workExperience.isEmpty
+                ? CustomLoadingWidget()
+                : ExpansionPanelList.radio(
               children: workData.workExperience
                   .map(
                     (work) => ExpansionPanelRadio(

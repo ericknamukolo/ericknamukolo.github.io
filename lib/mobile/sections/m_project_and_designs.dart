@@ -8,6 +8,8 @@ import 'package:portfolio/widgets/custom_toast.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/custom_loading_widget.dart';
+
 class MProjectsAndDesigns extends StatelessWidget {
   const MProjectsAndDesigns({Key? key}) : super(key: key);
 
@@ -21,14 +23,17 @@ class MProjectsAndDesigns extends StatelessWidget {
         children: [
           SectionTitle(title: 'Projects & Designs'),
           Consumer<Projects>(
-            builder: (context, projectsData, __) => ListView.builder(
-              itemBuilder: (conetxt, index) => SingleProjectCard(
-                project: projectsData.projectsAndDesigns[index],
-              ),
-              itemCount: projectsData.projectsAndDesigns.isEmpty ? 0 : 3,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-            ),
+            builder: (context, projectsData, __) => projectsData
+                    .projectsAndDesigns.isEmpty
+                ? CustomLoadingWidget()
+                : ListView.builder(
+                    itemBuilder: (conetxt, index) => SingleProjectCard(
+                      project: projectsData.projectsAndDesigns[index],
+                    ),
+                    itemCount: projectsData.projectsAndDesigns.isEmpty ? 0 : 3,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                  ),
           ),
           const SizedBox(height: 25),
           BasicButton(
