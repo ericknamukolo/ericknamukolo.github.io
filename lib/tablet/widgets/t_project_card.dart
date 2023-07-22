@@ -74,8 +74,6 @@ class _TProjectCardState extends State<TProjectCard> {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(widget.project.type,
-                                  style: kMiniTitleTextStylePink),
                               Text(
                                 widget.project.name,
                                 style: kTitleTextStyle.copyWith(fontSize: 30),
@@ -183,24 +181,12 @@ class _TProjectCardState extends State<TProjectCard> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          IconHover(
-                            icon: MdiIcons.github,
-                            color: kprimaryColor,
-                            click: () async {
-                              await launch(
-                                'https://www.linkedin.com/in/erick-namukolo-a49482202/',
-                              );
-                            },
-                          ),
-                          IconHover(
-                            icon: MdiIcons.openInNew,
-                            color: kprimaryColor,
-                            click: () async {
-                              await launch(
-                                'https://www.linkedin.com/in/erick-namukolo-a49482202/',
-                              );
-                            },
-                          ),
+                          ProjectIconBtn(
+                              icon: MdiIcons.github,
+                              link: widget.project.githubLink),
+                          ProjectIconBtn(
+                              icon: MdiIcons.link,
+                              link: widget.project.externalLink),
                         ],
                       ),
                     ),

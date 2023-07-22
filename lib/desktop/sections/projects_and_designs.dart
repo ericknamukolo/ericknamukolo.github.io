@@ -26,15 +26,15 @@ class ProjectsAndDesigns extends StatelessWidget {
         children: [
           SectionTitle(title: 'Projects & Designs'),
           Consumer<Projects>(
-            builder: (context, projectsData, __) =>
-                projectsData.projects.isEmpty
-                    ? CustomLoadingWidget()
-                    : ListView.builder(
-                        itemBuilder: (context, index) =>
-                            ProjectCard(project: projectsData.projects[index]),
-                        itemCount: projectsData.projects.isEmpty ? 0 : 3,
-                        shrinkWrap: true,
-                      ),
+            builder: (context, value, __) => value.projects.isEmpty
+                ? CustomLoadingWidget()
+                : ListView.builder(
+                    itemBuilder: (context, index) =>
+                        ProjectCard(project: value.projects[index]),
+                    itemCount:
+                        value.projects.isEmpty ? 0 : value.projects.length,
+                    shrinkWrap: true,
+                  ),
           ),
           const SizedBox(
             height: 20,
