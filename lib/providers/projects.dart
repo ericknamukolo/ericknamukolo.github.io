@@ -24,21 +24,19 @@ class Projects with ChangeNotifier {
     List<Project> loadedProjects = [];
 
     projects.forEach(
-      (projectId, project) => {
-        loadedProjects.add(
-          Project(
-            id: projectId,
-            name: project['name'],
-            type: project['type'],
-            imgUrl: project['imgUrl'],
-            githubLink: project['githubLink'],
-            desc: project['desc'],
-            images: project['images'],
-            dribbbleLink: project['dribbbleLink'],
-            externalLink: project['externalLink'],
-          ),
+      (projectId, project) => loadedProjects.add(
+        Project(
+          id: projectId,
+          name: project['name'],
+          type: project['type'],
+          imgUrl: project['imgUrl'],
+          githubLink: project['githubLink'],
+          desc: project['desc'],
+          images: project['images'],
+          dribbbleLink: project['dribbbleLink'],
+          externalLink: project['externalLink'],
         ),
-      },
+      ),
     );
     _projectsAndDesigns = loadedProjects;
     notifyListeners();
