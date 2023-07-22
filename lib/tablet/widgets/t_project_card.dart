@@ -5,20 +5,12 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../models/project.dart';
+import '../../widgets/project_icon_btn.dart';
+
 class TProjectCard extends StatefulWidget {
-  final String id;
-  final String name;
-  final String type;
-  final String desc;
-  final String imgUrl;
-  const TProjectCard({
-    Key? key,
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.desc,
-    required this.imgUrl,
-  }) : super(key: key);
+  final Project project;
+  const TProjectCard({Key? key, required this.project}) : super(key: key);
 
   @override
   _TProjectCardState createState() => _TProjectCardState();
@@ -59,7 +51,7 @@ class _TProjectCardState extends State<TProjectCard> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(6.0),
                             image: DecorationImage(
-                              image: NetworkImage(widget.imgUrl),
+                              image: NetworkImage(widget.project.cover),
                               fit: BoxFit.cover,
                               colorFilter: _isHovered
                                   ? null
@@ -82,9 +74,10 @@ class _TProjectCardState extends State<TProjectCard> {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(widget.type, style: kMiniTitleTextStylePink),
+                              Text(widget.project.type,
+                                  style: kMiniTitleTextStylePink),
                               Text(
-                                widget.name,
+                                widget.project.name,
                                 style: kTitleTextStyle.copyWith(fontSize: 30),
                               ),
                               Container(
@@ -105,31 +98,19 @@ class _TProjectCardState extends State<TProjectCard> {
                                   ],
                                 ),
                                 child: Text(
-                                  widget.desc,
+                                  widget.project.description,
                                   style: kNormalTextStyleGrey,
                                 ),
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  IconHover(
-                                    icon: MdiIcons.github,
-                                    color: kprimaryColor,
-                                    click: () async {
-                                      await launch(
-                                        'https://www.linkedin.com/in/erick-namukolo-a49482202/',
-                                      );
-                                    },
-                                  ),
-                                  IconHover(
-                                    icon: MdiIcons.openInNew,
-                                    color: kprimaryColor,
-                                    click: () async {
-                                      await launch(
-                                        'https://www.linkedin.com/in/erick-namukolo-a49482202/',
-                                      );
-                                    },
-                                  ),
+                                  ProjectIconBtn(
+                                      icon: MdiIcons.github,
+                                      link: widget.project.githubLink),
+                                  ProjectIconBtn(
+                                      icon: MdiIcons.link,
+                                      link: widget.project.externalLink),
                                 ],
                               ),
                             ],
@@ -155,7 +136,7 @@ class _TProjectCardState extends State<TProjectCard> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6.0),
               image: DecorationImage(
-                image: NetworkImage(widget.imgUrl),
+                image: NetworkImage(widget.project.cover),
                 fit: BoxFit.cover,
               ),
             ),
@@ -173,12 +154,13 @@ class _TProjectCardState extends State<TProjectCard> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 10, right: 10),
-                      child: Text(widget.type, style: kMiniTitleTextStylePink),
+                      child: Text(widget.project.type,
+                          style: kMiniTitleTextStylePink),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: Text(
-                        widget.name,
+                        widget.project.name,
                         style: kTitleTextStyle.copyWith(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
@@ -188,7 +170,7 @@ class _TProjectCardState extends State<TProjectCard> {
                     Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: Text(
-                        widget.desc,
+                        widget.project.description,
                         style: kNormalTextStyleWhite,
                         textAlign: TextAlign.right,
                       ),

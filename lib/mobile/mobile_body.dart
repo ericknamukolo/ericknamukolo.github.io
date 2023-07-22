@@ -46,10 +46,12 @@ class MobileBody extends StatelessWidget {
     return Scaffold(
       backgroundColor: kdarkColor,
       floatingActionButton: FloatingActionButton(
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
         onPressed: () async {
           Analytics.trackVisit(NotificationType.whatsApp);
           var whatsappUrl = 'whatsapp://send?phone=$phone&text=$text';
-          await launch(whatsappUrl);
+          AppData.goToLink(whatsappUrl);
         },
         child: const Icon(
           MdiIcons.whatsapp,
@@ -232,9 +234,8 @@ class MobileBody extends StatelessWidget {
                       icon: MdiIcons.googlePlay,
                       click: () async {
                         Analytics.trackVisit(NotificationType.playStore);
-                        await launch(
-                          'https://play.google.com/store/apps/dev?id=8203990443766365712',
-                        );
+                        AppData.goToLink(
+                            'https://play.google.com/store/apps/dev?id=8203990443766365712');
                       },
                     ),
                   ],

@@ -12,33 +12,30 @@ class TProjectsAndDesigns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final projectsData = Provider.of<Projects>(context, listen: false).projects;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 90.0, vertical: 50.0),
       width: double.infinity,
       color: kdarkColor,
-      child: Column(
-        children: [
-          SectionTitle(title: 'Projects & Designs'),
-          // ListView.builder(
-          //   itemBuilder: (context, index) => TProjectCard(
-          //     desc: projectsData[index].desc,
-          //     id: projectsData[index].id,
-          //     name: projectsData[index].name,
-          //     type: projectsData[index].type,
-          //     imgUrl: projectsData[index].imgUrl,
-          //   ),
-          //   itemCount: projectsData.isEmpty ? 0 : 3,
-          //   shrinkWrap: true,
-          // ),
-          const SizedBox(
-            height: 20,
-          ),
-          BasicButton(
-            text: 'Browse All Projects',
-            click: () {},
-          ),
-        ],
+      child: Consumer<Projects>(
+        builder: (index, value, __) => Column(
+          children: [
+            SectionTitle(title: 'Projects & Designs'),
+            ListView.builder(
+              itemBuilder: (context, index) => TProjectCard(
+                project: value.projects[index],
+              ),
+              itemCount: value.projects.isEmpty ? 0 : value.projects.length,
+              shrinkWrap: true,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            BasicButton(
+              text: 'Browse All Projects',
+              click: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
