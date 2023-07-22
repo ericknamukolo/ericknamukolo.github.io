@@ -19,7 +19,7 @@ class Project {
   final String playstoreLink;
   @JsonKey(name: 'created_at')
   final String date;
-  final List<dynamic> images;
+  final List<String> images;
 
   Project({
     this.id,
@@ -44,6 +44,7 @@ class Project {
       String rawJson = jsonEncode(element);
       Project project = Project.fromJson(jsonDecode(rawJson));
       project.id = id;
+      print(element['images']);
       _loadedprojects.add(project);
     });
     return _loadedprojects;

@@ -36,8 +36,8 @@ const kTitleTextStyle = TextStyle(
 const String serverToken =
     'key=AAAAwDvm_9Q:APA91bEpQxWZzdf1JAA_y1eKbFa1r26V2PO5twPU_RhdpyLEJ12xXdd0QYQYHURPdzh-zVIoe6nC8yE5Eat99WZAlr-R0ucuzTrCs8hDNn3th3wavSpIIcH6Vhah5cp-XmYniTlEDqe8';
 
-DatabaseReference adminRef =
-    FirebaseDatabase.instance.reference().child('admin');
+DatabaseReference adminRef = FirebaseDatabase.instance.ref().child('admin');
+DatabaseReference projectsRef = adminRef.child('projects');
 
 class AppData {
   static String aboutMe =

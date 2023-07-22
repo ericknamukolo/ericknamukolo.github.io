@@ -12,8 +12,7 @@ class TProjectsAndDesigns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final projectsData =
-        Provider.of<Projects>(context, listen: false).projectsAndDesigns;
+    final projectsData = Provider.of<Projects>(context, listen: false).projects;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 90.0, vertical: 50.0),
       width: double.infinity,

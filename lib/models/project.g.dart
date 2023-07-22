@@ -16,7 +16,8 @@ Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
       githubLink: json['github_link'] as String,
       externalLink: json['external_link'] as String,
       description: json['description'] as String,
-      images: json['images'] as List<dynamic>,
+      images:
+          (json['images'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{

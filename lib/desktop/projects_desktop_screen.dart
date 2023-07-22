@@ -10,7 +10,7 @@ class ProjectsDesktopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final projectsData = Provider.of<Projects>(context).projectsAndDesigns;
+    final projectsData = Provider.of<Projects>(context).projects;
     double containerPadding() {
       if (MediaQuery.of(context).size.width >= 1200) {
         return 160;

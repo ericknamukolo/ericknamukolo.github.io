@@ -1,4 +1,6 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
+import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/models/project.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -10,35 +12,22 @@ import 'package:portfolio/providers/analytics.dart';
 import '../services/notification.dart';
 
 class Projects with ChangeNotifier {
-  List<Project> _projectsAndDesigns = [];
+  List<Project> _projects = [];
 
-  List<Project> get projectsAndDesigns {
-    return [..._projectsAndDesigns];
+  List<Project> get projects {
+    return [..._projects];
   }
 
   Future<void> fetchAndSetProjects() async {
-    const url =
-        'https://portfolio-28840-default-rtdb.firebaseio.com/projects.json';
-    var response = await http.get(Uri.parse(url));
-    var projects = json.decode(response.body) as Map<dynamic, dynamic>;
-    List<Project> loadedProjects = [];
+    try {
+      DatabaseEvent ref = await projectsRef.once();
+      var data = (ref.snapshot.value as Map);
 
-    projects.forEach(
-      (projectId, project) => loadedProjects.add(
-        Project(
-          id: projectId,
-          name: project['name'],
-          type: project['type'],
-          imgUrl: project['imgUrl'],
-          githubLink: project['githubLink'],
-          desc: project['desc'],
-          images: project['images'],
-          dribbbleLink: project['dribbbleLink'],
-          externalLink: project['externalLink'],
-        ),
-      ),
-    );
-    _projectsAndDesigns = loadedProjects;
+      _projects = Project.fromJsonList(data);
+      print(_projects.length);
+    } catch (e) {
+      throw e;
+    }
     notifyListeners();
   }
 
