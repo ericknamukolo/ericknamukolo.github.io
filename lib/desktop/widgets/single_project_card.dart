@@ -16,34 +16,34 @@ class SingleProjectCard extends StatelessWidget {
       child: Container(
         child: Column(
           children: [
-            Container(
-              height: screenWidth <= 1366 ? 210 : 300,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: klightDarkColor,
-                image: DecorationImage(
-                  image: NetworkImage(proj.imgUrl),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
-            Expanded(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  proj.name,
-                  style: kMiniTitleTextStylePink.copyWith(fontSize: 18),
-                ),
-                Text(
-                  proj.desc,
-                  style: kNormalTextStyleGrey,
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            )),
+            // Container(
+            //   height: screenWidth <= 1366 ? 210 : 300,
+            //   width: double.infinity,
+            //   decoration: BoxDecoration(
+            //     color: klightDarkColor,
+            //     image: DecorationImage(
+            //       image: NetworkImage(proj.imgUrl),
+            //       fit: BoxFit.fill,
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(height: 10),
+            // Expanded(
+            //     child: Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     Text(
+            //       proj.name,
+            //       style: kMiniTitleTextStylePink.copyWith(fontSize: 18),
+            //     ),
+            //     Text(
+            //       proj.desc,
+            //       style: kNormalTextStyleGrey,
+            //       maxLines: 4,
+            //       overflow: TextOverflow.ellipsis,
+            //     ),
+            //   ],
+            // )),
           ],
         ),
       ),

@@ -42,30 +42,6 @@ class Projects with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> add() async {
-    await http.post(
-      Uri.parse(
-          'https://portfolio-28840-default-rtdb.firebaseio.com/projects.json'),
-      body: json.encode(
-        {
-          'name': 'E-Commerce App',
-          'type': 'Project',
-          'imgUrl': 'assets/dash.png',
-          'githubLink': 'https://github.com',
-          'desc':
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          'images': [
-            'assets/dash.png',
-            'assets/dash.png',
-            'assets/dash.png',
-            'assets/dash.png',
-            'assets/dash.png',
-          ],
-        },
-      ),
-    );
-  }
-
   downloadCV() {
     Analytics.trackVisit(NotificationType.cv);
     String url =

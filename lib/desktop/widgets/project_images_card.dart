@@ -136,10 +136,10 @@ class _ProjectImagesCardState extends State<ProjectImagesCard> {
                     widget.clickedProject.name,
                     style: kTitleTextStyle.copyWith(fontSize: 25),
                   ),
-                  Text(
-                    widget.clickedProject.desc,
-                    style: kNormalTextStyleGrey,
-                  ),
+                  // Text(
+                  //   widget.clickedProject.desc,
+                  //   style: kNormalTextStyleGrey,
+                  // ),
                 ],
               ),
             ),

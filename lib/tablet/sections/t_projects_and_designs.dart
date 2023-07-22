@@ -21,17 +21,17 @@ class TProjectsAndDesigns extends StatelessWidget {
       child: Column(
         children: [
           SectionTitle(title: 'Projects & Designs'),
-          ListView.builder(
-            itemBuilder: (context, index) => TProjectCard(
-              desc: projectsData[index].desc,
-              id: projectsData[index].id,
-              name: projectsData[index].name,
-              type: projectsData[index].type,
-              imgUrl: projectsData[index].imgUrl,
-            ),
-            itemCount: projectsData.isEmpty ? 0 : 3,
-            shrinkWrap: true,
-          ),
+          // ListView.builder(
+          //   itemBuilder: (context, index) => TProjectCard(
+          //     desc: projectsData[index].desc,
+          //     id: projectsData[index].id,
+          //     name: projectsData[index].name,
+          //     type: projectsData[index].type,
+          //     imgUrl: projectsData[index].imgUrl,
+          //   ),
+          //   itemCount: projectsData.isEmpty ? 0 : 3,
+          //   shrinkWrap: true,
+          // ),
           const SizedBox(
             height: 20,
           ),
