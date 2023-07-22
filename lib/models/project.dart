@@ -44,7 +44,6 @@ class Project {
       String rawJson = jsonEncode(element);
       Project project = Project.fromJson(jsonDecode(rawJson));
       project.id = id;
-      print(element['images']);
       _loadedprojects.add(project);
     });
     return _loadedprojects;

@@ -24,7 +24,6 @@ class Projects with ChangeNotifier {
       var data = (ref.snapshot.value as Map);
 
       _projects = Project.fromJsonList(data);
-      print(_projects.length);
     } catch (e) {
       throw e;
     }

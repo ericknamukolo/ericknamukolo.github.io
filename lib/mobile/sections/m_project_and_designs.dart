@@ -23,17 +23,17 @@ class MProjectsAndDesigns extends StatelessWidget {
         children: [
           SectionTitle(title: 'Projects & Designs'),
           Consumer<Projects>(
-            builder: (context, projectsData, __) =>
-                projectsData.projects.isEmpty
-                    ? CustomLoadingWidget()
-                    : ListView.builder(
-                        itemBuilder: (conetxt, index) => SingleProjectCard(
-                          project: projectsData.projects[index],
-                        ),
-                        itemCount: projectsData.projects.isEmpty ? 0 : 3,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                      ),
+            builder: (context, value, __) => value.projects.isEmpty
+                ? CustomLoadingWidget()
+                : ListView.builder(
+                    itemBuilder: (conetxt, index) => SingleProjectCard(
+                      project: value.projects[index],
+                    ),
+                    itemCount:
+                        value.projects.isEmpty ? 0 : value.projects.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                  ),
           ),
           const SizedBox(height: 25),
           BasicButton(

@@ -8,6 +8,8 @@ import 'package:portfolio/desktop/widgets/icon_hover.dart';
 import 'package:portfolio/models/project.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../widgets/project_icon_btn.dart';
+
 class SingleProjectCard extends StatelessWidget {
   final Project project;
   const SingleProjectCard({
@@ -22,85 +24,63 @@ class SingleProjectCard extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 40.0),
       child: Column(
         children: [
-          // Container(
-          //   margin: EdgeInsets.only(bottom: 6.0),
-          //   width: double.infinity,
-          //   height: _screenWidth * .521,
-          //   color: klightDarkColor,
-          //   child: Image.network(
-          //     project.imgUrl,
-          //     fit: BoxFit.cover,
-          //   ),
-          // ),
-          // Column(
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          //   children: [
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //       children: [
-          //         Text(
-          //           project.name,
-          //           style: kMiniTitleTextStyleWhite.copyWith(
-          //             fontSize: 20,
-          //             fontWeight: FontWeight.bold,
-          //             letterSpacing: 1,
-          //           ),
-          //         ),
-          //         Row(
-          //           children: [
-          //             project.dribbbleLink == '0'
-          //                 ? Container()
-          //                 : IconHover(
-          //                     icon: MdiIcons.basket,
-          //                     color: kprimaryColor,
-          //                     click: () async {
-          //                       await launch(
-          //                         project.dribbbleLink,
-          //                       );
-          //                     },
-          //                     padding: 4,
-          //                   ),
-          //             project.githubLink == '0'
-          //                 ? Container()
-          //                 : IconHover(
-          //                     padding: 4,
-          //                     icon: MdiIcons.github,
-          //                     color: kprimaryColor,
-          //                     click: () async {
-          //                       await launch(
-          //                         project.githubLink,
-          //                       );
-          //                     },
-          //                   ),
-          //             project.externalLink == '0'
-          //                 ? Container()
-          //                 : IconHover(
-          //                     padding: 4,
-          //                     icon: MdiIcons.link,
-          //                     color: kprimaryColor,
-          //                     click: () async {
-          //                       await launch(
-          //                         project.externalLink,
-          //                       );
-          //                     },
-          //                   ),
-          //           ],
-          //         ),
-          //       ],
-          //     ),
-          //     const SizedBox(
-          //       height: 5,
-          //     ),
-          //     Text(
-          //       project.desc,
-          //       style: kNormalTextStyleGrey,
-          //     ),
-          //   ],
-          // ),
+          Container(
+            margin: EdgeInsets.only(bottom: 6.0),
+            width: double.infinity,
+            height: _screenWidth * .521,
+            color: klightDarkColor,
+            child: Image.network(
+              project.cover,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    project.name,
+                    style: kMiniTitleTextStyleWhite.copyWith(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      ProjectIconBtn(
+                          icon: MdiIcons.github,
+                          link: project.githubLink,
+                          padding: 4),
+                      ProjectIconBtn(
+                          icon: MdiIcons.link,
+                          link: project.externalLink,
+                          padding: 4),
+                      ProjectIconBtn(
+                          icon: MdiIcons.googlePlay,
+                          link: project.playstoreLink,
+                          padding: 4),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(
+                project.description,
+                style: kNormalTextStyleGrey,
+              ),
+            ],
+          ),
         ],
       ),
     );
   }
 }
+
+
 
 // 
