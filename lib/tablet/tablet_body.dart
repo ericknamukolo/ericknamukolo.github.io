@@ -11,12 +11,9 @@ import 'package:portfolio/tablet/sections/t_contact_section.dart';
 import 'package:portfolio/tablet/sections/t_home_section.dart';
 import 'package:portfolio/tablet/sections/t_projects_and_designs.dart';
 import 'package:portfolio/tablet/sections/t_skill_section.dart';
-import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../desktop/widgets/app_bar_button.dart';
-import '../providers/projects.dart';
-import '../widgets/basic_button.dart';
 
 class TabletBody extends StatefulWidget {
   const TabletBody({Key? key}) : super(key: key);

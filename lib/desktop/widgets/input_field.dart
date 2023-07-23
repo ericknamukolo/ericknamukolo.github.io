@@ -31,7 +31,7 @@ class InputField extends StatelessWidget {
       maxLines: maxLines,
       decoration: InputDecoration(
         errorStyle: kNormalTextStyleWhite.copyWith(
-          color: Theme.of(context).errorColor,
+          color: Theme.of(context).colorScheme.error,
           fontSize: 14,
           fontWeight: FontWeight.bold,
         ),

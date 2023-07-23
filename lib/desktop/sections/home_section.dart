@@ -6,7 +6,6 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/home_icon_hover.dart';
 import 'package:portfolio/widgets/basic_button.dart';
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeSection extends StatelessWidget {
   final Function() scrollToProjects;

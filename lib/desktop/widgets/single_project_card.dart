@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/colors.dart';
-import 'package:portfolio/constants/constants.dart';
 
 import '../../models/project.dart';
 

@@ -12,7 +12,6 @@ import 'package:portfolio/mobile/sections/m_skill_section.dart';
 import 'package:portfolio/mobile/sections/m_work_experience.dart';
 import 'package:portfolio/mobile/widgets/app_bar_icon.dart';
 import 'package:portfolio/mobile/widgets/hover_container.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 
 import '../providers/analytics.dart';

@@ -5,7 +5,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/widgets/basic_button.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../desktop/widgets/home_icon_hover.dart';
 
