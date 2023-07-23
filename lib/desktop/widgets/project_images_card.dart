@@ -35,7 +35,7 @@ class _ProjectImagesCardState extends State<ProjectImagesCard> {
               child: const CircleAvatar(
                 radius: 30,
                 backgroundColor: kdarkColor,
-                child: Icon(
+                child: const Icon(
                   Icons.close,
                   color: Colors.white,
                 ),
@@ -58,7 +58,7 @@ class _ProjectImagesCardState extends State<ProjectImagesCard> {
                       child: CircleAvatar(
                         radius: 30,
                         backgroundColor: kdarkColor,
-                        child: Icon(
+                        child: const Icon(
                           MdiIcons.chevronLeft,
                           color: Colors.white,
                           size: 30,
@@ -102,7 +102,7 @@ class _ProjectImagesCardState extends State<ProjectImagesCard> {
                       child: CircleAvatar(
                         radius: 30,
                         backgroundColor: kdarkColor,
-                        child: Icon(
+                        child: const Icon(
                           MdiIcons.chevronRight,
                           color: Colors.white,
                           size: 30,

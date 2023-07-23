@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/providers/analytics.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -45,28 +46,21 @@ class _HomeIconHoverState extends State<HomeIconHover> {
         onTap: () async {
           if (widget.icon == MdiIcons.linkedin) {
             Analytics.trackVisit(NotificationType.linkedIn);
-            await launch(
-              'https://www.linkedin.com/in/ericknamukolo/',
-            );
+            AppData.goToLink('https://www.linkedin.com/in/ericknamukolo/');
           } else if (widget.icon == MdiIcons.github) {
             Analytics.trackVisit(NotificationType.github);
-            await launch(
-              'https://github.com/ericknamukolo',
-            );
+            AppData.goToLink('https://github.com/ericknamukolo');
           } else if (widget.icon == MdiIcons.whatsapp) {
             Analytics.trackVisit(NotificationType.whatsApp);
             var whatsappUrl = 'https://wa.me/260962885743?text=Hello';
-            await launch(whatsappUrl);
+            AppData.goToLink(whatsappUrl);
           } else if (widget.icon == MdiIcons.facebook) {
             Analytics.trackVisit(NotificationType.fb);
-            await launch(
-              'https://www.facebook.com/ericnamukolo/',
-            );
+            AppData.goToLink('https://www.facebook.com/ericnamukolo/');
           } else if (widget.icon == MdiIcons.googlePlay) {
             Analytics.trackVisit(NotificationType.playStore);
-            await launch(
-              'https://play.google.com/store/apps/dev?id=8203990443766365712',
-            );
+            AppData.goToLink(
+                'https://play.google.com/store/apps/dev?id=8203990443766365712');
           }
         },
         child: Padding(

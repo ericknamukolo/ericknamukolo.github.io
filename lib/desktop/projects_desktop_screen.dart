@@ -38,7 +38,7 @@ class ProjectsDesktopScreen extends StatelessWidget {
               child: CircleAvatar(
                 radius: 30,
                 backgroundColor: klightDarkColor,
-                child: Icon(
+                child: const Icon(
                   Icons.close,
                   color: Colors.white,
                 ),
@@ -53,7 +53,7 @@ class ProjectsDesktopScreen extends StatelessWidget {
                 child: const CircleAvatar(
                   radius: 30,
                   backgroundColor: klightDarkColor,
-                  child: Icon(
+                  child: const Icon(
                     Icons.close,
                     color: Colors.white,
                   ),

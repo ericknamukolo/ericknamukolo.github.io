@@ -172,7 +172,7 @@ class MobileBody extends StatelessWidget {
                     child: const CircleAvatar(
                       backgroundColor: klightDarkColor,
                       radius: 30,
-                      child: Icon(
+                      child: const Icon(
                         Icons.close,
                         color: Colors.white,
                         size: 30,

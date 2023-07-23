@@ -33,7 +33,7 @@ class AppBarButton extends StatelessWidget {
             children: [
               Text('Download CV', style: kNormalTextStyleWhite),
               SizedBox(width: 10),
-              GlowIcon(
+              const GlowIcon(
                 Icons.download_rounded,
                 glowColor: Colors.white,
                 blurRadius: 6.0,
