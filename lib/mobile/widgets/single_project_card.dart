@@ -6,6 +6,7 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/models/project.dart';
 
+import '../../widgets/custom_chip.dart';
 import '../../widgets/project_icon_btn.dart';
 
 class SingleProjectCard extends StatelessWidget {
@@ -64,13 +65,13 @@ class SingleProjectCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               Text(
                 project.description,
                 style: kNormalTextStyleGrey,
               ),
+              const SizedBox(height: 5),
+              CustomChip(),
             ],
           ),
         ],
@@ -78,7 +79,3 @@ class SingleProjectCard extends StatelessWidget {
     );
   }
 }
-
-
-
-// 
