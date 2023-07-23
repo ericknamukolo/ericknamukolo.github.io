@@ -7,6 +7,7 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/project_images_card.dart';
 
 import '../../models/project.dart';
+import '../../widgets/custom_chip.dart';
 import '../../widgets/project_icon_btn.dart';
 
 class ProjectCard extends StatefulWidget {
@@ -90,8 +91,13 @@ class _ProjectCardState extends State<ProjectCard> {
                           Text(
                             widget.project.name,
                             textAlign: TextAlign.left,
-                            style: kTitleTextStyle.copyWith(fontSize: 30),
+                            style: kTitleTextStyle.copyWith(fontSize: 28),
                           ),
+                          const SizedBox(height: 5),
+                          Row(
+                              children: widget.project.tech
+                                  .map((tech) => CustomChip(name: tech))
+                                  .toList()),
                           Container(
                             height: 160,
                             width: double.infinity,
