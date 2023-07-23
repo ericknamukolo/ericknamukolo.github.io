@@ -18,6 +18,7 @@ Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
       description: json['description'] as String,
       images:
           (json['images'] as List<dynamic>).map((e) => e as String).toList(),
+      tech: (json['tech'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
@@ -31,4 +32,5 @@ Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'playstore_link': instance.playstoreLink,
       'created_at': instance.date,
       'images': instance.images,
+      'tech': instance.tech,
     };

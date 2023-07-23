@@ -20,6 +20,7 @@ class Project {
   @JsonKey(name: 'created_at')
   final String date;
   final List<String> images;
+  final List<String> tech;
 
   Project({
     this.id,
@@ -32,6 +33,7 @@ class Project {
     required this.externalLink,
     required this.description,
     required this.images,
+    required this.tech,
   });
 
   factory Project.fromJson(Map<String, dynamic> json) =>
