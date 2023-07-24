@@ -27,10 +27,20 @@ class SingleProjectCard extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 6.0),
             width: double.infinity,
             height: _screenWidth * .521,
-            color: klightDarkColor,
-            child: Image.network(
-              project.cover,
-              fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              color: klightDarkColor,
+              border: Border.all(
+                color: kprimaryColor,
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.network(
+                project.cover,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Column(
