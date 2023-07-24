@@ -83936,7 +83936,7 @@ return A.ap(o,A.bv(A.a([r,A.dE(A.ap(o,new A.pt(new A.hT(o,B.Z,new A.ps("assets/a
 A.Pp.prototype={
 D(a){var s=null,r=t.w,q=a.L(r).f.a.a*0.1172
 r=a.L(r).f.a.b*0.065
-return A.ap(s,A.aN(A.a([new A.fc("Projects & Designs",s),A.pO(new A.aj8(),t.gA),B.cN,A.nk(new A.aj9(a),!1,"All Projects")],t.p),B.m,B.n,B.j),B.i,B.a3,s,s,s,s,s,new A.a4(q,r,q,r),s,s,1/0)}}
+return A.ap(s,A.aN(A.a([new A.fc("Projects",s),A.pO(new A.aj8(),t.gA),B.cN,A.nk(new A.aj9(a),!1,"All Projects")],t.p),B.m,B.n,B.j),B.i,B.a3,s,s,s,s,s,new A.a4(q,r,q,r),s,s,1/0)}}
 A.aj8.prototype={
 $3(a,b,c){var s=t.hF
 if(A.ac(b.a,!0,s).length===0)s=new A.ly(null)
@@ -84315,7 +84315,7 @@ D(a){var s=null,r=A.ap(s,B.Bm,B.i,s,s,s,s,s,s,B.d4,s,s,s),q=A.aS("I am a ",s,s,s
 return A.ap(s,A.aN(A.a([r,A.bv(A.a([q,A.aFO(A.a([o,n,m,A.l2("Mobile",B.B,B.G.i2(B.z,40,a.L(p).f.a.a>=500?B.a5:s))],t.u6),B.d3,!0)],l),B.m,B.b0,B.j),A.aS("Developer.",s,s,s,s,B.G.bH(40),s,s),B.cN,B.UM,B.hE,new A.tn(s),B.cN,A.bv(A.a([new A.bS(B.cl,B.co,!0,s),new A.bS(B.bg,B.cp,!0,s),new A.bS(B.bo,B.c3,!0,s),new A.bS(B.cm,B.cq,!0,s),new A.bS(B.bp,B.cr,!0,s)],l),B.m,B.b0,B.j)],l),B.m,B.b0,B.j),B.i,s,s,s,s,s,s,B.d5,s,s,1/0)}}
 A.NJ.prototype={
 D(a){var s=null
-return A.ap(s,A.aN(A.a([new A.fc("Projects & Designs",s),A.pO(new A.aeY(),t.gA),B.A4,A.nk(new A.aeZ(),!1,"Browse All Projects")],t.p),B.m,B.n,B.j),B.i,B.a3,s,s,s,s,s,B.d5,s,s,1/0)}}
+return A.ap(s,A.aN(A.a([new A.fc("Projects",s),A.pO(new A.aeY(),t.gA),B.A4,A.nk(new A.aeZ(),!1,"Browse All Projects")],t.p),B.m,B.n,B.j),B.i,B.a3,s,s,s,s,s,B.d5,s,s,1/0)}}
 A.aeY.prototype={
 $3(a,b,c){var s=t.hF
 if(A.ac(b.a,!0,s).length===0)s=new A.ly(null)
@@ -94082,7 +94082,7 @@ B.UL=new A.hG("Loading",null,B.aG,null,null,null,null,null,null,null)
 B.UM=new A.hG(u.B,null,B.Q,B.hJ,null,null,null,null,null,null)
 B.hP=new A.hG("Feel free to get in touch",null,B.Q,null,null,null,null,null,null,null)
 B.UN=new A.hG("",null,null,null,null,null,null,null,null,null)
-B.UP=new A.hG("Projects & Designs",null,B.hO,null,null,null,null,null,null,null)
+B.UP=new A.hG("Projects",null,B.hO,null,null,null,null,null,null,null)
 B.Aq=new A.hG("Erick Namukolo",null,B.Am,null,null,null,null,null,null,null)
 B.Ar=new A.hG(u.B,null,B.Q,null,null,null,null,null,null,null)
 B.As=new A.hG("Introduction",null,B.Q,null,null,null,null,null,null,null)
