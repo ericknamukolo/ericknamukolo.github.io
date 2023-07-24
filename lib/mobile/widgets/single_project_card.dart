@@ -74,8 +74,7 @@ class SingleProjectCard extends StatelessWidget {
                     ],
                   ),
                 ],
-              ),
-              const SizedBox(height: 5),
+              ),       
               Text(
                 project.description,
                 style: kNormalTextStyleGrey,
