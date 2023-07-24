@@ -24,7 +24,7 @@ class ProjectsAndDesigns extends StatelessWidget {
       color: kdarkColor,
       child: Column(
         children: [
-          SectionTitle(title: 'Projects & Designs'),
+          SectionTitle(title: 'Projects'),
           Consumer<Projects>(
             builder: (context, value, __) => value.projects.isEmpty
                 ? CustomLoadingWidget()

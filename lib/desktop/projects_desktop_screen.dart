@@ -70,7 +70,7 @@ class ProjectsDesktopScreen extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(vertical: 30),
               child: const Text(
-                'Projects & Designs',
+                'Projects',
                 style: kMiniTitleTextStyleWhite,
               ),
             ),
