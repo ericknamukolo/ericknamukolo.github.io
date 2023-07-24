@@ -6,9 +6,9 @@ import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/contact_card.dart';
 import 'package:portfolio/desktop/widgets/input_field.dart';
 import 'package:portfolio/providers/send_message.dart';
-import 'package:portfolio/widgets/basic_button.dart';
 import '../../widgets/section_title.dart';
 import '../widgets/home_icon_hover.dart';
+import '../widgets/mordern_button.dart';
 
 class ContactSection extends StatefulWidget {
   const ContactSection({Key? key}) : super(key: key);
@@ -188,10 +188,11 @@ class _ContactSectionState extends State<ContactSection> {
                                   message = value!;
                                 },
                               ),
-                              BasicButton(
-                                text: 'Send',
+                              MordernButton(
+                                icon: Icons.send,
                                 click: _isSending ? () {} : send,
-                                isSending: _isSending,
+                                text: 'Send',
+                                isLoading: _isSending,
                               ),
                             ],
                           ),

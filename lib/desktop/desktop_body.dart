@@ -13,8 +13,11 @@ import 'package:portfolio/desktop/sections/home_section.dart';
 import 'package:portfolio/desktop/sections/projects_and_designs.dart';
 import 'package:portfolio/desktop/sections/skills_section.dart';
 import 'package:portfolio/desktop/widgets/animated_text.dart';
-import 'package:portfolio/desktop/widgets/app_bar_button.dart';
+import 'package:portfolio/desktop/widgets/mordern_button.dart';
+import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
+
+import '../providers/projects.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({Key? key}) : super(key: key);
@@ -162,7 +165,13 @@ class _DesktopBodyState extends State<DesktopBody> {
                             click: () => scrollToItem(contactKey),
                             width: contactWidth,
                           ),
-                          AppBarButton(),
+                          MordernButton(
+                            icon: Icons.download_rounded,
+                            click: () =>
+                                Provider.of<Projects>(context, listen: false)
+                                    .downloadCV(),
+                            text: 'Download CV',
+                          ),
                         ],
                       ),
                     ),

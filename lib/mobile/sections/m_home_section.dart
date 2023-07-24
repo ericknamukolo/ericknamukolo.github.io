@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/desktop/widgets/app_bar_button.dart';
+import 'package:portfolio/desktop/widgets/mordern_button.dart';
+import 'package:provider/provider.dart';
 import '../../desktop/widgets/home_icon_hover.dart';
+import '../../providers/projects.dart';
 
 class MHomeSection extends StatelessWidget {
   const MHomeSection({Key? key}) : super(key: key);
@@ -110,7 +112,12 @@ class MHomeSection extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          AppBarButton(),
+          MordernButton(
+            icon: Icons.download_rounded,
+            click: () =>
+                Provider.of<Projects>(context, listen: false).downloadCV(),
+            text: 'Download CV',
+          ),
           const SizedBox(
             height: 20,
           ),

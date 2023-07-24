@@ -4,8 +4,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/home_icon_hover.dart';
-import 'package:portfolio/widgets/basic_button.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+
+import '../widgets/mordern_button.dart';
 
 class HomeSection extends StatelessWidget {
   final Function() scrollToProjects;
@@ -109,9 +110,10 @@ class HomeSection extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                BasicButton(
-                  text: 'Browse Projects',
+                MordernButton(
+                  icon: MdiIcons.folder,
                   click: scrollToProjects,
+                  text: 'Browse Projects',
                 ),
                 const SizedBox(
                   height: 25,

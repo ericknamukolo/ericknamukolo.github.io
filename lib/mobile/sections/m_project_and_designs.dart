@@ -1,13 +1,14 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/mobile/widgets/single_project_card.dart';
 import 'package:portfolio/providers/projects.dart';
-import 'package:portfolio/widgets/basic_button.dart';
 import 'package:portfolio/widgets/custom_toast.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 
+import '../../desktop/widgets/mordern_button.dart';
 import '../../widgets/custom_loading_widget.dart';
 
 class MProjectsAndDesigns extends StatelessWidget {
@@ -36,8 +37,8 @@ class MProjectsAndDesigns extends StatelessWidget {
                   ),
           ),
           const SizedBox(height: 25),
-          BasicButton(
-            text: 'Browse All Projects',
+          MordernButton(
+            icon: MdiIcons.folder,
             click: () {
               BotToast.showCustomNotification(
                 duration: Duration(seconds: 5),
@@ -47,6 +48,7 @@ class MProjectsAndDesigns extends StatelessWidget {
                 ),
               );
             },
+            text: 'More Projects',
           ),
         ],
       ),

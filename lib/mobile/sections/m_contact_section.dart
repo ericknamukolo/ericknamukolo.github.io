@@ -5,8 +5,8 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/desktop/widgets/contact_card.dart';
 import 'package:portfolio/desktop/widgets/input_field.dart';
-import 'package:portfolio/widgets/basic_button.dart';
 import 'package:portfolio/widgets/section_title.dart';
+import '../../desktop/widgets/mordern_button.dart';
 import '../../desktop/widgets/home_icon_hover.dart';
 import '../../providers/send_message.dart';
 
@@ -171,10 +171,11 @@ class _MContactSectionState extends State<MContactSection> {
                         maxLines: 5,
                         controller: message,
                       ),
-                      BasicButton(
-                        text: 'Send',
+                      MordernButton(
+                        icon: Icons.send,
                         click: send,
-                        isSending: _isSending,
+                        text: 'Send',
+                        isLoading: _isSending,
                       ),
                     ],
                   ),

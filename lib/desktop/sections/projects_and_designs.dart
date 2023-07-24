@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/desktop/widgets/project_card.dart';
 import 'package:portfolio/providers/projects.dart';
-import 'package:portfolio/widgets/basic_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/custom_loading_widget.dart';
 import '../../widgets/section_title.dart';
 import '../projects_desktop_screen.dart';
+import '../widgets/mordern_button.dart';
 
 class ProjectsAndDesigns extends StatelessWidget {
   const ProjectsAndDesigns({Key? key}) : super(key: key);
@@ -39,12 +40,13 @@ class ProjectsAndDesigns extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          BasicButton(
-            text: 'All Projects',
+          MordernButton(
+            icon: MdiIcons.folder,
             click: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const ProjectsDesktopScreen()));
             },
+            text: 'All Projects',
           ),
         ],
       ),

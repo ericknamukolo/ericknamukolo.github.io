@@ -3,7 +3,6 @@ import 'package:flutter_glow/flutter_glow.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/providers/analytics.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../services/notification.dart';
 

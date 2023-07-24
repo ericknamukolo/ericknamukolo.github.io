@@ -8,7 +8,6 @@ import 'package:portfolio/providers/experiences.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
 import 'package:collection/collection.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:time_machine/time_machine.dart';
 
 import '../../widgets/custom_loading_widget.dart';
