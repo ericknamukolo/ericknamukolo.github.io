@@ -26,6 +26,8 @@ class _ProjectCardState extends State<ProjectCard> {
   bool _isHovered = false;
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
         MouseRegion(
@@ -51,7 +53,7 @@ class _ProjectCardState extends State<ProjectCard> {
             },
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 30),
-              height: 400,
+              height: _screenHeight * 0.578,
               width: double.infinity,
               child: Stack(
                 //alignment: Alignment.centerLeft,
@@ -60,8 +62,10 @@ class _ProjectCardState extends State<ProjectCard> {
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 450),
                       curve: Curves.easeInBack,
-                      height: 400,
-                      width: _isHovered ? 750 : 700,
+                      height: _screenHeight * .578,
+                      width: _isHovered
+                          ? _screenWidth * .549
+                          : _screenWidth * .512,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(6.0),
                         image: DecorationImage(
@@ -82,8 +86,10 @@ class _ProjectCardState extends State<ProjectCard> {
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 1200),
                       curve: Curves.bounceOut,
-                      height: 350,
-                      width: _isHovered ? 330 : 420,
+                      height: _screenHeight * .506,
+                      width: _isHovered
+                          ? _screenWidth * .241
+                          : _screenWidth * .307,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -91,7 +97,8 @@ class _ProjectCardState extends State<ProjectCard> {
                           Text(
                             widget.project.name,
                             textAlign: TextAlign.left,
-                            style: kTitleTextStyle.copyWith(fontSize: 28),
+                            style: kTitleTextStyle.copyWith(
+                                fontSize: _screenWidth * .0204),
                           ),
                           const SizedBox(height: 5),
                           Row(
@@ -99,7 +106,7 @@ class _ProjectCardState extends State<ProjectCard> {
                                   .map((tech) => CustomChip(name: tech))
                                   .toList()),
                           Container(
-                            height: 160,
+                            height: _screenHeight * .231,
                             width: double.infinity,
                             padding: const EdgeInsets.all(20.0),
                             decoration: BoxDecoration(
