@@ -74,7 +74,7 @@ class SingleProjectCard extends StatelessWidget {
                     ],
                   ),
                 ],
-              ),       
+              ),
               Text(
                 project.description,
                 style: kNormalTextStyleGrey,

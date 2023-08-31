@@ -44,12 +44,12 @@ class _ProjectCardState extends State<ProjectCard> {
           },
           child: GestureDetector(
             onTap: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) =>
-                    ProjectImagesCard(clickedProject: widget.project),
-                isScrollControlled: true,
-              );
+              // showModalBottomSheet(
+              //   context: context,
+              //   builder: (context) =>
+              //       ProjectImagesCard(clickedProject: widget.project),
+              //   isScrollControlled: true,
+              // );
             },
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 30),
@@ -62,21 +62,27 @@ class _ProjectCardState extends State<ProjectCard> {
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 450),
                       curve: Curves.easeInBack,
-                      height: _screenHeight * .578,
+                      //height: _screenHeight * .578,
                       width: _isHovered
                           ? _screenWidth * .549
                           : _screenWidth * .512,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6.0),
-                        image: DecorationImage(
-                          image: NetworkImage(widget.project.cover),
-                          fit: BoxFit.contain,
-                          colorFilter: _isHovered
+                        color: klightDarkColor,
+                        border: Border.all(
+                          color: kprimaryColor,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.network(
+                          widget.project.cover,
+                          fit: BoxFit.cover,
+                          colorBlendMode: BlendMode.srcOver,
+                          color: _isHovered
                               ? null
-                              : ColorFilter.mode(
-                                  kprimaryColor.withOpacity(0.2),
-                                  BlendMode.srcOver,
-                                ),
+                              : kprimaryColor.withOpacity(0.1),
                         ),
                       ),
                     ),
