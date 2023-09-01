@@ -19,8 +19,8 @@ class MProjectsAndDesigns extends StatefulWidget {
 
 class _MProjectsAndDesignsState extends State<MProjectsAndDesigns> {
   List<TabButton> tabs = [
-    TabButton(title: 'Personal Projects', icon: Icons.folder, isSelected: true),
-    TabButton(title: 'Work/Client Projects', icon: Icons.laptop_mac_rounded),
+    TabButton(title: 'Personal', icon: Icons.folder, isSelected: true),
+    TabButton(title: 'Work/Client', icon: Icons.laptop_mac_rounded),
   ];
   @override
   Widget build(BuildContext context) {

@@ -42,10 +42,14 @@ class TabBtn extends StatelessWidget {
                       )
                     : Icon(tab.icon, color: Color(0xff808080)),
                 SizedBox(width: 10),
-                Text(tab.title,
-                    style: kNormalTextStyleGrey.copyWith(
-                        color:
-                            tab.isSelected ? Colors.white : Color(0xff808080))),
+                FittedBox(
+                  child: Text(tab.title,
+                      style: kNormalTextStyleGrey.copyWith(
+                          fontSize: tab.title.contains('Projects') ? 14 : 12,
+                          color: tab.isSelected
+                              ? Colors.white
+                              : Color(0xff808080))),
+                ),
               ],
             ),
           ),
