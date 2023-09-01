@@ -19,6 +19,7 @@ Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
       images:
           (json['images'] as List<dynamic>).map((e) => e as String).toList(),
       tech: (json['tech'] as List<dynamic>).map((e) => e as String).toList(),
+      isPersonal: json['is_personal'] as bool,
     );
 
 Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
@@ -33,4 +34,5 @@ Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'created_at': instance.date,
       'images': instance.images,
       'tech': instance.tech,
+      'is_personal': instance.isPersonal,
     };

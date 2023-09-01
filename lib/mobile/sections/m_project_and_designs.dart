@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/mobile/widgets/single_project_card.dart';
+import 'package:portfolio/models/project.dart';
 import 'package:portfolio/providers/projects.dart';
 import 'package:portfolio/widgets/section_title.dart';
 import 'package:provider/provider.dart';
@@ -62,17 +63,23 @@ class _MProjectsAndDesignsState extends State<MProjectsAndDesigns> {
           ),
           SizedBox(height: 30),
           Consumer<Projects>(
-            builder: (context, value, __) => value.projects.isEmpty
-                ? CustomLoadingWidget()
-                : ListView.builder(
-                    itemBuilder: (conetxt, index) => SingleProjectCard(
-                      project: value.projects[index],
-                    ),
-                    itemCount:
-                        value.projects.isEmpty ? 0 : value.projects.length,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                  ),
+            builder: (context, value, __) {
+              List<Project> projects = [];
+              projects = value.projects
+                  .where((element) => tabs.first.isSelected
+                      ? element.isPersonal
+                      : !element.isPersonal)
+                  .toList();
+              return value.projects.isEmpty
+                  ? CustomLoadingWidget()
+                  : ListView.builder(
+                      itemBuilder: (conetxt, index) =>
+                          SingleProjectCard(project: projects[index]),
+                      itemCount: projects.isEmpty ? 0 : projects.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                    );
+            },
           ),
         ],
       ),
