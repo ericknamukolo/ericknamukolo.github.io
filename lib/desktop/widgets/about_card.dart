@@ -57,7 +57,7 @@ class _AboutCardState extends State<AboutCard> {
                 height: 30,
                 width: 30,
                 fit: BoxFit.cover,
-                color: kprimaryColor,
+                color: kPrimaryColor,
               ),
             ],
           ),

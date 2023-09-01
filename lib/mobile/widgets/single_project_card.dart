@@ -30,7 +30,7 @@ class SingleProjectCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: klightDarkColor,
               border: Border.all(
-                color: kprimaryColor,
+                color: kPrimaryColor,
                 width: 2.0,
               ),
               borderRadius: BorderRadius.circular(10.0),
@@ -79,8 +79,8 @@ class SingleProjectCard extends StatelessWidget {
                 project.description,
                 style: kNormalTextStyleGrey,
               ),
-              const SizedBox(height: 5),
-              Row(
+              const SizedBox(height: 10),
+              Wrap(
                   children: project.tech
                       .map((tech) => CustomChip(name: tech))
                       .toList()),

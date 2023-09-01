@@ -56,7 +56,7 @@ class _BasicButtonState extends State<BasicButton> {
                   ),
           ),
           decoration: BoxDecoration(
-            border: Border.all(color: kprimaryColor, width: 2.0),
+            border: Border.all(color: kPrimaryColor, width: 2.0),
             color: widget.isSending ? Colors.grey : buttonColor,
             borderRadius: BorderRadius.circular(5.0),
             boxShadow: [

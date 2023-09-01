@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/desktop/widgets/project_images_card.dart';
 
 import '../../models/project.dart';
 import '../../widgets/custom_chip.dart';
@@ -69,7 +68,7 @@ class _ProjectCardState extends State<ProjectCard> {
                       decoration: BoxDecoration(
                         color: klightDarkColor,
                         border: Border.all(
-                          color: kprimaryColor,
+                          color: kPrimaryColor,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(10.0),
@@ -82,7 +81,7 @@ class _ProjectCardState extends State<ProjectCard> {
                           colorBlendMode: BlendMode.srcOver,
                           color: _isHovered
                               ? null
-                              : kprimaryColor.withOpacity(0.1),
+                              : kPrimaryColor.withOpacity(0.1),
                         ),
                       ),
                     ),

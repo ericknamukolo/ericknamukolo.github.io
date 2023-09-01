@@ -19,7 +19,7 @@ class CustomLoadingWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          LoadingAnimationWidget.bouncingBall(color: kprimaryColor, size: 40.0),
+          LoadingAnimationWidget.bouncingBall(color: kPrimaryColor, size: 40.0),
           SizedBox(height: isMobile ? 0.0 : 10.0),
           const Text(
             'Loading',

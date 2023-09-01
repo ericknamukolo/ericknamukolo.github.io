@@ -43,7 +43,7 @@ class THomeSection extends StatelessWidget {
                         TypewriterAnimatedText(
                           'Flutter',
                           textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 40.0,
                           ),
@@ -52,7 +52,7 @@ class THomeSection extends StatelessWidget {
                         TypewriterAnimatedText(
                           'Web',
                           textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 40.0,
                           ),
@@ -115,7 +115,7 @@ class THomeSection extends StatelessWidget {
                   child: AvatarGlow(
                     endRadius: 120.0 * 1.3,
                     animate: true,
-                    glowColor: kprimaryColor,
+                    glowColor: kPrimaryColor,
                     repeat: true,
                     duration: Duration(milliseconds: 2000),
                     // repeatPauseDuration: Duration(milliseconds: 30),

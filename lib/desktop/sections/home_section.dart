@@ -46,7 +46,7 @@ class HomeSection extends StatelessWidget {
                         TypewriterAnimatedText(
                           'Flutter',
                           textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: _screenWidth * .035,
                           ),
@@ -55,7 +55,7 @@ class HomeSection extends StatelessWidget {
                         TypewriterAnimatedText(
                           'Front-End',
                           textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: _screenWidth * .035,
                           ),
@@ -64,7 +64,7 @@ class HomeSection extends StatelessWidget {
                         TypewriterAnimatedText(
                           'Software',
                           textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: _screenWidth * .035,
                           ),
@@ -73,7 +73,7 @@ class HomeSection extends StatelessWidget {
                         TypewriterAnimatedText(
                           'Web',
                           textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: _screenWidth * .035,
                           ),
@@ -82,7 +82,7 @@ class HomeSection extends StatelessWidget {
                         TypewriterAnimatedText(
                           'Mobile App',
                           textStyle: kTitleTextStyle.copyWith(
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: _screenWidth * .035,
                           ),
@@ -151,7 +151,7 @@ class HomeSection extends StatelessWidget {
               child: AvatarGlow(
                 endRadius: _screenWidth < 1700 ? _screenWidth * .15 : 340,
                 animate: true,
-                glowColor: kprimaryColor,
+                glowColor: kPrimaryColor,
                 repeat: true,
                 duration: Duration(seconds: 3),
                 // repeatPauseDuration: Duration(milliseconds: 30),

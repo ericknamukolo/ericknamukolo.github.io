@@ -84,7 +84,7 @@ class MWorkExperience extends StatelessWidget {
                                         children: [
                                           const Icon(
                                             Icons.timer_rounded,
-                                            color: kprimaryColor,
+                                            color: kPrimaryColor,
                                             size: 15,
                                           ),
                                           const SizedBox(width: 4),
@@ -100,7 +100,7 @@ class MWorkExperience extends StatelessWidget {
                                                 horizontal: 4.0),
                                             child: const Icon(
                                               MdiIcons.circle,
-                                              color: kprimaryColor,
+                                              color: kPrimaryColor,
                                               size: 6,
                                             ),
                                           ),
@@ -114,7 +114,7 @@ class MWorkExperience extends StatelessWidget {
                                           const SizedBox(width: 6),
                                           const Icon(
                                             MdiIcons.mapMarker,
-                                            color: kprimaryColor,
+                                            color: kPrimaryColor,
                                             size: 15,
                                           ),
                                           const SizedBox(width: 4),

@@ -22,7 +22,7 @@ class SectionTitle extends StatelessWidget {
           ),
           SizedBox(height: 5.0),
           Container(
-            color: kprimaryColor,
+            color: kPrimaryColor,
             height: 4,
             width: 80,
           ),

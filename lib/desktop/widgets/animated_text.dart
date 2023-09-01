@@ -27,7 +27,7 @@ class _AnimatedTextttState extends State<AnimatedTexttt> {
       cursor: SystemMouseCursors.click,
       onEnter: (_) {
         setState(() {
-          color = kprimaryColor;
+          color = kPrimaryColor;
           bold = FontWeight.bold;
         });
       },

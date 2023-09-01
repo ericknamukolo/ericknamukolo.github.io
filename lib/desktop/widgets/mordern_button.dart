@@ -27,7 +27,7 @@ class MordernButton extends StatelessWidget {
           height: 45,
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           decoration: BoxDecoration(
-            border: Border.all(color: kprimaryColor, width: 2.0),
+            border: Border.all(color: kPrimaryColor, width: 2.0),
             color: kdarkColor,
             borderRadius: const BorderRadius.all(Radius.circular(45)),
           ),

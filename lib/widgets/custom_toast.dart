@@ -41,7 +41,7 @@ class CustomToast extends StatelessWidget {
           Icon(
             type == 'error' ? Icons.error : Icons.check_circle,
             size: 20,
-            color: type == 'error' ? kprimaryColor : kSuccessColor,
+            color: type == 'error' ? kPrimaryColor : kSuccessColor,
           )
         ],
       ),

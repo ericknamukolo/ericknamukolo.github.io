@@ -19,7 +19,7 @@ const kMiniTitleTextStyleWhite = TextStyle(
 );
 
 const kMiniTitleTextStylePink = TextStyle(
-  color: kprimaryColor,
+  color: kPrimaryColor,
   fontSize: 16,
   fontWeight: FontWeight.bold,
 );

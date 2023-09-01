@@ -14,9 +14,9 @@ class CustomChip extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Text(name, style: kNormalTextStyleWhite.copyWith(fontSize: 12)),
       decoration: BoxDecoration(
-          color: kprimaryColor.withOpacity(.1),
+          color: kPrimaryColor.withOpacity(.1),
           border: Border.all(
-            color: kprimaryColor,
+            color: kPrimaryColor,
             width: 2.0,
           ),
           borderRadius: BorderRadius.circular(50.0)),
