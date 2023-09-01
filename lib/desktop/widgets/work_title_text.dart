@@ -22,7 +22,7 @@ class WorkTitleText extends StatelessWidget {
             Text(
               '@',
               style: kNormalTextStyleWhite.copyWith(
-                color: kprimaryColor,
+                color: kPrimaryColor,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1,
               ),
@@ -34,7 +34,7 @@ class WorkTitleText extends StatelessWidget {
                 Text(
                   work.company,
                   style: kNormalTextStyleWhite.copyWith(
-                    color: kprimaryColor,
+                    color: kPrimaryColor,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1,
                     fontSize: isMobile ? 14 : 16,
@@ -45,7 +45,7 @@ class WorkTitleText extends StatelessWidget {
                   curve: Curves.bounceOut,
                   height: 2,
                   width: work.isHovered ? 160.0 : 50,
-                  color: kprimaryColor,
+                  color: kPrimaryColor,
                 ),
               ],
             ),

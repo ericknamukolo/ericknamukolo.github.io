@@ -28,7 +28,7 @@ class MHomeSection extends StatelessWidget {
             child: const AvatarGlow(
               endRadius: 160.0,
               animate: true,
-              glowColor: kprimaryColor,
+              glowColor: kPrimaryColor,
               repeat: true,
               duration: Duration(milliseconds: 2000),
               // repeatPauseDuration: Duration(milliseconds: 30),
@@ -52,7 +52,7 @@ class MHomeSection extends StatelessWidget {
                   TypewriterAnimatedText(
                     'Flutter',
                     textStyle: kTitleTextStyle.copyWith(
-                      color: kprimaryColor,
+                      color: kPrimaryColor,
                       fontWeight: MediaQuery.of(context).size.width >= 500
                           ? FontWeight.bold
                           : null,
@@ -63,7 +63,7 @@ class MHomeSection extends StatelessWidget {
                   TypewriterAnimatedText(
                     'Web',
                     textStyle: kTitleTextStyle.copyWith(
-                      color: kprimaryColor,
+                      color: kPrimaryColor,
                       fontWeight: MediaQuery.of(context).size.width >= 500
                           ? FontWeight.bold
                           : null,
@@ -74,7 +74,7 @@ class MHomeSection extends StatelessWidget {
                   TypewriterAnimatedText(
                     'Software',
                     textStyle: kTitleTextStyle.copyWith(
-                      color: kprimaryColor,
+                      color: kPrimaryColor,
                       fontWeight: MediaQuery.of(context).size.width >= 500
                           ? FontWeight.bold
                           : null,
@@ -85,7 +85,7 @@ class MHomeSection extends StatelessWidget {
                   TypewriterAnimatedText(
                     'Mobile',
                     textStyle: kTitleTextStyle.copyWith(
-                      color: kprimaryColor,
+                      color: kPrimaryColor,
                       fontWeight: MediaQuery.of(context).size.width >= 500
                           ? FontWeight.bold
                           : null,

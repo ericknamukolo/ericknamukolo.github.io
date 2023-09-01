@@ -72,7 +72,7 @@ class MobileBody extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: klightDarkColor,
-                    border: Border.all(color: kprimaryColor, width: 2.0),
+                    border: Border.all(color: kPrimaryColor, width: 2.0),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: ClipRRect(
@@ -89,7 +89,7 @@ class MobileBody extends StatelessWidget {
                 children: [
                   const Icon(
                     MdiIcons.chevronLeft,
-                    color: kprimaryColor,
+                    color: kPrimaryColor,
                   ),
                   Text(
                     'Erick Namukolo',
@@ -100,7 +100,7 @@ class MobileBody extends StatelessWidget {
                   ),
                   const Icon(
                     MdiIcons.chevronRight,
-                    color: kprimaryColor,
+                    color: kPrimaryColor,
                   ),
                 ],
               ),

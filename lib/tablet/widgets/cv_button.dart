@@ -22,7 +22,7 @@ class CVButton extends StatelessWidget {
           width: 80,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
-            color: kprimaryColor,
+            color: kPrimaryColor,
             boxShadow: [
               BoxShadow(
                 offset: const Offset(4, 6),

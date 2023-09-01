@@ -72,7 +72,7 @@ class AboutSection extends StatelessWidget {
                           TextSpan(
                             text: 'Erick Namukolo',
                             style: kTitleTextStyle.copyWith(
-                              color: kprimaryColor,
+                              color: kPrimaryColor,
                               decoration: TextDecoration.underline,
                               fontSize: _screenWidth * .035,
                             ),

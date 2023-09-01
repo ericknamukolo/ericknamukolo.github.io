@@ -91,7 +91,7 @@ class ExperienceSection extends StatelessWidget {
                                         children: [
                                           const Icon(
                                             Icons.timer_rounded,
-                                            color: kprimaryColor,
+                                            color: kPrimaryColor,
                                             size: 16,
                                           ),
                                           const SizedBox(width: 8),
@@ -107,7 +107,7 @@ class ExperienceSection extends StatelessWidget {
                                                 horizontal: 6.0),
                                             child: const Icon(
                                               MdiIcons.circle,
-                                              color: kprimaryColor,
+                                              color: kPrimaryColor,
                                               size: 8,
                                             ),
                                           ),
@@ -121,7 +121,7 @@ class ExperienceSection extends StatelessWidget {
                                           const SizedBox(width: 12),
                                           const Icon(
                                             MdiIcons.mapMarker,
-                                            color: kprimaryColor,
+                                            color: kPrimaryColor,
                                             size: 16,
                                           ),
                                           const SizedBox(width: 8),

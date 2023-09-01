@@ -69,7 +69,7 @@ class MAboutSection extends StatelessWidget {
                                 TextSpan(
                                   text: 'Erick Namukolo',
                                   style: kTitleTextStyle.copyWith(
-                                    color: kprimaryColor,
+                                    color: kPrimaryColor,
                                     decoration: TextDecoration.underline,
                                     fontSize: 40,
                                   ),
@@ -100,7 +100,7 @@ class MAboutSection extends StatelessWidget {
                           TextSpan(
                             text: 'Erick Namukolo',
                             style: kTitleTextStyle.copyWith(
-                              color: kprimaryColor,
+                              color: kPrimaryColor,
                               decoration: TextDecoration.underline,
                               fontSize: 40,
                             ),

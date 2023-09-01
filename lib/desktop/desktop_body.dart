@@ -117,7 +117,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                           ),
                           const Icon(
                             MdiIcons.chevronLeft,
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                           ),
                           const Text(
                             'Erick Namukolo',
@@ -125,7 +125,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                           ),
                           const Icon(
                             MdiIcons.chevronRight,
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                           ),
                         ],
                       ),

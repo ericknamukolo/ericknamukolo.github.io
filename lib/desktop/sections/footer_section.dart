@@ -42,7 +42,7 @@ class _FooterSectionState extends State<FooterSection> {
               child: Text(
                 'Designed & Built by Erick Namukolo',
                 style: kNormalTextStyleGrey.copyWith(
-                  color: _isHovered ? kprimaryColor : const Color(0xffB3A595),
+                  color: _isHovered ? kPrimaryColor : const Color(0xffB3A595),
                   fontWeight: _isHovered ? FontWeight.bold : null,
                 ),
               ),

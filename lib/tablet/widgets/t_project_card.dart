@@ -54,7 +54,7 @@ class _TProjectCardState extends State<TProjectCard> {
                               colorFilter: _isHovered
                                   ? null
                                   : ColorFilter.mode(
-                                      kprimaryColor.withOpacity(0.2),
+                                      kPrimaryColor.withOpacity(0.2),
                                       BlendMode.srcOver,
                                     ),
                             ),
@@ -118,7 +118,7 @@ class _TProjectCardState extends State<TProjectCard> {
                 ),
               ),
               const Divider(
-                color: kprimaryColor,
+                color: kPrimaryColor,
                 thickness: 3,
                 endIndent: 450,
                 indent: 450,

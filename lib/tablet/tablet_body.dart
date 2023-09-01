@@ -113,7 +113,7 @@ class _TabletBodyState extends State<TabletBody> {
                           ),
                           const Icon(
                             MdiIcons.chevronLeft,
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                           ),
                           const Text(
                             'Erick Namukolo',
@@ -121,7 +121,7 @@ class _TabletBodyState extends State<TabletBody> {
                           ),
                           const Icon(
                             MdiIcons.chevronRight,
-                            color: kprimaryColor,
+                            color: kPrimaryColor,
                           ),
                         ],
                       ),

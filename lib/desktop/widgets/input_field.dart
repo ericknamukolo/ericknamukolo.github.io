@@ -27,7 +27,7 @@ class InputField extends StatelessWidget {
       onSaved: onSaved,
       style: kNormalTextStyleWhite,
       autocorrect: true,
-      cursorColor: kprimaryColor,
+      cursorColor: kPrimaryColor,
       maxLines: maxLines,
       decoration: InputDecoration(
         errorStyle: kNormalTextStyleWhite.copyWith(

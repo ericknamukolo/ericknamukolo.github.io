@@ -21,7 +21,7 @@ class ProjectIconBtn extends StatelessWidget {
       visible: link.isNotEmpty,
       child: IconHover(
         icon: icon,
-        color: kprimaryColor,
+        color: kPrimaryColor,
         click: () => AppData.goToLink(link),
         padding: padding ?? 0,
       ),
