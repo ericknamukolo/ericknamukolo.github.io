@@ -81,6 +81,7 @@ class SingleProjectCard extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Wrap(
+                runSpacing: 10.0,
                   children: project.tech
                       .map((tech) => CustomChip(name: tech))
                       .toList()),
