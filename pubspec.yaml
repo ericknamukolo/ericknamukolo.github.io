@@ -48,7 +48,7 @@ dependencies:
   loading_animation_widget: ^1.2.0+3
   sizer: ^2.0.15
   blurrycontainer: ^1.0.2
-  flutter_glow: ^0.3.0
+  flutter_glow: ^0.3.2
   firebase_database: any
   platform_device_id_web: ^1.0.0
   intl: ^0.18.0
