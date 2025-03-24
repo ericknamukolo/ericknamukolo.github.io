@@ -20,10 +20,10 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: "3.7.5"
+          flutter-version: '3.7.5'
 
       - name: Get dependencies
-        run: flutter build web --web-renderer canvaskit --release
+        run: flutter build web --release
 
       #     - name: Test project
       #       run: flutter test
